@@ -45,11 +45,16 @@
   },
   "dependencies": {
     "antd": "^2.9.1",
+    "axios": "^0.16.1",
     "babel-plugin-import": "^1.1.1",
+    "echarts-for-react": "^1.2.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
-    "react": "^15.5.3",
-    "react-dom": "^15.5.3"
+    "nprogress": "^0.2.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
+    "recharts": "^0.22.3"
   },
   "scripts": {
     "start": "node scripts/start.js",

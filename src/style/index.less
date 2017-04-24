@@ -1,3 +1,7 @@
+@import "scroll";
+@import "table";
+@import "login";
+@import "icons";
 #root{
   height: 100%;
 }
@@ -21,4 +25,17 @@
       display: none;
     }
   }
+}
+.gutter-example{
+  .ant-row{
+    //margin-left: 0 !important;
+    //margin-right: 0 !important;
+    >div{
+      background: transparent;
+      border: 0;
+    }
+  }
+}
+.gutter-box {
+  padding: 5px 0;
 }
