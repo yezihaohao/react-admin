@@ -1,0 +1,44 @@
+.react-draggable, .cursor-move{
+  cursor: move;
+  strong {
+    background: #ddd;
+    border: 1px solid #999;
+    border-radius: 3px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    text-align: center;
+  }
+}
+.no-cursor {
+  cursor: auto;
+}
+.card-tool {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.list-group {
+  .list-group-item {
+    position: relative;
+    display: block;
+    margin-bottom: -1px;
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-color: rgba(120, 130, 140, 0.065);
+    border-width: 1px 0;
+    &:first-child {
+      border-top-width: 0;
+    }
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+}
+.no-padding {
+  .ant-card-body {
+    padding: 0 !important;
+  }
+}

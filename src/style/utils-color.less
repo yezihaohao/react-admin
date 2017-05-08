@@ -1,0 +1,36 @@
+.color-variant(@bg, @color) {
+  color: @color;
+  background-color: @bg;
+}
+.dark-white {
+  color: @dark;
+  background-color: @white;
+}
+.min-black {
+  .color-variant(@min-black, @black-color)
+}
+.black {
+  .color-variant(@black, @black-color);
+}
+
+.dark {
+  .color-variant(@dark, @dark-color);
+}
+
+.grey {
+ .color-variant(@grey, @grey-color);
+}
+
+.primary {
+ .color-variant(@primary, @primary-color);
+}
+
+.info {
+  .color-variant(@info, @info-color);
+}
+.warn {
+  .color-variant(@warn, @warn-color);
+}
+.danger {
+  .color-variant(@danger, @danger-color)
+}

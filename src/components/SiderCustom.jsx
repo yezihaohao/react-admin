@@ -21,6 +21,10 @@ class SiderCustom extends Component {
             selectedKey: _path
         });
     }
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        this.onCollapse(nextProps.collapsed);
+    }
     onCollapse = (collapsed) => {
         console.log(collapsed);
         this.setState({
@@ -44,10 +48,12 @@ class SiderCustom extends Component {
     render() {
         return (
             <Sider
+                trigger={null}
                 breakpoint="lg"
                 collapsible
-                collapsed={this.state.collapsed}
+                collapsed={this.props.collapsed}
                 onCollapse={this.onCollapse}
+                style={{overflowY: 'auto'}}
             >
                 <div className="logo" />
                 <Menu
@@ -58,6 +64,9 @@ class SiderCustom extends Component {
                     openKeys={[this.state.openKey]}
                     onOpenChange={this.openMenu}
                 >
+                    <Menu.Item key="/app/dashboard/index">
+                        <Link to={'/app/dashboard/index'}><Icon type="mobile" /><span className="nav-text">首页</span></Link>
+                    </Menu.Item>
                     <SubMenu
                         key="/app/ui"
                         title={<span><Icon type="scan" /><span className="nav-text">UI</span></span>}
@@ -66,6 +75,21 @@ class SiderCustom extends Component {
                         <Menu.Item key="/app/ui/buttons"><Link to={'/app/ui/buttons'}>按钮</Link></Menu.Item>
                         <Menu.Item key="/app/ui/icons"><Link to={'/app/ui/icons'}>图标</Link></Menu.Item>
                         <Menu.Item key="/app/ui/spins"><Link to={'/app/ui/spins'}>加载中</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/modals"><Link to={'/app/ui/modals'}>对话框</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/notifications"><Link to={'/app/ui/notifications'}>通知提醒框</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/tabs"><Link to={'/app/ui/tabs'}>标签页</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/banners"><Link to={'/app/ui/banners'}>轮播图</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/wysiwyg"><Link to={'/app/ui/wysiwyg'}>富文本</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/drags"><Link to={'/app/ui/drags'}>拖拽</Link></Menu.Item>
+                        <Menu.Item key="/app/ui/gallery"><Link to={'/app/ui/gallery'}>画廊</Link></Menu.Item>
+                    </SubMenu>
+                    <SubMenu
+                        key="/app/animation"
+                        title={<span><Icon type="rocket" /><span className="nav-text">动画</span></span>}
+                    >
+
+                        <Menu.Item key="/app/animation/basicAnimations"><Link to={'/app/animation/basicAnimations'}>基础动画</Link></Menu.Item>
+                        <Menu.Item key="/app/animation/exampleAnimations"><Link to={'/app/animation/exampleAnimations'}>动画案例</Link></Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="/app/table"
@@ -96,15 +120,9 @@ class SiderCustom extends Component {
                         key="sub4"
                         title={<span><Icon type="switcher" /><span className="nav-text">页面</span></span>}
                     >
-                        <Menu.Item key="/login"><Link to={'/login'}>登录</Link>登录</Menu.Item>
-                        <Menu.Item key="5">Team 2</Menu.Item>
+                        <Menu.Item key="/login"><Link to={'/login'}>登录</Link></Menu.Item>
+                        <Menu.Item key="/404"><Link to={'/404'}>404</Link></Menu.Item>
                     </SubMenu>
-                    <Menu.Item key="6">
-                      <span>
-                        <Icon type="file" />
-                        <span className="nav-text">File</span>
-                      </span>
-                    </Menu.Item>
                 </Menu>
                 <style>
                     {`

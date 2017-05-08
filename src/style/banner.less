@@ -1,0 +1,122 @@
+.banner-user {
+  height: 200px;
+}
+.banner-user-elem {
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  .banner-user-title {
+    font-size: 32px;
+    top: 40%;
+  }
+  .banner-user-text {
+    top: 40%;
+  }
+}
+.banner-anim-elem {
+  .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.custom-arrow-thumb{
+  height: 220px;
+  .user-arrow {
+    top: 50%;
+    margin-top: -40px;
+    .img-wrapper {
+      width: 120px;
+      height: 80px;
+      float: left;
+      position: relative;
+      li {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+      }
+    }
+    .arrow {
+      width: 20px;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.3);
+      position: relative;
+      &:before, &:after {
+        width: 2px;
+        height: 15px;
+        background: #fff;
+        display: block;
+        content: ' ';
+        position: absolute;
+      }
+    }
+    &.next {
+      right: -120px;
+      .arrow {
+        float: left;
+        &:before {
+          -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+          top: 28px;
+          left: 10px;
+        }
+        &:after {
+          -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+          bottom: 27px;
+          left: 10px;
+        }
+      }
+    }
+    &.prev {
+      left: -120px;
+      .arrow {
+        float: right;
+        &:before {
+          -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+          top: 28px;
+          left: 8px;
+        }
+        &:after {
+          -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+          bottom: 27px;
+          left: 8px;
+        }
+      }
+    }
+  }
+  .user-thumb {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.15);
+    height: 40px;
+    > span {
+      width: 50px;
+      height: 30px;
+      margin: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      -webkit-transition: background .3s;
+      transition: background .3s;
+      background: transparent;
+      &.active {
+        background: rgba(255, 255, 255, 0.45);
+      }
+      i {
+        display: block;
+        width: 46px;
+        height: 26px;
+        margin: 2px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}

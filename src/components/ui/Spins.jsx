@@ -73,6 +73,7 @@ class Spins extends React.Component {
                     <Col className="gutter-row" span={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
+                                <h4>顶部进度条</h4>
                                 <p>
                                     <Button icon="caret-right" onClick={this.nprogressStart} />
                                     <span> NProgress.start() — 显示进度条</span>

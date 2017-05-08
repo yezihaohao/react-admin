@@ -17,7 +17,7 @@ const data = [
 const RechartsRadialBarChart = () => (
     <ResponsiveContainer width="100%" height={300} >
         <RadialBarChart width={730} height={250} innerRadius="10%" outerRadius="80%" data={data}>
-            <RadialBar startAngle={90} endAngle={-270} minAngle={15} label background clockWise={true} dataKey="uv" />
+            <RadialBar startAngle={90} endAngle={-270} minAngle={15} label background clockWise dataKey="uv" />
             <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" align="right" />
             <Tooltip />
         </RadialBarChart>

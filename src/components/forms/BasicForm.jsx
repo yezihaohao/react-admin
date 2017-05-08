@@ -8,6 +8,7 @@ const Option = Select.Option;
 import LoginForm from './LoginForm';
 import ModalForm from './ModalForm';
 import HorizontalForm from './HorizontalForm';
+import BreadcrumbCustom from '../BreadcrumbCustom';
 
 const residences = [{
     value: 'zhejiang',
@@ -97,6 +98,7 @@ class BasicForms extends Component {
         );
         return (
         <div className="gutter-example">
+            <BreadcrumbCustom first="表单" second="基础表单" />
             <Row gutter={16}>
                 <Col className="gutter-row" span={12}>
                     <div className="gutter-box">

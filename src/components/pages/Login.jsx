@@ -14,6 +14,9 @@ class Login extends React.Component {
             }
         });
     };
+    gitHub = () => {
+        location.href = 'https://github.com/login/oauth/authorize?client_id=792cdcd244e98dcd2dee&redirect_uri=http://localhost:3006/&scope=user&state=reactAdmin';
+    };
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -49,6 +52,9 @@ class Login extends React.Component {
                                 登录
                             </Button>
                             或 <a href="">现在就去注册!</a>
+                            <p>
+                                <Icon type="github" onClick={this.gitHub} />(第三方登录)
+                            </p>
                         </FormItem>
                     </Form>
                 </div>
