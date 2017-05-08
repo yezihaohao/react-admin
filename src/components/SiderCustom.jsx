@@ -106,7 +106,6 @@ class SiderCustom extends Component {
                     >
 
                         <Menu.Item key="/app/basicForm"><Link to={'/app/form/basicForm'}>基础表单</Link></Menu.Item>
-                        <Menu.Item key="2">高级表单</Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="/app/chart"
@@ -114,7 +113,6 @@ class SiderCustom extends Component {
                     >
                         <Menu.Item key="/app/chart/echarts"><Link to={'/app/chart/echarts'}>echarts</Link></Menu.Item>
                         <Menu.Item key="/app/chart/recharts"><Link to={'/app/chart/recharts'}>recharts</Link></Menu.Item>
-                        <Menu.Item key="5">Team 2</Menu.Item>
                     </SubMenu>
                     <SubMenu
                         key="sub4"

@@ -35,7 +35,7 @@ const Wysiwyg = (location, cb) => {     // 按需加载富文本配置
 
 const routes =
     <Route path={'/'} components={Page}>
-        <IndexRedirect to="/app/table/basicTable" />
+        <IndexRedirect to="/app/dashboard/index" />
         <Route path={'app'} component={App}>
             <Route path={'form'}>
                 <Route path={'basicForm'} component={BasicForm} />

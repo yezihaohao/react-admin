@@ -51,7 +51,7 @@ const data = [{
 }];
 
 const BasicTable = () => (
-    <Table columns={columns} dataSource={data} rowClassName={() => 'animated fadeInRight'} />
+    <Table columns={columns} dataSource={data} />
 );
 
 export default BasicTable;
