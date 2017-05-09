@@ -6,6 +6,8 @@ import { Row, Col, Card, Timeline, Icon } from 'antd';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 import EchartsViews from './EchartsViews';
 import EchartsProjects from './EchartsProjects';
+import b1 from '../../style/imgs/b1.jpg';
+
 
 class Dashboard extends React.Component {
     render() {
@@ -112,7 +114,7 @@ class Dashboard extends React.Component {
                                 <ul className="list-group no-border">
                                     <li className="list-group-item">
                                         <a href="" className="pull-left w-40 mr-m">
-                                            <img src="/static/media/b1.505efaaf.jpg" className="img-responsive img-circle" alt="test" />
+                                            <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a href="" className="block">鸣人</a>
@@ -121,7 +123,7 @@ class Dashboard extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a href="" className="pull-left w-40 mr-m">
-                                            <img src="/static/media/b1.505efaaf.jpg" className="img-responsive img-circle" alt="test" />
+                                            <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a href="" className="block">佐助</a>
@@ -130,7 +132,7 @@ class Dashboard extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a href="" className="pull-left w-40 mr-m">
-                                            <img src="/static/media/b1.505efaaf.jpg" className="img-responsive img-circle" alt="test" />
+                                            <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a href="" className="block">小樱</a>
@@ -139,11 +141,11 @@ class Dashboard extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <a href="" className="pull-left w-40 mr-m">
-                                            <img src="/static/media/b1.505efaaf.jpg" className="img-responsive img-circle" alt="test" />
+                                            <img src={b1} className="img-responsive img-circle" alt="test" />
                                         </a>
                                         <div className="clear">
                                             <a href="" className="block">雏田</a>
-                                            <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你</span>
+                                            <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你..</span>
                                         </div>
                                     </li>
                                 </ul>
