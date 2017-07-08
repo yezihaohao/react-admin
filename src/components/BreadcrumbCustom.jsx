@@ -44,7 +44,7 @@ class BreadcrumbCustom extends React.Component {
     render() {
         const themesTag = this.state.themes.map((v, i) => (
             <div className="pull-left y-center mr-m mb-s" key={i}>
-                <a className={`w-24 mr-s b-a ${v.type}`} />
+                <i className={`w-24 mr-s b-a ${v.type}`} />
                 <Switch checked={v.checked} onChange={() => this.themeChange(v)} />
             </div>
         ));

@@ -3,14 +3,13 @@
  */
 import React, { Component } from 'react';
 import { Menu, Icon, Layout, Badge } from 'antd';
-const { Header } = Layout;
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 import screenfull from 'screenfull';
 import { gitOauthToken, gitOauthInfo } from '../axios';
 import { queryString } from '../utils';
 import avater from '../style/imgs/b1.jpg';
-
+const { Header } = Layout;
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 class HeaderCustom extends Component {
     state = {

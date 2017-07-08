@@ -3,9 +3,9 @@
  */
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
+import { Link } from 'react-router';
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
-import { Link } from 'react-router';
 
 class SiderCustom extends Component {
     state = {
@@ -50,9 +50,7 @@ class SiderCustom extends Component {
             <Sider
                 trigger={null}
                 breakpoint="lg"
-                collapsible
                 collapsed={this.props.collapsed}
-                onCollapse={this.onCollapse}
                 style={{overflowY: 'auto'}}
             >
                 <div className="logo" />

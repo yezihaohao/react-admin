@@ -1,7 +1,8 @@
 /**
  * Created by hao.cheng on 2017/4/22.
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import './iconfont';
 
 const Emoji = ({type}) => {

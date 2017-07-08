@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-const { Content, Footer } = Layout;
 import './style/index.less';
 import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
+const { Content, Footer } = Layout;
 
 class App extends Component {
     state = {

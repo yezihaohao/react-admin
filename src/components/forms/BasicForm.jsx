@@ -3,12 +3,12 @@
  */
 import React, { Component } from 'react';
 import { Card, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
-const FormItem = Form.Item;
-const Option = Select.Option;
 import LoginForm from './LoginForm';
 import ModalForm from './ModalForm';
 import HorizontalForm from './HorizontalForm';
 import BreadcrumbCustom from '../BreadcrumbCustom';
+const FormItem = Form.Item;
+const Option = Select.Option;
 
 const residences = [{
     value: 'zhejiang',

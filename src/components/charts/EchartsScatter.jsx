@@ -3,8 +3,9 @@
  */
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-require('echarts/map/js/china.js');
 import { weibo } from '../../axios';
+require('echarts/map/js/china.js');
+
 
 class EchartsScatter extends React.Component {
     state = {

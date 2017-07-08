@@ -96,7 +96,7 @@ class Gallery extends React.Component {
                         </div>
                         <div className="pa-m">
                             <h3>React Admin</h3>
-                            <small><a href="https://yezihaohao.github.io/" target="_blank">https://yezihaohao.github.io/</a></small>
+                            <small><a href="https://yezihaohao.github.io/" target="_blank" rel="noopener noreferrer">https://yezihaohao.github.io/</a></small>
                         </div>
                     </Card>
                 </div>

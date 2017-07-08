@@ -25,7 +25,7 @@ import Gallery from './components/ui/Gallery';
 import NotFound from './components/pages/NotFound';
 import BasicAnimations from './components/animation/BasicAnimations';
 import ExampleAnimations from './components/animation/ExampleAnimations';
-
+import registerServiceWorker from './registerServiceWorker';
 
 const Wysiwyg = (location, cb) => {     // 按需加载富文本配置
     require.ensure([], require => {
@@ -78,3 +78,4 @@ ReactDOM.render(
   </Router>,
   document.getElementById('root')
 );
+registerServiceWorker();

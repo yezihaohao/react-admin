@@ -27,7 +27,7 @@ class ExampleAnimations extends React.Component {
                     this.state.dataSource.length > 1 ?
                         (
                             <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(record, index)}>
-                                <a href="#">Delete</a>
+                                <a>Delete</a>
                             </Popconfirm>
                         ) : null
                 );
