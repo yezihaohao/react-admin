@@ -125,7 +125,7 @@ class SiderCustom extends Component {
                     </SubMenu>
                     <SubMenu
                         key="/app/auth"
-                        title={<span><Icon type="switcher" /><span className="nav-text">权限管理</span></span>}
+                        title={<span><Icon type="safety" /><span className="nav-text">权限管理</span></span>}
                     >
                         <Menu.Item key="/app/auth/basic"><Link to={'/app/auth/basic'}>基础演示</Link></Menu.Item>
                         <Menu.Item key="/app/auth/routerEnter"><Link to={'/app/auth/routerEnter'}>路由拦截</Link></Menu.Item>
