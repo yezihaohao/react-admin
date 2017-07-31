@@ -26,6 +26,12 @@ import NotFound from './components/pages/NotFound';
 import BasicAnimations from './components/animation/BasicAnimations';
 import ExampleAnimations from './components/animation/ExampleAnimations';
 import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import reducer from './reducer';
+import AuthBasic from './components/auth/Basic';
+import RouterEnter from './components/auth/RouterEnter';
 
 const Wysiwyg = (location, cb) => {     // 按需加载富文本配置
     require.ensure([], require => {
@@ -66,16 +72,27 @@ const routes =
                 <Route path={'exampleAnimations'} component={ExampleAnimations} />
             </Route>
             <Route path={'dashboard/index'} component={Dashboard} />
+            <Route path="auth">
+                <Route path="basic" component={AuthBasic} />
+                <Route path="routerEnter" component={RouterEnter} />
+            </Route>
         </Route>
         <Route path={'login'} components={Login} />
         <Route path={'404'} component={NotFound} />
     </Route>;
 
+// redux 注入操作
+const middleware = [thunk];
+const store = createStore(reducer, applyMiddleware(...middleware));
+console.log(store.getState());
 
 ReactDOM.render(
-  <Router history={hashHistory}>
-      {routes}
-  </Router>,
+    <Provider store={store}>
+        <Router history={hashHistory}>
+            {routes}
+        </Router>
+    </Provider>
+ ,
   document.getElementById('root')
 );
 registerServiceWorker();
