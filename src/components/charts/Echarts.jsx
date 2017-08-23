@@ -4,9 +4,9 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import EchartsArea from './EchartsArea';
-import EchartsGraphnpm from './EchartsGraphnpm';
 import EchartsPie from './EchartsPie';
-import EchartsScatter from './EchartsScatter';
+import EchartsEffectScatter from './EchartsEffectScatter';
+import EchartsForce from './EchartsForce';
 
 class Echarts extends React.Component {
     render() {
@@ -25,7 +25,8 @@ class Echarts extends React.Component {
                     <Col className="gutter-row" span={12}>
                         <div className="gutter-box">
                             <Card title="关系图" bordered={false}>
-                                <EchartsGraphnpm />
+                                {/*<EchartsGraphnpm />*/}
+                                <EchartsForce />
                             </Card>
                         </div>
                     </Col>
@@ -41,7 +42,7 @@ class Echarts extends React.Component {
                     <Col className="gutter-row" span={24}>
                         <div className="gutter-box">
                             <Card title="散点图" bordered={false}>
-                                <EchartsScatter />
+                                <EchartsEffectScatter />
                             </Card>
                         </div>
                     </Col>
