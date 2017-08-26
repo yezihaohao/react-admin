@@ -8,7 +8,7 @@ react-admin system solution
   启动和打包的时间都稍长，请耐心等待两分钟
 
 - [GitHub地址](https://github.com/yezihaohao/react-admin)
-- [预览地址](http://cheng_haohao.oschina.io/reactadmin/#/app/dashboard/index)(还没做响应式，不建议手机预览😕)
+- [预览地址](http://cheng_haohao.oschina.io/reactadmin/#/app/dashboard/index)(已增加响应式，可手机预览😄)
 
 ### 依赖模块
 <span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span>
@@ -144,13 +144,6 @@ npm start
 npm run build
 ```
 
-### 结尾
-该项目会不定时更新，后续时间会添加更多的模块
-
-若有问题，可加QQ群264591039与我交流
-
-如果对你有帮助，给个star哟~~❤️❤️❤️❤️
-
 ### 更新日志
 #### 2017-07-08
 - 依赖包版本升级
@@ -177,3 +170,15 @@ npm run build
 - 权限管理模块增加页面跳转权限验证
     - 点击权限管理的路由拦截，若没有访问权限则会跳转到404页面。
     - 大致实现方式(非常简单)：通过向自定义router组件传入store，登录之后可获取到redux中的权限state数据，并通过判断是否包含权限进行跳转。ps: 该demo的效果是管理员登录之后才能跳转到路由拦截页面。具体操作请拉取代码尝试。
+#### 2017-08-26
+- 增加响应式布局
+    - 替换antd Col 组件的响应式栅格为md(具体参数用法请查看antd官方文档)
+    - 初始化页面是获取当前浏览器宽度设置菜单显示类型
+    - 监听window的onresize函数，设置菜单显示类型。PS：浏览器宽度存入redux中，方便组件之间传递。
+
+### 结尾
+该项目会不定时更新，后续时间会添加更多的模块
+
+若有问题，可加QQ群264591039与我交流
+
+如果对你有帮助，给个star哟~~❤️❤️❤️❤️

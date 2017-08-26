@@ -37,7 +37,7 @@ class Buttons extends React.Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="UI" second="按钮" />
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary">Primary</Button>
@@ -47,7 +47,7 @@ class Buttons extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary" shape="circle" icon="search" />
@@ -62,7 +62,7 @@ class Buttons extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Radio.Group value={size} onChange={this.handleSizeChange}>
@@ -86,7 +86,7 @@ class Buttons extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary">primary</Button>
@@ -99,7 +99,7 @@ class Buttons extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary" loading>

@@ -106,19 +106,19 @@ class Gallery extends React.Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="UI" second="画廊(图片来自花瓣网，仅学习，若侵权请联系删除)" />
                 <Row gutter={10}>
-                    <Col className="gutter-row" span={5}>
+                    <Col className="gutter-row" md={5}>
                         {imgsTag[0]}
                     </Col>
-                    <Col className="gutter-row" span={5}>
+                    <Col className="gutter-row" md={5}>
                         {imgsTag[1]}
                     </Col>
-                    <Col className="gutter-row" span={5}>
+                    <Col className="gutter-row" md={5}>
                         {imgsTag[2]}
                     </Col>
-                    <Col className="gutter-row" span={5}>
+                    <Col className="gutter-row" md={5}>
                         {imgsTag[3]}
                     </Col>
-                    <Col className="gutter-row" span={4}>
+                    <Col className="gutter-row" md={4}>
                         {imgsTag[4]}
                     </Col>
                 </Row>
