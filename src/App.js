@@ -52,6 +52,17 @@ class App extends Component {
                   React-Admin ©2017 Created by 865470087@qq.com
                 </Footer>
               </Layout>
+                {
+                    responsive.data.isMobile && (   // 手机端对滚动很慢的处理
+                        <style>
+                        {`
+                            #root{
+                                height: auto;
+                            }
+                        `}
+                        </style>
+                    )
+                }
             </Layout>
         );
     }
