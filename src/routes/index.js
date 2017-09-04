@@ -78,7 +78,7 @@ export default class CRouter extends Component {
                         <Route path={'dashboard/index'} component={Dashboard} />
                         <Route path="auth">
                             <Route path="basic" component={AuthBasic} />
-                            <Route path="routerEnter" component={() => this.requireAuth('auth/testPage', <RouterEnter />)} />
+                            <Route path="routerEnter" component={(props) => this.requireAuth('auth/testPage', <RouterEnter {...props} />)} />
                         </Route>
                     </Route>
                     <Route path={'login'} components={Login} />
