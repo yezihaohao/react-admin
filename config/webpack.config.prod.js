@@ -44,6 +44,9 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+// add vendor pack
+const vendorEntry = require(paths.vendorConfig).entry;
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -54,7 +57,12 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: 'source-map',
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: Object.assign(   // 合并分离打包入口文件
+      {
+        main: [require.resolve('./polyfills'), paths.appIndexJs]
+      },
+      vendorEntry
+  ),
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -264,6 +272,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+        names: ['main', 'manifest'].concat(Object.keys(vendorEntry))
+    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
