@@ -38,7 +38,7 @@ export default class CRouter extends Component {
     requireAuth = (permission, component) => {
         const { store } = this.props;
         const { auth } = store.getState().httpData;
-        if (!auth || !auth.data.permissions.includes(permission)) window.location.hash = '/404';
+        if (!auth || !auth.data.permissions.includes(permission)) hashHistory.replace('/404');
         return component;
     };
     render() {
@@ -78,7 +78,7 @@ export default class CRouter extends Component {
                         <Route path={'dashboard/index'} component={Dashboard} />
                         <Route path="auth">
                             <Route path="basic" component={AuthBasic} />
-                            <Route path="routerEnter" component={() => this.requireAuth('auth/testPage', <RouterEnter />)} />
+                            <Route path="routerEnter" component={(props) => this.requireAuth('auth/testPage', <RouterEnter {...props} />)} />
                         </Route>
                     </Route>
                     <Route path={'login'} components={Login} />

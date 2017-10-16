@@ -4,7 +4,7 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
-    "antd": "^2.11.2",
+    "antd": "^2.13.1",
     "autoprefixer": "7.1.1",
     "axios": "^0.16.2",
     "babel-core": "6.25.0",
