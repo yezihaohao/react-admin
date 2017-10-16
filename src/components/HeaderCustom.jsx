@@ -86,7 +86,7 @@ class HeaderCustom extends Component {
                     ) : (
                         <Icon
                             className="trigger custom-trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                            type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
                             onClick={this.props.toggle}
                         />
                     )
