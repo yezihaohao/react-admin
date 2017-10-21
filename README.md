@@ -145,6 +145,7 @@ npm run build
 ```
 
 ### 更新日志
+
 #### 2017-07-08
 - 依赖包版本升级
     - react@15.6.1
@@ -179,6 +180,10 @@ npm run build
 #### 2017-09-13
 - 依赖包版本升级
     - antd@2.13.1(目前最新版)
+    
+#### 2017-10-21
+- 开发环境增加react-hot-loader-保持状态刷新组件(译：实时调整组件),可参考以下相关项目
+    - [react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
 ### 结尾
 该项目会不定时更新，后续时间会添加更多的模块
