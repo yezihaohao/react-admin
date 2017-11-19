@@ -41,9 +41,9 @@ class App extends Component {
         console.log(this.props.responsive);
         const { auth, router, responsive } = this.props;
         return (
-            <Layout className="ant-layout-has-sider">
+            <Layout>
                 {!responsive.data.isMobile && <SiderCustom path={this.props.location.pathname} collapsed={this.state.collapsed} />}
-              <Layout>
+              <Layout style={{flexDirection: 'column'}}>
                 <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} router={router} path={this.props.location.pathname} />
                 <Content style={{ margin: '0 16px', overflow: 'initial' }}>
                   {this.props.children}
