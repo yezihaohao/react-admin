@@ -185,6 +185,13 @@ npm run build
 - 开发环境增加react-hot-loader-保持状态刷新组件(译：实时调整组件),可参考以下相关项目
     - [react-hot-loader](https://github.com/gaearon/react-hot-loader)
 
+#### 2017-12-12
+- 依赖包版本升级
+    - antd@2.13.1(目前最新版)
+    - react-router-dom@4.2.2
+- 大改动
+    - react-router切换4.x版本，切换响应的版本路由写法(具体见代码更新日志) 
+
 ### 结尾
 该项目会不定时更新，后续时间会添加更多的模块
 

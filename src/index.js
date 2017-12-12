@@ -7,10 +7,8 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducer';
-
-import CRouter from './routes';
 import { AppContainer } from 'react-hot-loader';
-
+import Page from './Page';
 
 // redux 注入操作
 const middleware = [thunk];
@@ -30,7 +28,7 @@ const render = Component => {   // 增加react-hot-loader保持状态刷新操�
     );
 };
 
-render(CRouter);
+render(Page);
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
@@ -46,8 +44,8 @@ if (module.hot) {
             orgError.apply(console, args);
         }
     };
-    module.hot.accept('./routes', () => {
-        render(CRouter);
+    module.hot.accept('./Page', () => {
+        render(Page);
     })
 }
 

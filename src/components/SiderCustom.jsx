@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router-dom';
 const { Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -24,10 +24,10 @@ class SiderCustom extends Component {
         this.setMenuOpen(nextProps)
     }
     setMenuOpen = props => {
-        const {path} = props;
+        const {pathname} = props.location;
         this.setState({
-            openKey: path.substr(0, path.lastIndexOf('/')),
-            selectedKey: path
+            openKey: pathname.substr(0, pathname.lastIndexOf('/')),
+            selectedKey: pathname
         });
     };
     onCollapse = (collapsed) => {
@@ -148,4 +148,4 @@ class SiderCustom extends Component {
     }
 }
 
-export default SiderCustom;
+export default withRouter(SiderCustom);

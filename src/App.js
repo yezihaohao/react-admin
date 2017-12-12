@@ -6,6 +6,7 @@ import HeaderCustom from './components/HeaderCustom';
 import { receiveData } from './action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Routes from './routes';
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -37,21 +38,22 @@ class App extends Component {
         });
     };
     render() {
-        console.log(this.props.auth);
-        console.log(this.props.responsive);
-        const { auth, router, responsive } = this.props;
+        // console.log(this.props.auth);
+        // console.log(this.props.responsive);
+        const { auth, responsive } = this.props;
         return (
             <Layout>
-                {!responsive.data.isMobile && <SiderCustom path={this.props.location.pathname} collapsed={this.state.collapsed} />}
-              <Layout style={{flexDirection: 'column'}}>
-                <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} router={router} path={this.props.location.pathname} />
-                <Content style={{ margin: '0 16px', overflow: 'initial' }}>
-                  {this.props.children}
-                </Content>
-                <Footer style={{ textAlign: 'center' }}>
-                  React-Admin ©2017 Created by 865470087@qq.com
-                </Footer>
-              </Layout>
+                {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
+                <Layout style={{flexDirection: 'column'}}>
+                    <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
+                    <Content style={{ margin: '0 16px', overflow: 'initial' }}>
+                        <Routes auth={auth} />
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}>
+                    React-Admin ©2017 Created by 865470087@qq.com
+                    </Footer>
+                </Layout>
+                
                 {
                     responsive.data.isMobile && (   // 手机端对滚动很慢的处理
                         <style>
