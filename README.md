@@ -191,6 +191,7 @@ npm run build
     - react-router-dom@4.2.2
 - 大改动
     - react-router切换4.x版本，切换响应的版本路由写法(具体见代码更新日志) 
+    - ps: react-router 3.x的版本请查看代码分支router3.x
 
 ### 结尾
 该项目会不定时更新，后续时间会添加更多的模块
