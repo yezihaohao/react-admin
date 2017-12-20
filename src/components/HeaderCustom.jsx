@@ -9,6 +9,7 @@ import { queryString } from '../utils';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -64,7 +65,7 @@ class HeaderCustom extends Component {
     };
     logout = () => {
         localStorage.removeItem('user');
-        this.props.router.push('/login')
+        this.props.history.push('/login')
     };
     popoverHide = () => {
         this.setState({
@@ -132,4 +133,4 @@ const mapStateToProps = state => {
     return {responsive};
 };
 
-export default connect(mapStateToProps)(HeaderCustom);
+export default withRouter(connect(mapStateToProps)(HeaderCustom));
