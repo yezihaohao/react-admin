@@ -4,26 +4,90 @@
 import React from 'react';
 
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import {Row, Col, Card, Button, Radio, Icon, Menu, Dropdown} from 'antd';
+import {Table, Col, Card, Button, Radio, Icon, Menu, Dropdown} from 'antd';
+import {getAllMember} from '../../axios';
+import {getMemberDetail} from '../../axios';
+import {getMemberStatus} from '../../axios';
+
+const columns = [
+    {
+        title: 'MemId',
+        dataIndex: 'memId',
+    },
+    {
+        title: 'Name',
+        dataIndex: 'name',
+    }, {
+        title: 'Age',
+        dataIndex: 'age',
+    }, {
+        title: 'Phone',
+        dataIndex: 'phone',
+    }];
 
 class MyMembers extends React.Component {
 
+    state = {
+        selectedRowKeys: [],
+        loading: false,
+        data: [],
+        detail: null,
+        status: null,
+    };
+
+    componentDidMount() {
+        this.start();
+    }
+
+    start = () => {
+        this.setState({loading: true});
+        getAllMember().then(res => {
+            this.setState({
+                              data: [...res.data.map(member => member)],
+                              loading: false
+                          });
+        });
+    };
+
     handleClick = (e) => {
-        $.ajax({
-                   url: "/my-comments.json",
-                   dataType: 'json',
-                   success: function (comments) {
-                       this.setState({comments: comments});
-                   }.bind(this)
-               });
+        getMemberDetail().then(res => {
+            this.setState({
+                              // data: [...res.map(val => {
+                              //     return val;
+                              // })],
+                              loading: false,
+                              detail: res.data,
+                          });
+        });
+    };
+
+    handleClick2 = (e) => {
+        getMemberStatus().then(
+            res => {
+                this.setState({
+                                  status: res.data,
+                              });
+            });
+    };
+
+    onSelectChange = (selectedRowKeys) => {
+        console.log('selectedRowKeys changed: ', selectedRowKeys);
+        this.setState({selectedRowKeys});
     };
 
     render() {
+        const {loading, selectedRowKeys} = this.state;
+        const rowSelection = {
+            selectedRowKeys,
+            onChange: this.onSelectChange,
+        };
         return (
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="我的会员" second="全部会员"/>
-                <Button onClick={this.handleClick}>测试</Button>
+                <Table rowSelection={rowSelection} columns={columns} dataSource={this.state.data}/>
             </div>
+
+
         );
     }
 }

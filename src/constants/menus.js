@@ -3,6 +3,7 @@ export const menus = [
     {
         key: '/app/myPage', title: '我的会员', icon: 'user',
         sub: [
+            { key: '/app/myPage/addMember', title: '新增会员', icon:''},
             { key: '/app/myPage/myMembers', title: '我的会员', icon:''},
         ],
     },
