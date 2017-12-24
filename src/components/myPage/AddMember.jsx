@@ -4,7 +4,7 @@
 import React from 'react';
 
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import {Card, Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button} from 'antd';
+import {Card, Form, Input, Select, Button} from 'antd';
 import {addMember} from '../../axios';
 
 const FormItem = Form.Item;
@@ -67,7 +67,7 @@ class AddMembers extends React.Component {
             </Select>
         );
         return (
-            <div className="gutter-example button-demo">
+            <div className="gutter-example">
                 <BreadcrumbCustom first="我的会员" second="新增会员"/>
                 <div className="gutter-box">
                     <Card title="注册" bordered={false}>
