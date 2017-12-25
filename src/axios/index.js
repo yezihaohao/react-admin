@@ -52,7 +52,13 @@ export const admin = () => get({url: config.MOCK_AUTH_ADMIN});
 export const guest = () => get({url: config.MOCK_AUTH_VISITOR});
 
 export const getAllMember = () => axios.get('http://localhost:8080/api/member/11/allMember')
-    .then(res => res.data).catch(err => console.log(err));
+    .then(res => {
+        if (!res.data && typeof(res.data) !== "undefined") {
+            return res.data;
+        } else {
+            return [];
+        }
+    }).catch(err => console.log(err));
 
 export const getMemberDetail = () => axios.get('http://localhost:8080/api/member/11/detail')
     .then(res => res).catch(err => console.log(err));

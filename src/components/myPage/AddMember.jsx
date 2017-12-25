@@ -13,11 +13,7 @@ const Option = Select.Option;
 class AddMembers extends React.Component {
 
     state = {
-        selectedRowKeys: [],
-        loading: false,
-        data: [],
-        detail: null,
-        status: null,
+        confirmDirty: false,
     };
 
     handleSubmit = (e) => {
@@ -33,6 +29,26 @@ class AddMembers extends React.Component {
 
             }
         });
+    };
+
+    handleConfirmBlur = (e) => {
+        const value = e.target.value;
+        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+    };
+    checkPassword = (rule, value, callback) => {
+        const form = this.props.form;
+        if (value && value !== form.getFieldValue('passwd')) {
+            callback('密码不一致!');
+        } else {
+            callback();
+        }
+    };
+    checkConfirm = (rule, value, callback) => {
+        const form = this.props.form;
+        if (value && this.state.confirmDirty) {
+            form.validateFields(['confirm'], { force: true });
+        }
+        callback();
     };
 
     render() {
@@ -62,7 +78,7 @@ class AddMembers extends React.Component {
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '86',
         })(
-            <Select className="icp-selector" style={{width: '60px'}}>
+            <Select className="icp-selector" style={{width: '65px'}}>
                 <Option value="86">+86</Option>
             </Select>
         );
@@ -123,6 +139,28 @@ class AddMembers extends React.Component {
                                     rules: [{required: true, message: '请输入电话号码!'}],
                                 })(
                                     <Input addonBefore={prefixSelector}/>
+                                )}
+                            </FormItem>
+
+                            <FormItem
+                                {...formItemLayout}
+                                label="充值金额"
+                            >
+                                {getFieldDecorator('money', {
+                                    initialValue:0,
+                                })(
+                                    <Input/>
+                                )}
+                            </FormItem>
+
+                            <FormItem
+                                {...formItemLayout}
+                                label="积分"
+                            >
+                                {getFieldDecorator('points', {
+                                    initialValue:0,
+                                })(
+                                    <Input/>
                                 )}
                             </FormItem>
 

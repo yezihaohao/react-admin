@@ -42,22 +42,28 @@ class MyMembers extends React.Component {
     start = () => {
         this.setState({loading: true});
         getAllMember().then(res => {
-            this.setState({
-                              data: [...res.data.map(member => member)],
-                              loading: false
-                          });
+            if (typeof(res.data) == "undefined") {
+                this.setState({
+                    data: [...res.data.map(member => member)],
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    loading: false
+                });
+            }
         });
     };
 
     handleClick = (e) => {
         getMemberDetail().then(res => {
             this.setState({
-                              // data: [...res.map(val => {
-                              //     return val;
-                              // })],
-                              loading: false,
-                              detail: res.data,
-                          });
+                // data: [...res.map(val => {
+                //     return val;
+                // })],
+                loading: false,
+                detail: res.data,
+            });
         });
     };
 
@@ -65,8 +71,8 @@ class MyMembers extends React.Component {
         getMemberStatus().then(
             res => {
                 this.setState({
-                                  status: res.data,
-                              });
+                    status: res.data,
+                });
             });
     };
 
