@@ -4,7 +4,7 @@
 import React from 'react';
 
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import {Table, Col, Card, Button, Radio, Icon, Menu, Dropdown} from 'antd';
+import {Table} from 'antd';
 import {getAllMember} from '../../axios';
 import {getMemberDetail} from '../../axios';
 import {getMemberStatus} from '../../axios';
@@ -42,7 +42,7 @@ class MyMembers extends React.Component {
     start = () => {
         this.setState({loading: true});
         getAllMember().then(res => {
-            if (typeof(res.data) == "undefined") {
+            if (typeof(res) !== "undefined") {
                 this.setState({
                     data: [...res.data.map(member => member)],
                     loading: false
@@ -82,7 +82,7 @@ class MyMembers extends React.Component {
     };
 
     render() {
-        const {loading, selectedRowKeys} = this.state;
+        const {selectedRowKeys} = this.state;
         const rowSelection = {
             selectedRowKeys,
             onChange: this.onSelectChange,

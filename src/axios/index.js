@@ -53,7 +53,7 @@ export const guest = () => get({url: config.MOCK_AUTH_VISITOR});
 
 export const getAllMember = () => axios.get('http://localhost:8080/api/member/11/allMember')
     .then(res => {
-        if (!res.data && typeof(res.data) !== "undefined") {
+        if (typeof(res) !== "undefined" && typeof(res.data) !== "undefined") {
             return res.data;
         } else {
             return [];
