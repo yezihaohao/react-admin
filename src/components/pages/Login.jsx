@@ -16,10 +16,10 @@ class Login extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         const { auth: nextAuth = {} } = nextProps;
-        const { router } = this.props;
+        const { history } = this.props;
         if (nextAuth.data && nextAuth.data.uid) {   // 判断是否登陆
             localStorage.setItem('user', JSON.stringify(nextAuth.data));
-            router.push('/');
+            history.push('/');
         }
     }
     handleSubmit = (e) => {
