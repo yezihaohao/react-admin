@@ -196,7 +196,7 @@ npm run build
 #### 2018-01-12
 - 增加cssmodule的支持（css, less）
     - 建议用css预处理器，文件名为xxx.module.less，引入相应组件即可使用
-    - 具体做法参见新增模块，路由后缀：/app/cssModule
+    - 具体做法参见新增模块，路由后缀：/app/cssModule。[点击访问](http://cheng_haohao.oschina.io/reactadmin/#/app/cssModule)
 
 ### 结尾
 该项目会不定时更新，后续时间会添加更多的模块
