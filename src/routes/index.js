@@ -26,6 +26,7 @@ import AuthBasic from '../components/auth/Basic';
 import RouterEnter from '../components/auth/RouterEnter';
 import Wysiwyg from 'bundle-loader?lazy!../components/ui/Wysiwyg';  // 按需加载富文本配置
 import Bundle from '../components/widget/Bundle';
+import Cssmodule from '../components/cssmodule';
 
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
@@ -68,6 +69,8 @@ export default class CRouter extends Component {
 
                 <Route exact path="/app/auth/basic" component={AuthBasic} />
                 <Route exact path="/app/auth/routerEnter" component={(props) => this.requireAuth('auth/testPage', <RouterEnter {...props} />)} />
+
+                <Route exact path="/app/cssModule" component={Cssmodule} />
 
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>

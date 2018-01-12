@@ -192,6 +192,11 @@ npm run build
 - 大改动
     - react-router切换4.x版本，切换响应的版本路由写法(具体见代码更新日志) 
     - ps: react-router 3.x的版本请查看代码分支router3.x
+    
+#### 2018-01-12
+- 增加cssmodule的支持（css, less）
+    - 建议用css预处理器，文件名为xxx.module.less，引入相应组件即可使用
+    - 具体做法参见新增模块，路由后缀：/app/cssModule
 
 ### 结尾
 该项目会不定时更新，后续时间会添加更多的模块

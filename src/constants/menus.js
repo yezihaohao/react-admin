@@ -57,4 +57,7 @@ export const menus = [
             { key: '/app/auth/routerEnter', title: '路由拦截', icon: '', },
         ],
     },
+    {
+        key: '/app/cssModule', title: 'cssModule', icon: 'star',
+    },
 ];
