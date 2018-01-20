@@ -30,7 +30,6 @@ class AddMembers extends React.Component {
                         console.log("res:" + res);
                     }
                 );
-
             }
         });
     };
