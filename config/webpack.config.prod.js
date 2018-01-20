@@ -186,7 +186,14 @@ module.exports = {
             test: /\.less$/,
             use: [
                 require.resolve('style-loader'),
-                require.resolve('css-loader'),
+                ({ resource }) => ({
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: /\.module\.less/.test(resource),
+                        localIdentName: '[name]__[local]___[hash:base64:5]',
+                    },
+                }),
                 {
                     loader: require.resolve('postcss-loader'),
                     options: {
@@ -232,14 +239,16 @@ module.exports = {
             {
               fallback: require.resolve('style-loader'),
               use: [
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    importLoaders: 1,
-                    minimize: true,
-                    sourceMap: true,
-                  },
-                },
+                ({ resource }) => ({
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: /\.module\.css/.test(resource),
+                        localIdentName: '[name]__[local]___[hash:base64:5]',
+                        minimize: true,
+                        sourceMap: true,
+                    },
+                }),
                 {
                   loader: require.resolve('postcss-loader'),
                   options: {
