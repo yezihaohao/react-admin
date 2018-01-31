@@ -11,17 +11,17 @@ import {getMemberStatus} from '../../axios';
 
 const columns = [
     {
-        title: 'MemId',
+        title: '会员账号',
         dataIndex: 'memId',
     },
     {
-        title: 'Name',
+        title: '姓名',
         dataIndex: 'name',
     }, {
-        title: 'Age',
-        dataIndex: 'age',
+        title: '余额',
+        dataIndex: 'money',
     }, {
-        title: 'Phone',
+        title: '手机号',
         dataIndex: 'phone',
     }];
 
