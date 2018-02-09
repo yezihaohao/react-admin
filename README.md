@@ -1,6 +1,8 @@
 # react-admin
 react-admin system solution
 
+### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
+
 ### 最下方增加版本更新日志😁
 
 ### 前言
