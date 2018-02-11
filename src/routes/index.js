@@ -27,6 +27,8 @@ import RouterEnter from '../components/auth/RouterEnter';
 import Wysiwyg from 'bundle-loader?lazy!../components/ui/Wysiwyg';  // 按需加载富文本配置
 import Bundle from '../components/widget/Bundle';
 import Cssmodule from '../components/cssmodule';
+import MyMembers from "../components/myPage/MyMembers";
+import AddMember from "../components/myPage/AddMember";
 
 const WysiwygBundle = (props) => (
     <Bundle load={Wysiwyg}>
@@ -52,6 +54,9 @@ export default class CRouter extends Component {
                 <Route exact path="/app/table/asynchronousTable" component={AsynchronousTable} />
                 <Route exact path="/app/chart/echarts" component={Echarts} />
                 <Route exact path="/app/chart/recharts" component={Recharts} />
+
+                <Route exact path="/app/myPage/myMembers" component={MyMembers}/>
+                <Route exact path="/app/myPage/addMember" component={AddMember}/>
 
                 <Route exact path="/app/ui/icons" component={Icons} />
                 <Route exact path="/app/ui/buttons" component={Buttons} />

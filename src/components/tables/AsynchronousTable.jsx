@@ -37,6 +37,11 @@ class AsynchronousTable extends React.Component {
     start = () => {
         this.setState({ loading: true });
         getPros().then(res => {
+            console.log(res.data);
+            console.log(...res.data.map(val => {
+                val.key = val.id;
+                return val;
+            }));
             this.setState({
                 data: [...res.data.map(val => {
                     val.key = val.id;
