@@ -12,6 +12,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const theme = require('../theme');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -215,7 +216,7 @@ module.exports = {
                 {
                     loader: require.resolve('less-loader'),
                     options: {
-                        modifyVars: { "@primary-color": "#001529" },
+                        modifyVars: theme,
                     },
                 },
             ],
