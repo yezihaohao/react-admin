@@ -13,6 +13,7 @@ export const menus = [
             { key: '/app/ui/wysiwyg', title: '富文本', icon: '', },
             { key: '/app/ui/drags', title: '拖拽', icon: '', },
             { key: '/app/ui/gallery', title: '画廊', icon: '', },
+            { key: '/app/ui/map', title: '地图'},
         ],
     },
     {
