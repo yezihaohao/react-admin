@@ -100,7 +100,7 @@ class BasicForms extends Component {
         <div className="gutter-example">
             <BreadcrumbCustom first="表单" second="基础表单" />
             <Row gutter={16}>
-                <Col className="gutter-row" span={12}>
+                <Col className="gutter-row" md={12}>
                     <div className="gutter-box">
                         <Card title="注册表单" bordered={false}>
                             <Form onSubmit={this.handleSubmit}>
@@ -221,7 +221,7 @@ class BasicForms extends Component {
                         </Card>
                     </div>
                 </Col>
-                <Col className="gutter-row" span={12}>
+                <Col className="gutter-row" md={12}>
                     <div className="gutter-box">
                         <Card title="登录表单" bordered={false}>
                             <LoginForm />
@@ -230,14 +230,14 @@ class BasicForms extends Component {
                 </Col>
             </Row>
             <Row gutter={16}>
-                <Col className="gutter-row" span={14}>
+                <Col className="gutter-row" md={14}>
                     <div className="gutter-box">
                         <Card title="水平表单" bordered={false}>
                             <HorizontalForm />
                         </Card>
                     </div>
                 </Col>
-                <Col className="gutter-row" span={10}>
+                <Col className="gutter-row" md={10}>
                     <div className="gutter-box">
                         <Card title="弹层表单" bordered={false}>
                             <ModalForm />

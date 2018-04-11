@@ -11,6 +11,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const theme = require('../theme');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -33,6 +34,7 @@ module.exports = {
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
   entry: [
+    'react-hot-loader/patch',
     // Include an alternative client for WebpackDevServer. A client's job is to
     // connect to WebpackDevServer by a socket and get notified about changes.
     // When you save a file, the client will either apply hot updates (in case
@@ -172,6 +174,7 @@ module.exports = {
         options: {
             plugins: [
                 ['import', [{ libraryName: 'antd', style: true }]],  // import less
+                'react-hot-loader/babel'
             ],
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -184,7 +187,14 @@ module.exports = {
             test: /\.less$/,
             use: [
               require.resolve('style-loader'),
-              require.resolve('css-loader'),
+              ({ resource }) => ({
+                  loader: 'css-loader',
+                  options: {
+                      importLoaders: 1,
+                      modules: /\.module\.less/.test(resource),
+                      localIdentName: '[name]__[local]___[hash:base64:5]',
+                  },
+              }),
               {
                 loader: require.resolve('postcss-loader'),
                 options: {
@@ -206,7 +216,7 @@ module.exports = {
           {
             loader: require.resolve('less-loader'),
                 options: {
-                  modifyVars: { "@primary-color": "#404040" },
+                  modifyVars: theme,
                 },
           },
         ],
@@ -220,12 +230,14 @@ module.exports = {
         test: /\.css$/,
         use: [
           require.resolve('style-loader'),
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 1,
-            },
-          },
+          ({ resource }) => ({
+              loader: 'css-loader',
+              options: {
+                  importLoaders: 1,
+                  modules: /\.module\.css/.test(resource),
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+          }),
           {
             loader: require.resolve('postcss-loader'),
             options: {

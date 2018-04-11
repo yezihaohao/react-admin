@@ -8,11 +8,11 @@ import BreadcrumbCustom from '../BreadcrumbCustom';
 
 const emojiList = () => {
     let _elements = [];
-    for (let i = 1; i < 36; i++) {
+    for (let i = 1; i < 30; i++) {
         _elements.push(
             <li key={i}>
-                <Emoji type={'Expression_' + i} />
-                <span>{'Expression_' + i}</span>
+                <Emoji type={'emoji-' + i} />
+                <span>{'emoji-' + i}</span>
             </li>
         )
     }
@@ -31,7 +31,7 @@ const Icons = () => (
     <div className="gutter-example">
         <BreadcrumbCustom first="UI" second="图标" />
         <Row gutter={16}>
-            <Col className="gutter-row" span={24}>
+            <Col className="gutter-row" md={24}>
                 <div className="gutter-box">
                     <Card bordered={false}>
                         <ul className="icons-list">
@@ -43,7 +43,7 @@ const Icons = () => (
             </Col>
         </Row>
         <Row gutter={16}>
-            <Col className="gutter-row" span={24}>
+            <Col className="gutter-row" md={24}>
                 <div className="gutter-box">
                     <Card bordered={false}>
                         <ul className="icons-list">

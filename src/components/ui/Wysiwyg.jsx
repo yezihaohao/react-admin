@@ -65,7 +65,7 @@ class Wysiwyg extends Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="UI" second="富文本" />
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={24}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="富文本编辑器" bordered={false} >
                                 <Editor
@@ -112,17 +112,17 @@ class Wysiwyg extends Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={8}>
+                    <Col className="gutter-row" md={8}>
                         <Card title="同步转换HTML" bordered={false}>
                             <pre>{draftToHtml(editorContent)}</pre>
                         </Card>
                     </Col>
-                    <Col className="gutter-row" span={8}>
+                    <Col className="gutter-row" md={8}>
                         <Card title="同步转换MarkDown" bordered={false}>
                             <pre style={{whiteSpace: 'pre-wrap'}}>{draftToMarkdown(editorContent)}</pre>
                         </Card>
                     </Col>
-                    <Col className="gutter-row" span={8}>
+                    <Col className="gutter-row" md={8}>
                         <Card title="同步转换JSON" bordered={false}>
                             <pre style={{whiteSpace: 'normal'}}>{JSON.stringify(editorContent)}</pre>
                         </Card>

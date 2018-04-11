@@ -123,7 +123,7 @@ class S extends Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="UI" second="对话框" />
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={24}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <p>

@@ -12,6 +12,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const theme = require('../theme');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -44,6 +45,9 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
+// add vendor pack
+const vendorEntry = require(paths.vendorConfig).entry;
+
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -54,7 +58,12 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: 'source-map',
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: Object.assign(   // 合并分离打包入口文件
+      {
+        main: [require.resolve('./polyfills'), paths.appIndexJs]
+      },
+      vendorEntry
+  ),
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -178,7 +187,14 @@ module.exports = {
             test: /\.less$/,
             use: [
                 require.resolve('style-loader'),
-                require.resolve('css-loader'),
+                ({ resource }) => ({
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: /\.module\.less/.test(resource),
+                        localIdentName: '[name]__[local]___[hash:base64:5]',
+                    },
+                }),
                 {
                     loader: require.resolve('postcss-loader'),
                     options: {
@@ -200,7 +216,7 @@ module.exports = {
                 {
                     loader: require.resolve('less-loader'),
                     options: {
-                        modifyVars: { "@primary-color": "#404040" },
+                        modifyVars: theme,
                     },
                 },
             ],
@@ -224,14 +240,16 @@ module.exports = {
             {
               fallback: require.resolve('style-loader'),
               use: [
-                {
-                  loader: require.resolve('css-loader'),
-                  options: {
-                    importLoaders: 1,
-                    minimize: true,
-                    sourceMap: true,
-                  },
-                },
+                ({ resource }) => ({
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: /\.module\.css/.test(resource),
+                        localIdentName: '[name]__[local]___[hash:base64:5]',
+                        minimize: true,
+                        sourceMap: true,
+                    },
+                }),
                 {
                   loader: require.resolve('postcss-loader'),
                   options: {
@@ -264,6 +282,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+        names: ['main', 'manifest'].concat(Object.keys(vendorEntry))
+    }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">

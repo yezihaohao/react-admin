@@ -62,7 +62,7 @@ class Notifications extends Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="UI" second="通知提醒框" />
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary" onClick={this.openNotification}>基本用法-4.5秒关闭</Button>
@@ -74,7 +74,7 @@ class Notifications extends Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary" onClick={() => this.openNotificationWithIcon('success')}>成功</Button>
@@ -89,14 +89,14 @@ class Notifications extends Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Button type="primary" onClick={this.openNotification4}>自定义通知图标</Button>
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <Select

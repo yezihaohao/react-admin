@@ -61,7 +61,7 @@ class AsynchronousTable extends React.Component {
             <div className="gutter-example">
                 <BreadcrumbCustom first="表格" second="异步表格" />
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={24}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="异步表格--GitHub今日热门javascript项目" bordered={false}>
                                 <div style={{ marginBottom: 16 }}>

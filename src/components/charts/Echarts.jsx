@@ -4,16 +4,16 @@
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import EchartsArea from './EchartsArea';
-import EchartsGraphnpm from './EchartsGraphnpm';
 import EchartsPie from './EchartsPie';
-import EchartsScatter from './EchartsScatter';
+import EchartsEffectScatter from './EchartsEffectScatter';
+import EchartsForce from './EchartsForce';
 
 class Echarts extends React.Component {
     render() {
         return (
             <div className="gutter-example">
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={24}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="区域图" bordered={false}>
                                 <EchartsArea />
@@ -22,14 +22,15 @@ class Echarts extends React.Component {
                     </Col>
                 </Row>
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card title="关系图" bordered={false}>
-                                <EchartsGraphnpm />
+                                {/*<EchartsGraphnpm />*/}
+                                <EchartsForce />
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card title="饼图" bordered={false}>
                                 <EchartsPie />
@@ -38,10 +39,10 @@ class Echarts extends React.Component {
                     </Col>
                 </Row>
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={24}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="散点图" bordered={false}>
-                                <EchartsScatter />
+                                <EchartsEffectScatter />
                             </Card>
                         </div>
                     </Col>

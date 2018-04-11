@@ -14,7 +14,7 @@ class AdvancedTables extends React.Component {
             <div className="gutter-example">
                 <BreadcrumbCustom first="表格" second="高级表格" />
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={24}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card title="固定列" bordered={false}>
                                 <FixedTable />
@@ -23,14 +23,14 @@ class AdvancedTables extends React.Component {
                     </Col>
                 </Row>
                 <Row gutter={16}>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card title="可展开" bordered={false}>
                                 <ExpandedTable />
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" span={12}>
+                    <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card title="可编辑" bordered={false}>
                                 <EditableTable />

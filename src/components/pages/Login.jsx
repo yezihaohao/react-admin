@@ -16,10 +16,10 @@ class Login extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         const { auth: nextAuth = {} } = nextProps;
-        const { router } = this.props;
+        const { history } = this.props;
         if (nextAuth.data && nextAuth.data.uid) {   // 判断是否登陆
             localStorage.setItem('user', JSON.stringify(nextAuth.data));
-            router.push('/');
+            history.push('/');
         }
     }
     handleSubmit = (e) => {
@@ -70,9 +70,9 @@ class Login extends React.Component {
                             <Button type="primary" htmlType="submit" className="login-form-button" style={{width: '100%'}}>
                                 登录
                             </Button>
-                            或 <a href="">现在就去注册!</a>
-                            <p>
-                                <Icon type="github" onClick={this.gitHub} />(第三方登录)
+                            <p style={{display: 'flex', justifyContent: 'space-between'}}>
+                                <a href="">或 现在就去注册!</a>
+                                <a onClick={this.gitHub} ><Icon type="github" />(第三方登录)</a>
                             </p>
                         </FormItem>
                     </Form>
