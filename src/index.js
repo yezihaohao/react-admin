@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import './style/lib/animate.css';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';

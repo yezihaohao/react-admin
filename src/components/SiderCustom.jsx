@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { withRouter } from 'react-router-dom';
-import { menus } from '../constants/menus';
+import routes from '../routes/config';
 import SiderMenu from './SiderMenu';
 
 const { Sider } = Layout;
@@ -65,7 +65,7 @@ class SiderCustom extends Component {
             >
                 <div className="logo" />
                 <SiderMenu
-                    menus={menus}
+                    menus={routes.menus}
                     onClick={this.menuClick}
                     theme="dark"
                     mode="inline"
