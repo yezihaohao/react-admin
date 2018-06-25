@@ -4,7 +4,7 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
-    "antd": "^3.0.1",
+    "antd": "^3.6.4",
     "autoprefixer": "7.1.1",
     "axios": "^0.16.2",
     "babel-core": "6.25.0",
@@ -40,15 +40,15 @@
     "promise": "7.1.1",
     "prop-types": "^15.5.10",
     "rc-banner-anim": "^0.5.13",
-    "react": "^15.6.1",
+    "react": "^16.4.1",
     "react-dev-utils": "^3.0.2",
-    "react-dom": "^15.6.1",
+    "react-dom": "^16.4.1",
     "react-draft-wysiwyg": "^1.10.0",
     "react-draggable": "^2.2.6",
     "react-error-overlay": "^1.0.9",
     "react-qmap": "^0.1.5",
     "react-redux": "^5.0.5",
-    "react-router-dom": "^4.2.2",
+    "react-router-dom": "^4.3.1",
     "recharts": "^1.0.0-alpha.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
@@ -67,7 +67,7 @@
     "bundle-loader": "^0.5.5",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
-    "react-hot-loader": "^3.1.1"
+    "react-hot-loader": "^4.3.3"
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",

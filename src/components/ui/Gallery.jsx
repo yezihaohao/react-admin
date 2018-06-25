@@ -89,7 +89,7 @@ class Gallery extends React.Component {
         ];
         const imgsTag = imgs.map(v1 => (
             v1.map(v2 => (
-                <div className="gutter-box">
+                <div className="gutter-box" key={v2}>
                     <Card bordered={false} bodyStyle={{ padding: 0 }}>
                         <div>
                             <img onClick={() => this.openGallery(v2)} alt="example" width="100%" src={v2} />

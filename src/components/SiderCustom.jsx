@@ -10,6 +10,30 @@ import SiderMenu from './SiderMenu';
 const { Sider } = Layout;
 
 class SiderCustom extends Component {
+    static getDerivedStateFromProps (props, state) { 
+        const state1 = SiderCustom.setMenuOpen(props);
+        const state2 = SiderCustom.onCollapse(props.collapsed);
+        return {
+            ...state1,
+            ...state2,
+            ...state,
+        }
+    }
+    static setMenuOpen = props => {
+        const { pathname } = props.location;
+        return {
+            openKey: pathname.substr(0, pathname.lastIndexOf('/')),
+            selectedKey: pathname
+        };
+    };
+    static onCollapse = (collapsed) => {
+        console.log(collapsed);
+        return {
+            collapsed,
+            firstHide: collapsed,
+            mode: collapsed ? 'vertical' : 'inline',
+        };
+    };
     state = {
         collapsed: false,
         mode: 'inline',
@@ -18,28 +42,15 @@ class SiderCustom extends Component {
         firstHide: true,        // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
     };
     componentDidMount() {
-        this.setMenuOpen(this.props);
+        // this.setMenuOpen(this.props);
+        const state = SiderCustom.setMenuOpen(this.props);
+        this.setState(state);
     }
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        this.onCollapse(nextProps.collapsed);
-        this.setMenuOpen(nextProps)
-    }
-    setMenuOpen = props => {
-        const { pathname } = props.location;
-        this.setState({
-            openKey: pathname.substr(0, pathname.lastIndexOf('/')),
-            selectedKey: pathname
-        });
-    };
-    onCollapse = (collapsed) => {
-        console.log(collapsed);
-        this.setState({
-            collapsed,
-            firstHide: collapsed,
-            mode: collapsed ? 'vertical' : 'inline',
-        });
-    };
+    // componentWillReceiveProps(nextProps) {
+    //     console.log(nextProps);
+    //     this.onCollapse(nextProps.collapsed);
+    //     this.setMenuOpen(nextProps)
+    // }
     menuClick = e => {
         this.setState({
             selectedKey: e.key
