@@ -1,15 +1,47 @@
 {
-  "extends": "react-app",
-  "rules": {
-    "import/no-webpack-loader-syntax": 0,
-    "no-multi-spaces": 1,
-    "react/jsx-tag-spacing": 1,        // 总是在自动关闭的标签前加一个空格，正常情况下也不需要换行
-    "jsx-quotes": 1,
-    "react/jsx-closing-bracket-location": 1,    // 遵循JSX语法缩进/格式
-    "react/jsx-boolean-value": 1,               // 如果属性值为 true, 可以直接省略
-    "react/no-string-refs": 1,      // 总是在Refs里使用回调函数
-    "react/self-closing-comp": 1,    // 对于没有子元素的标签来说总是自己关闭标签
-    "react/sort-comp": 1,            // 按照具体规范的React.createClass 的生命周期函数书写代码
-    "react/jsx-pascal-case": 1        // React模块名使用帕斯卡命名，实例使用骆驼式命名
-  }
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": ["eslint:recommended","react-app", "plugin:prettier/recommended"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "indent": ["error", "tab", { "SwitchCase": 1 }],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+
+        "import/no-webpack-loader-syntax": "off",
+        "no-multi-spaces": "warn",
+        "react/jsx-tag-spacing": "warn",       
+        "jsx-quotes": "warn",
+        "react/jsx-closing-bracket-location": "warn",    
+        "react/jsx-boolean-value": "warn",            
+        "react/no-string-refs": "warn",      
+        "react/self-closing-comp":"warn",  
+        "react/sort-comp": "warn",       
+        "react/jsx-pascal-case": "warn" ,
+
+        "no-console": ["off", { "allow": ["warn", "error"] }]
+    }
 }

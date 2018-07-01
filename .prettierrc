@@ -1,0 +1,44 @@
+{
+	"printWidth": 800,
+	"semi": true,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"arrowParens": "always",
+	"requirePragma": false,
+	"proseWrap": "preserve",
+	"parser": "babylon",
+	"useTabs": true,
+	"tabWidth": 4,
+	"overrides": [
+		{
+			"files": ["*.json", ".eslintrc", ".tslintrc", ".prettierrc", ".tern-project", ".stylelintrc", ".pug-lintrc"],
+			"options": {
+				"parser": "json",
+				"tabWidth": 2
+			}
+		},
+		{
+			"files": "*.{sass,scss,less,css}",
+			"options": {
+				"parser": "postcss",
+				"tabWidth": 4
+			}
+		},
+
+		{
+			"files": "*.ts",
+			"options": {
+				"parser": "typescript"
+			}
+		},
+		{
+			"files": "*.{js,jsx}",
+			"options": {
+				"singleQuote": true,
+				"tabWidth": 4
+			}
+		}
+	]
+}

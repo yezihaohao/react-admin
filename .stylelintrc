@@ -1,0 +1,38 @@
+{
+	"extends": ["stylelint-config-standard", "./node_modules/prettier-stylelint/config.js"],
+	"rules": {
+		"string-quotes": "single",
+		"block-no-empty": null,
+		"color-no-invalid-hex": true,
+		"rule-empty-line-before": [
+			"always",
+			{
+				"except": ["inside-block"],
+				"ignore": ["after-comment"]
+			}
+		],
+		"at-rule-empty-line-before": "always",
+		"comment-empty-line-before": [
+			"always",
+			{
+				"ignore": ["stylelint-commands"]
+			}
+		],
+		"declaration-colon-space-after": "always",
+		"indentation": [
+			"tab",
+			{
+				"except": ["value"]
+			}
+		],
+		"max-empty-lines": 2,
+		"unit-whitelist": ["em", "rem", "%", "s", "px", "deg", "vh", "vw"],
+		"selector-pseudo-element-colon-notation": "single",
+		"selector-pseudo-class-no-unknown": [
+			true,
+			{
+				"ignorePseudoClasses": [":global", "global"]
+			}
+		]
+	}
+}
