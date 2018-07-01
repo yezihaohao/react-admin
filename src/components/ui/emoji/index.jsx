@@ -5,12 +5,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './iconfont';
 
-const Emoji = ({type}) => {
-    const useTag = `<use xlink:href=${'#icon-' + type} />`;
-    return (
-        <i className="emoji">
-            <svg className="emoji" dangerouslySetInnerHTML={{__html: useTag }} />
-            <style>{`
+const Emoji = ({ type }) => {
+	const useTag = `<use xlink:href=${'#icon-' + type} />`;
+	return (
+		<i className="emoji">
+			<svg className="emoji" dangerouslySetInnerHTML={{ __html: useTag }} />
+			<style>{`
             .emoji {
                 display: inline-block;
                 overflow: hidden;
@@ -23,13 +23,12 @@ const Emoji = ({type}) => {
                 overflow: hidden;
             }
         `}</style>
-        </i>
-
-    );
+		</i>
+	);
 };
 
 Emoji.propTypes = {
-    type: PropTypes.string.isRequired
+	type: PropTypes.string.isRequired
 };
 
 export default Emoji;

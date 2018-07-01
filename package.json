@@ -65,9 +65,15 @@
   "devDependencies": {
     "babel-plugin-import": "^1.2.1",
     "bundle-loader": "^0.5.5",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
-    "react-hot-loader": "^4.3.3"
+    "prettier": "^1.13.7",
+    "prettier-stylelint": "^0.4.2",
+    "react-hot-loader": "^4.3.3",
+    "stylefmt": "^6.0.0",
+    "stylelint-config-standard": "^18.2.0"
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
