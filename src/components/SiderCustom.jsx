@@ -10,16 +10,6 @@ import SiderMenu from './SiderMenu';
 const { Sider } = Layout;
 
 class SiderCustom extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			collapsed: false,
-			mode: 'inline',
-			openKey: '',
-			selectedKey: '',
-			firstHide: true // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
-		};
-	}
 	static getDerivedStateFromProps(props, state) {
 		const state1 = SiderCustom.setMenuOpen(props);
 		const state2 = SiderCustom.onCollapse(props.collapsed);
@@ -44,6 +34,16 @@ class SiderCustom extends Component {
 			mode: collapsed ? 'vertical' : 'inline'
 		};
 	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			collapsed: false,
+			mode: 'inline',
+			openKey: '',
+			selectedKey: '',
+			firstHide: true // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
+		};
+	}
 
 	componentDidMount() {
 		// this.setMenuOpen(this.props);
