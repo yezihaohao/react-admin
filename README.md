@@ -12,7 +12,7 @@ react-admin system solution
   启动和打包的时间都稍长，请耐心等待两分钟
 
 - [GitHub地址](https://github.com/yezihaohao/react-admin)
-- [预览地址](http://cheng_haohao.oschina.io/reactadmin/#/app/dashboard/index)(已增加响应式，可手机预览😄)
+- [预览地址](https://admiring-dijkstra-34cb29.netlify.com)(已增加响应式，可手机预览😄)
 
 ### 依赖模块
 <span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span>

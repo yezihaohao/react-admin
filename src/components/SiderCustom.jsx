@@ -16,7 +16,8 @@ class SiderCustom extends Component {
         return {
             ...state1,
             ...state2,
-            ...state,
+            firstHide: state.collapsed !== props.collapsed && props.collapsed,  // 两个不等时赋值props属性值否则为false
+            openKey: state.openKey || (!props.collapsed && state1.openKey)
         }
     }
     static setMenuOpen = props => {
@@ -30,7 +31,7 @@ class SiderCustom extends Component {
         console.log(collapsed);
         return {
             collapsed,
-            firstHide: collapsed,
+            // firstHide: collapsed,
             mode: collapsed ? 'vertical' : 'inline',
         };
     };
