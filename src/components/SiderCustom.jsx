@@ -11,14 +11,17 @@ const { Sider } = Layout;
 
 class SiderCustom extends Component {
     static getDerivedStateFromProps (props, state) { 
-        const state1 = SiderCustom.setMenuOpen(props);
-        const state2 = SiderCustom.onCollapse(props.collapsed);
-        return {
-            ...state1,
-            ...state2,
-            firstHide: state.collapsed !== props.collapsed && props.collapsed,  // 两个不等时赋值props属性值否则为false
-            openKey: state.openKey || (!props.collapsed && state1.openKey)
+        if (props.collapsed !== state.collapsed) {
+            const state1 = SiderCustom.setMenuOpen(props);
+            const state2 = SiderCustom.onCollapse(props.collapsed);
+            return {
+                ...state1,
+                ...state2,
+                firstHide: state.collapsed !== props.collapsed && props.collapsed,  // 两个不等时赋值props属性值否则为false
+                openKey: state.openKey || (!props.collapsed && state1.openKey)
+            }
         }
+        return null;
     }
     static setMenuOpen = props => {
         const { pathname } = props.location;
