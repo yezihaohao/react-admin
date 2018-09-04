@@ -35,7 +35,7 @@ export default class CRouter extends Component {
                                         key={r.route || r.key}
                                         exact
                                         path={r.route || r.key}
-                                        component={props => r.login ? 
+                                        render={props => r.login ? 
                                             <Component {...props} />
                                             : this.requireLogin(<Component {...props} />, r.auth)}
                                     />
