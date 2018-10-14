@@ -54,10 +54,11 @@
     - 具体做法参见新增模块，路由后缀：/app/cssModule。[点击访问](http://cheng_haohao.oschina.io/reactadmin/#/app/cssModule)
 
 #### 2018-10-13
-- 重大更新
+- 重大更新 :sparkles:
     - 升级create-react-app 2.x，详情文档见[官方文档](https://reactjs.org/blog/2018/10/01/create-react-app-v2.html)
-- 升级大部分第三方库，升级版本见
+- 升级大部分第三方库，升级版本见[commit](https://github.com/yezihaohao/react-admin/commit/d8dc0ff0c6517c57a46d731adba69112a55145a9#diff-b9cfc7f2cdf78a7f4b91a753d10865a2)
 - 增加自定义主题功能
-    - 主题基础样式配置见[]()
+    - 主题基础样式配置见[variables.less](https://github.com/yezihaohao/react-admin/blob/master/src/style/antd/variables.less)
     - 修改主题基础样式后执行`yarn theme 或 npm run theme`，默认主题即可生效
     - 页面上可自定义主题颜色配置(根据此可添加字体大小等其他antd的默认样式)
+![自定义主题](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/themepicker.png)
