@@ -17,10 +17,12 @@ class Drags extends React.Component {
         }
     };
     onStart = () => {
-        this.setState({activeDrags: ++this.state.activeDrags});
+        let { activeDrags } = this.state;
+        this.setState({ activeDrags: ++activeDrags });
     };
     onStop = () => {
-        this.setState({activeDrags: --this.state.activeDrags});
+        let { activeDrags } = this.state;
+        this.setState({ activeDrags: --activeDrags });
     };
     handleDrag = (e, ui) => {
         const {x, y} = this.state.deltaPosition;

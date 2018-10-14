@@ -10,7 +10,7 @@ const columns = [{
     title: '项目名',
     dataIndex: 'username',
     width: 100,
-    render: (text, record) => <a href={record.url} target="_blank">{text}</a>
+    render: (text, record) => <a href={record.url} target="_blank" rel="noopener noreferrer">{text}</a>
 }, {
     title: '语言',
     dataIndex: 'lang',
@@ -27,7 +27,7 @@ const columns = [{
 
 class AsynchronousTable extends React.Component {
     state = {
-        selectedRowKeys: [],  // Check here to configure the default column
+        selectedRowKeys: [], // Check here to configure the default column
         loading: false,
         data: []
     };

@@ -2,13 +2,13 @@
  * Created by hao.cheng on 2017/4/15.
  */
 import React from 'react';
-import { Table, Icon } from 'antd';
+import { Table, Icon, Button } from 'antd';
 
 const columns = [{
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
-    render: text => <a>{text}</a>,
+    render: text => <span>{text}</span>,
 }, {
     title: 'Age',
     dataIndex: 'age',
@@ -22,14 +22,14 @@ const columns = [{
     key: 'action',
     render: (text, record) => (
         <span>
-      <a>Action 一 {record.name}</a>
-      <span className="ant-divider" />
-      <a>Delete</a>
-      <span className="ant-divider" />
-      <a className="ant-dropdown-link">
-        More actions <Icon type="down" />
-      </a>
-    </span>
+            <Button>Action 一 {record.name}</Button>
+            <span className="ant-divider" />
+            <Button>Delete</Button>
+            <span className="ant-divider" />
+            <Button className="ant-dropdown-link">
+                More actions <Icon type="down" />
+            </Button>
+        </span>
     ),
 }];
 

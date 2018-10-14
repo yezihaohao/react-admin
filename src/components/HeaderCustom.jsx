@@ -78,15 +78,15 @@ class HeaderCustom extends Component {
     render() {
         const { responsive, path } = this.props;
         return (
-            <Header style={{ background: '#fff', padding: 0, height: 65 }} className="custom-theme" >
+            <Header className="custom-theme header" >
                 {
                     responsive.data.isMobile ? (
                         <Popover content={<SiderCustom path={path} popoverHide={this.popoverHide} />} trigger="click" placement="bottomLeft" visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
-                            <Icon type="bars" className="trigger custom-trigger" />
+                            <Icon type="bars" className="header__trigger custom-trigger" />
                         </Popover>
                     ) : (
                         <Icon
-                            className="trigger custom-trigger"
+                            className="header__trigger custom-trigger"
                             type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
                             onClick={this.props.toggle}
                         />
@@ -117,12 +117,6 @@ class HeaderCustom extends Component {
                         </MenuItemGroup>
                     </SubMenu>
                 </Menu>
-                <style>{`
-                    .ant-menu-submenu-horizontal > .ant-menu {
-                        width: 120px;
-                        left: -40px;
-                    }
-                `}</style>
             </Header>
         )
     }

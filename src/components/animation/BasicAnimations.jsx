@@ -40,7 +40,7 @@ class BasicAnimations extends React.Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom first="动画" second="基础动画" />
                 <Row className="mb-m">
-                    <a className="mr-s">全部动画(单个动画请移动鼠标)</a>
+                    <span className="mr-s">全部动画(单个动画请移动鼠标)</span>
                     <Switch onChange={this.animatedAll} />
                 </Row>
                 <Row gutter={14}>

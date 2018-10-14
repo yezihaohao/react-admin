@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Layout, notification, Icon } from 'antd';
-import './style/index.less';
 import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
 import { receiveData } from './action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Routes from './routes';
+import { ThemePicker } from './components/widget';
+
 const { Content, Footer } = Layout;
 
 class App extends Component {
@@ -23,7 +24,6 @@ class App extends Component {
         window.onresize = () => {
             console.log('屏幕变化了');
             this.getClientWidth();
-            // console.log(document.body.clientWidth);
         }
     }
     componentDidMount() {
@@ -48,9 +48,9 @@ class App extends Component {
         const isFirst = JSON.parse(localStorage.getItem('isFirst'));
         !isFirst && openNotification();
     }
-    getClientWidth = () => {    // 获取当前浏览器宽度并设置responsive管理响应式
+    getClientWidth = () => { // 获取当前浏览器宽度并设置responsive管理响应式
         const { receiveData } = this.props;
-        const clientWidth = document.body.clientWidth;
+        const clientWidth = window.innerWidth;
         console.log(clientWidth);
         receiveData({isMobile: clientWidth <= 992}, 'responsive');
     };
@@ -60,12 +60,11 @@ class App extends Component {
         });
     };
     render() {
-        // console.log(this.props.auth);
-        // console.log(this.props.responsive);
         const { auth, responsive } = this.props;
         return (
             <Layout>
                 {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
+                <ThemePicker />
                 <Layout style={{flexDirection: 'column'}}>
                     <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
                     <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>

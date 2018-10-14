@@ -17,7 +17,7 @@ class SiderCustom extends Component {
             return {
                 ...state1,
                 ...state2,
-                firstHide: state.collapsed !== props.collapsed && props.collapsed,  // 两个不等时赋值props属性值否则为false
+                firstHide: state.collapsed !== props.collapsed && props.collapsed, // 两个不等时赋值props属性值否则为false
                 openKey: state.openKey || (!props.collapsed && state1.openKey)
             }
         }
@@ -43,24 +43,19 @@ class SiderCustom extends Component {
         mode: 'inline',
         openKey: '',
         selectedKey: '',
-        firstHide: true,        // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
+        firstHide: true, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
     };
     componentDidMount() {
         // this.setMenuOpen(this.props);
         const state = SiderCustom.setMenuOpen(this.props);
         this.setState(state);
     }
-    // componentWillReceiveProps(nextProps) {
-    //     console.log(nextProps);
-    //     this.onCollapse(nextProps.collapsed);
-    //     this.setMenuOpen(nextProps)
-    // }
     menuClick = e => {
         this.setState({
             selectedKey: e.key
         });
         console.log(this.state);
-        const { popoverHide } = this.props;     // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
+        const { popoverHide } = this.props; // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
         popoverHide && popoverHide();
     };
     openMenu = v => {
@@ -82,7 +77,6 @@ class SiderCustom extends Component {
                 <SiderMenu
                     menus={routes.menus}
                     onClick={this.menuClick}
-                    theme="dark"
                     mode="inline"
                     selectedKeys={[this.state.selectedKey]}
                     openKeys={this.state.firstHide ? null : [this.state.openKey]}

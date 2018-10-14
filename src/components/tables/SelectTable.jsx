@@ -27,7 +27,7 @@ for (let i = 0; i < 46; i++) {
 
 class SelectTable extends React.Component {
     state = {
-        selectedRowKeys: [],  // Check here to configure the default column
+        selectedRowKeys: [], // Check here to configure the default column
     };
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);

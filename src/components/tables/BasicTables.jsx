@@ -20,13 +20,6 @@ const BasicTables = () => (
                     </Card>
                 </div>
             </Col>
-
-            {/*<Col className="gutter-row" span={10}>*/}
-                {/*<div className="gutter-box">*/}
-                    {/*<Card title="弹层表单" bordered={false}>*/}
-                    {/*</Card>*/}
-                {/*</div>*/}
-            {/*</Col>*/}
         </Row>
         <Row gutter={16}>
             <Col className="gutter-row" md={24}>

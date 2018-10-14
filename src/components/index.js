@@ -27,7 +27,7 @@ import RouterEnter from './auth/RouterEnter';
 import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
-const WysiwygBundle = Loadable({    // 按需加载富文本配置
+const WysiwygBundle = Loadable({ // 按需加载富文本配置
     loader: () => import('./ui/Wysiwyg'),
     loading: Loading,
 });

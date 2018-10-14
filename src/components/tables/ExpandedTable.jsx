@@ -2,13 +2,13 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import React from 'react';
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 
 const columns = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Age', dataIndex: 'age', key: 'age' },
     { title: 'Address', dataIndex: 'address', key: 'address' },
-    { title: 'Action', dataIndex: '', key: 'x', render: () => <a>Delete</a> },
+    { title: 'Action', dataIndex: '', key: 'x', render: () => <Button>Delete</Button> },
 ];
 
 const data = [

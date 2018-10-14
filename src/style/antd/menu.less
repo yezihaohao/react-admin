@@ -1,0 +1,37 @@
+.ant-menu-root {
+    &.ant-menu-inline, &.ant-menu-vertical {
+        background: @primary-color;
+        border-right: 1px solid @primary-color;
+        color: @white;
+        a {
+            color: @white;
+        }
+        .ant-menu-submenu-selected,  {
+            color: @white;
+        }
+        .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active {
+            color: @white;
+        }
+        .ant-menu-submenu-title {
+            .ant-menu-submenu-arrow {
+                &::before, &::after {
+                    background: @white;
+                }
+            }
+            &:hover {
+                color: @white;
+                .ant-menu-submenu-arrow {
+                    &::before, &::after {
+                        background: @white;
+                    }
+                }
+            }
+        }
+        .ant-menu-submenu > .ant-menu {
+            background-color: @primary-color-light;
+        }
+        .ant-menu-item > a:hover {
+            color: @white;
+        }
+    }
+}

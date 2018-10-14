@@ -14,18 +14,10 @@ class Login extends React.Component {
         const { receiveData } = this.props;
         receiveData(null, 'auth');
     }
-    // componentWillReceiveProps(nextProps) {
-    //     const { auth: nextAuth = {} } = nextProps;
-    //     const { history } = this.props;
-    //     if (nextAuth.data && nextAuth.data.uid) {   // 判断是否登陆
-    //         localStorage.setItem('user', JSON.stringify(nextAuth.data));
-    //         history.push('/');
-    //     }
-    // }
     componentDidUpdate(prevProps) { // React 16.3+弃用componentWillReceiveProps
         const { auth: nextAuth = {}, history } = this.props;
         // const { history } = this.props;
-        if (nextAuth.data && nextAuth.data.uid) {   // 判断是否登陆
+        if (nextAuth.data && nextAuth.data.uid) { // 判断是否登陆
             localStorage.setItem('user', JSON.stringify(nextAuth.data));
             history.push('/');
         }
@@ -74,19 +66,18 @@ class Login extends React.Component {
                             })(
                                 <Checkbox>记住我</Checkbox>
                             )}
-                            <a className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</a>
+                            <span className="login-form-forgot" href="" style={{float: 'right'}}>忘记密码</span>
                             <Button type="primary" htmlType="submit" className="login-form-button" style={{width: '100%'}}>
                                 登录
                             </Button>
                             <p style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <a href="">或 现在就去注册!</a>
-                                <a onClick={this.gitHub} ><Icon type="github" />(第三方登录)</a>
+                                <span >或 现在就去注册!</span>
+                                <span onClick={this.gitHub} ><Icon type="github" />(第三方登录)</span>
                             </p>
                         </FormItem>
                     </Form>
                 </div>
             </div>
-
         );
     }
 }

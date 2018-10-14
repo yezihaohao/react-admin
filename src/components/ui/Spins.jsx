@@ -39,7 +39,7 @@ class Spins extends React.Component {
                     </Col>
                     <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
-                            <Card bordered={false}>
+                            <Card>
                                 <Spin size="small" />
                                 <Spin />
                                 <Spin size="large" />
