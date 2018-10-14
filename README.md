@@ -1,6 +1,8 @@
 # react-admin
 react-admin system solution
 
+<img src="https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/LogoMakr.png" alt="logo" width="100" height="35" />
+
 ![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
 
 ### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
