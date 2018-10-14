@@ -1,6 +1,8 @@
 # react-admin
 react-admin system solution
 
+![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
+
 ### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
 
 ### 问题和方案汇总：[issue](https://github.com/yezihaohao/react-admin/issues/12)
