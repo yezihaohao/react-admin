@@ -10,6 +10,7 @@ import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { PwaInstaller } from './widget';
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -21,22 +22,6 @@ class HeaderCustom extends Component {
     };
     componentDidMount() {
         const QueryString = queryString();
-        // if (QueryString.hasOwnProperty('code')) {
-        //     console.log(QueryString);
-        //     const _user = JSON.parse(localStorage.getItem('user'));
-        //     !_user && gitOauthToken(QueryString.code).then(res => {
-        //         console.log(res);
-        //         gitOauthInfo(res.access_token).then(info => {
-        //             this.setState({
-        //                 user: info
-        //             });
-        //             localStorage.setItem('user', JSON.stringify(info));
-        //         });
-        //     });
-        //     _user && this.setState({
-        //         user: _user
-        //     });
-        // }
         const _user = JSON.parse(localStorage.getItem('user')) || '测试';
         if (!_user && QueryString.hasOwnProperty('code')) {
             gitOauthToken(QueryString.code).then(res => {
@@ -97,6 +82,9 @@ class HeaderCustom extends Component {
                     style={{ lineHeight: '64px', float: 'right' }}
                     onClick={this.menuClick}
                 >
+                    <Menu.Item key="pwa">
+                        <PwaInstaller />
+                    </Menu.Item>
                     <Menu.Item key="full" onClick={this.screenFull} >
                         <Icon type="arrows-alt" onClick={this.screenFull} />
                     </Menu.Item>

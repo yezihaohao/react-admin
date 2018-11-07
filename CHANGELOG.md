@@ -62,3 +62,9 @@
     - 修改主题基础样式后执行`yarn theme 或 npm run theme`，默认主题即可生效
     - 页面上可自定义主题颜色配置(根据此可添加字体大小等其他antd的默认样式)
 ![自定义主题](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/themepicker.png)
+
+#### 2018-11-07
+- 完善PWA的manifest.json文件，增加按钮手动触发安装PWA应用
+    - 最新版的chrome浏览器访问[ReactAdmin](https://admiring-dijkstra-34cb29.netlify.com/)即可体验
+    
+![PWA](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/pwa.png)
