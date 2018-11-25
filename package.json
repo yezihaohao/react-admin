@@ -52,6 +52,7 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.0.6",
     "postcss-safe-parser": "4.0.1",
+    "query-string": "5",
     "rc-banner-anim": "^2.0.8",
     "react": "^16.5.2",
     "react-app-polyfill": "^0.1.3",
