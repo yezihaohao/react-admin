@@ -24,6 +24,7 @@ export default class CRouter extends Component {
         return permission ? this.requireAuth(permission, component) : component;
     };
     render() {
+        const { onRouterChange } = this.props;
         return (
             <Switch>
                 {
@@ -47,6 +48,8 @@ export default class CRouter extends Component {
                                             });
                                             props.match.params = { ...params };
                                             const merge = { ...props, query: queryParams ? queryString.parse(queryParams[0]) : {} };
+                                            // 回传route配置
+                                            onRouterChange && onRouterChange(r);
                                             return r.login 
                                                 ? <Component {...merge} />
                                                 : this.requireLogin(<Component {...merge} />, r.auth)

@@ -66,5 +66,12 @@
 #### 2018-11-07
 - 完善PWA的manifest.json文件，增加按钮手动触发安装PWA应用
     - 最新版的chrome浏览器访问[ReactAdmin](https://admiring-dijkstra-34cb29.netlify.com/)即可体验
-    
+
 ![PWA](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/pwa.png)
+
+#### 2018-11-26
+- 增加问号形式的路由参数扩展
+
+#### 2018-12-28
+- 增加[react-document-title](https://github.com/gaearon/react-document-title)组件，根据路由设置页面title
+    

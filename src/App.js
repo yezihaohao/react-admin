@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Layout, notification, Icon } from 'antd';
+import Routes from './routes';
+import DocumentTitle from 'react-document-title';
 import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
+import { Layout, notification, Icon } from 'antd';
 import { receiveData } from './action';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Routes from './routes';
 import { ThemePicker } from './components/widget';
 
 const { Content, Footer } = Layout;
@@ -13,6 +14,7 @@ const { Content, Footer } = Layout;
 class App extends Component {
     state = {
         collapsed: false,
+        title: ''
     };
     componentWillMount() {
         const { receiveData } = this.props;
@@ -59,34 +61,29 @@ class App extends Component {
             collapsed: !this.state.collapsed,
         });
     };
+    _setTitle = ({ title }) => {
+        if (this.state.title === title) return;
+        this.setState({ title });
+    }
     render() {
+        const { title } = this.state;
         const { auth, responsive } = this.props;
         return (
-            <Layout>
-                {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
-                <ThemePicker />
-                <Layout style={{flexDirection: 'column'}}>
-                    <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
-                    <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
-                        <Routes auth={auth} />
-                    </Content>
-                    <Footer style={{ textAlign: 'center' }}>
-                    React-Admin ©{new Date().getFullYear()} Created by 865470087@qq.com
-                    </Footer>
+            <DocumentTitle title={title}>
+                <Layout>
+                    {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
+                    <ThemePicker />
+                    <Layout style={{flexDirection: 'column'}}>
+                        <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
+                        <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
+                            <Routes auth={auth} onRouterChange={this._setTitle} />
+                        </Content>
+                        <Footer style={{ textAlign: 'center' }}>
+                        React-Admin ©{new Date().getFullYear()} Created by 865470087@qq.com
+                        </Footer>
+                    </Layout>
                 </Layout>
-                
-                {/* {
-                    responsive.data.isMobile && (   // 手机端对滚动很慢的处理
-                        <style>
-                        {`
-                            #root{
-                                height: auto;
-                            }
-                        `}
-                        </style>
-                    )
-                } */}
-            </Layout>
+            </DocumentTitle>
         );
     }
 }
