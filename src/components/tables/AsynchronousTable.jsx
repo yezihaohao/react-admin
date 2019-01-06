@@ -3,21 +3,21 @@
  */
 import React from 'react';
 import { Table, Button, Row, Col, Card } from 'antd';
-import { getPros } from '../../axios';
+import { getBbcNews } from '../../axios';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 
 const columns = [{
-    title: '项目名',
-    dataIndex: 'username',
+    title: '新闻标题',
+    dataIndex: 'title',
     width: 100,
     render: (text, record) => <a href={record.url} target="_blank" rel="noopener noreferrer">{text}</a>
 }, {
-    title: '语言',
-    dataIndex: 'lang',
+    title: '作者',
+    dataIndex: 'author',
     width: 80
 }, {
-    title: 'star',
-    dataIndex: 'starCount',
+    title: '发布时间',
+    dataIndex: 'publishedAt',
     width: 80
 }, {
     title: '描述',
@@ -36,12 +36,9 @@ class AsynchronousTable extends React.Component {
     }
     start = () => {
         this.setState({ loading: true });
-        getPros().then(res => {
+        getBbcNews().then(({ articles }) => {
             this.setState({
-                data: [...res.data.map(val => {
-                    val.key = val.id;
-                    return val;
-                })],
+                data: articles,
                 loading: false
             });
         });
@@ -63,7 +60,7 @@ class AsynchronousTable extends React.Component {
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
-                            <Card title="异步表格--GitHub今日热门javascript项目" bordered={false}>
+                            <Card title="异步表格--BBC新闻今日热门" bordered={false}>
                                 <div style={{ marginBottom: 16 }}>
                                     <Button type="primary" onClick={this.start}
                                             disabled={loading} loading={loading}
