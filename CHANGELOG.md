@@ -34,7 +34,7 @@
 #### 2017-09-13
 - 依赖包版本升级
     - antd@2.13.1(目前最新版)
-    
+
 #### 2017-10-21
 - 开发环境增加react-hot-loader-保持状态刷新组件(译：实时调整组件),可参考以下相关项目
     - [react-hot-loader](https://github.com/gaearon/react-hot-loader)
@@ -44,13 +44,13 @@
     - antd@3.0.1(目前最新版)
     - react-router-dom@4.2.2
 - 大改动
-    - react-router切换4.x版本，切换响应的版本路由写法(具体见代码更新日志) 
+    - react-router切换4.x版本，切换响应的版本路由写法(具体见代码更新日志)
     - ps: react-router 3.x的版本请查看代码分支router3.x
-    
+
 #### 2018-01-12
 - 增加cssmodule的支持（css, less）
-    - 建议用css预处理器，文件名为  xxx.module.less，引入相应组件即可使用。 
-    
+    - 建议用css预处理器，文件名为  xxx.module.less，引入相应组件即可使用。
+  
     - 具体做法参见新增模块，路由后缀：/app/cssModule。[点击访问](http://cheng_haohao.oschina.io/reactadmin/#/app/cssModule)
 
 #### 2018-10-13
@@ -74,4 +74,7 @@
 
 #### 2018-12-28
 - 增加[react-document-title](https://github.com/gaearon/react-document-title)组件，根据路由设置页面title
-    
+
+#### 2019-03-20
+- 增加[redux-alita](https://github.com/yezihaohao/redux-alita),极简的redux工具用法，详情见其代码仓库
+
