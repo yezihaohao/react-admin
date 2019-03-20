@@ -1,22 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
-import reducer from './reducer';
-import { AppContainer } from 'react-hot-loader';
 import Page from './Page';
+import * as apis from './axios';
+import { AppContainer } from 'react-hot-loader';
+import { AlitaProvider, setConfig } from 'redux-alita';
 import './style/lib/animate.css';
 import './style/antd/index.less';
 import './style/index.less';
 
-// redux 注入操作
-const middleware = [thunk];
-const store = createStore(reducer, applyMiddleware(...middleware));
-console.log(store.getState());
-
-
+setConfig(apis);
 // const render = Component => { // 增加react-hot-loader保持状态刷新操作，如果不需要可去掉并把下面注释的打开
 //     ReactDOM.render(
 //         <AppContainer>
@@ -52,9 +45,9 @@ console.log(store.getState());
 
 ReactDOM.render(
     <AppContainer>
-        <Provider store={store}>
-            <Page store={store} />
-        </Provider>
+        <AlitaProvider>
+            <Page />
+        </AlitaProvider>
     </AppContainer>
  ,
   document.getElementById('root')

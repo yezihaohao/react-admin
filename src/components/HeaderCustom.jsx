@@ -2,15 +2,15 @@
  * Created by hao.cheng on 2017/4/13.
  */
 import React, { Component } from 'react';
-import { Menu, Icon, Layout, Badge, Popover } from 'antd';
 import screenfull from 'screenfull';
-import { gitOauthToken, gitOauthInfo } from '../axios';
-import { queryString } from '../utils';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
-import { connect } from 'react-redux';
+import { Menu, Icon, Layout, Badge, Popover } from 'antd';
+import { gitOauthToken, gitOauthInfo } from '../axios';
+import { queryString } from '../utils';
 import { withRouter } from 'react-router-dom';
 import { PwaInstaller } from './widget';
+import { connectAlita } from 'redux-alita';
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -61,7 +61,7 @@ class HeaderCustom extends Component {
         this.setState({ visible });
     };
     render() {
-        const { responsive, path } = this.props;
+        const { responsive = { data: {} }, path } = this.props;
         return (
             <Header className="custom-theme header" >
                 {
@@ -110,9 +110,4 @@ class HeaderCustom extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    const { responsive = {data: {}} } = state.httpData;
-    return {responsive};
-};
-
-export default withRouter(connect(mapStateToProps)(HeaderCustom));
+export default withRouter(connectAlita(['responsive'])(HeaderCustom));
