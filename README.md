@@ -9,7 +9,7 @@ react-admin system solution
 
 ### 问题和方案汇总：[issue](https://github.com/yezihaohao/react-admin/issues/12)
 
-### 更新日志迁移至[CHANGELOG.md](https://github.com/yezihaohao/react-admin/blob/master/CHANGELOG.md)😁
+### 更新日志迁移至[CHANGELOG.md](https://github.com/yezihaohao/react-admin/blob/master/CHANGELOG.md)😁(重要！对于了解项目部分功能和代码很有用！)
 
 ### 前言
 > 网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub
