@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import DocumentTitle from 'react-document-title';
 import AllComponents from '../components';
 import routesConfig from './config';
 import queryString from 'query-string';
@@ -24,11 +25,10 @@ export default class CRouter extends Component {
         return permission ? this.requireAuth(permission, component) : component;
     };
     render() {
-        const { onRouterChange } = this.props;
         return (
             <Switch>
                 {
-                    Object.keys(routesConfig).map(key => 
+                    Object.keys(routesConfig).map(key =>
                         routesConfig[key].map(r => {
                             const route = r => {
                                 const Component = AllComponents[r.component];
@@ -48,11 +48,15 @@ export default class CRouter extends Component {
                                             });
                                             props.match.params = { ...params };
                                             const merge = { ...props, query: queryParams ? queryString.parse(queryParams[0]) : {} };
-                                            // 回传route配置
-                                            onRouterChange && onRouterChange(r);
-                                            return r.login 
-                                                ? <Component {...merge} />
-                                                : this.requireLogin(<Component {...merge} />, r.auth)
+                                            // 重新包装组件
+                                            const wrappedComponent = (
+                                                <DocumentTitle title={r.title}>
+                                                    <Component {...merge} />
+                                                </DocumentTitle>
+                                            )
+                                            return r.login
+                                                ? wrappedComponent
+                                                : this.requireLogin(wrappedComponent, r.auth)
                                         }}
                                     />
                                 )

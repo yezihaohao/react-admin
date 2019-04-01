@@ -61,10 +61,6 @@ class App extends Component {
             collapsed: !this.state.collapsed,
         });
     };
-    _setTitle = ({ title }) => {
-        if (this.state.title === title) return;
-        this.setState({ title });
-    }
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} } } = this.props;
@@ -77,7 +73,7 @@ class App extends Component {
                     <Layout style={{flexDirection: 'column'}}>
                         <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
                         <Content style={{ margin: '0 16px', overflow: 'initial', flex: '1 1 0' }}>
-                            <Routes auth={auth} onRouterChange={this._setTitle} />
+                            <Routes auth={auth} />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
                         React-Admin ©{new Date().getFullYear()} Created by 865470087@qq.com

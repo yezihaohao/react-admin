@@ -10,7 +10,7 @@ import SiderMenu from './SiderMenu';
 const { Sider } = Layout;
 
 class SiderCustom extends Component {
-    static getDerivedStateFromProps (props, state) { 
+    static getDerivedStateFromProps (props, state) {
         if (props.collapsed !== state.collapsed) {
             const state1 = SiderCustom.setMenuOpen(props);
             const state2 = SiderCustom.onCollapse(props.collapsed);
@@ -31,7 +31,6 @@ class SiderCustom extends Component {
         };
     };
     static onCollapse = (collapsed) => {
-        console.log(collapsed);
         return {
             collapsed,
             // firstHide: collapsed,
@@ -39,7 +38,6 @@ class SiderCustom extends Component {
         };
     };
     state = {
-        collapsed: false,
         mode: 'inline',
         openKey: '',
         selectedKey: '',
@@ -54,23 +52,22 @@ class SiderCustom extends Component {
         this.setState({
             selectedKey: e.key
         });
-        console.log(this.state);
         const { popoverHide } = this.props; // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
         popoverHide && popoverHide();
     };
     openMenu = v => {
-        console.log(v);
         this.setState({
             openKey: v[v.length - 1],
             firstHide: false,
         })
     };
     render() {
+        const { selectedKey, openKey, firstHide, collapsed } = this.state;
         return (
             <Sider
                 trigger={null}
                 breakpoint="lg"
-                collapsed={this.props.collapsed}
+                collapsed={collapsed}
                 style={{ overflowY: 'auto' }}
             >
                 <div className="logo" />
@@ -78,14 +75,14 @@ class SiderCustom extends Component {
                     menus={routes.menus}
                     onClick={this.menuClick}
                     mode="inline"
-                    selectedKeys={[this.state.selectedKey]}
-                    openKeys={this.state.firstHide ? null : [this.state.openKey]}
+                    selectedKeys={[selectedKey]}
+                    openKeys={firstHide ? null : [openKey]}
                     onOpenChange={this.openMenu}
                 />
                 <style>
                     {`
                     #nprogress .spinner{
-                        left: ${this.state.collapsed ? '70px' : '206px'};
+                        left: ${collapsed ? '70px' : '206px'};
                         right: 0 !important;
                     }
                     `}
