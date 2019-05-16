@@ -37,6 +37,7 @@ react-admin system solution
 - [photoswipe](https://github.com/dimsemenov/photoswipe)(<span style="color: rgb(243,121,52);">图片弹层查看插件，不依赖jQuery，还是蛮好用👍</span>)
 - [animate.css](http://daneden.me/animate)(<span style="color: rgb(243,121,52);">css动画库</span>)
 - [react-loadable](https://github.com/jamiebuilds/react-loadable)(代码拆分，按需加载，预加载，样样都行，具体见其文档，推荐使用)
+- [redux-alita](https://github.com/yezihaohao/redux-alita) 极简的redux2react工具
 - 其他小细节省略
 
 ### 功能模块
@@ -106,7 +107,7 @@ react-admin system solution
 +-- build/                                  ---打包的文件目录
 +-- config/                                 ---npm run eject 后的配置文件目录
 +-- node_modules/                           ---npm下载文件目录
-+-- public/                                 
++-- public/
 |   --- index.html							---首页入口html文件
 |   --- npm.json							---echarts测试数据
 |   --- weibo.json							---echarts测试数据
@@ -115,19 +116,19 @@ react-admin system solution
 |   |    --- index.js
 |   +-- components                          ---各式各样的组件存放目录
 |   |    +-- animation                      ---动画组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    +-- charts                         ---图表组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    +-- dashboard                      ---首页组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    +-- forms                          ---表单组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    +-- pages                          ---页面组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    +-- tables                         ---表格组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    +-- ui                             ---ui组件
-|   |    |    --- ...   
+|   |    |    --- ...
 |   |    --- BreadcrumbCustom.jsx           ---面包屑组件
 |   |    --- HeaderCustom.jsx               ---顶部导航组件
 |   |    --- Page.jsx                       ---页面容器
@@ -138,7 +139,7 @@ react-admin system solution
 |   --- index.js                            ---项目的整体js入口文件，包括路由配置等
 --- .env                                    ---启动项目自定义端口配置文件
 --- .eslintrc                               ---自定义eslint配置文件，包括增加的react jsx语法限制
---- package.json                                    
+--- package.json
 ```
 ### 安装运行
 ##### 1.下载或克隆项目源码
@@ -168,6 +169,6 @@ yarn build or npm run build
 - 1群：264591039（已满）
 - 2群：592688854（已满）
 - 3群：743490497 (已满)
-- 4群：150131600 
+- 4群：150131600
 
 如果对你有帮助，给个star哟~~❤️❤️❤️❤️
