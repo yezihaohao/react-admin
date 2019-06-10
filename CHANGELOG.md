@@ -78,3 +78,10 @@
 #### 2019-03-20
 - 增加[redux-alita](https://github.com/yezihaohao/redux-alita),极简的redux工具用法，详情见其代码仓库
 
+#### 2019-05-10
+- 升级react，react-dom，增加hooks支持（去掉react-hot-loader，老版本hot-loader使用hook有点问题）
+- 增加菜单可拖拽
+
+![截图](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/menu_draggable.gif)
+
+

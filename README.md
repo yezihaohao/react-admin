@@ -101,6 +101,8 @@ react-admin system solution
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.gif)
 #### 页面
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.gif)
+#### 菜单拖拽
+![截图](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/menu_draggable.gif)
 
 ### 代码目录
 ```js
