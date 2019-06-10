@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import Page from './Page';
 import * as apis from './axios';
-import { AppContainer } from 'react-hot-loader';
+// import { AppContainer } from 'react-hot-loader';
 import { AlitaProvider, setConfig } from 'redux-alita';
 import './style/lib/animate.css';
 import './style/antd/index.less';
@@ -44,11 +44,11 @@ setConfig(apis);
 // }
 
 ReactDOM.render(
-    <AppContainer>
+    // <AppContainer>
         <AlitaProvider>
             <Page />
         </AlitaProvider>
-    </AppContainer>
+    // </AppContainer>
  ,
   document.getElementById('root')
 );
