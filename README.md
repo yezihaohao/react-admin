@@ -4,6 +4,7 @@ react-admin system solution
 <img src="https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/logo.png" alt="logo" width="150" height="53" />
 
 ![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
 
