@@ -1,4 +1,4 @@
-# react-admin
+# react-admin([尝试一下](https://codesandbox.io/s/react-admin-u9kdb))
 react-admin system solution
 
 <img src="https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/logo.png" alt="logo" width="150" height="53" />
