@@ -10,8 +10,8 @@ import React, { Component } from 'react';
 
 class PwaInstaller extends Component {
     state = {
-        installed: true
-    }
+        installed: true,
+    };
 
     componentDidMount() {
         window.addEventListener('beforeinstallprompt', this.beforeInstallPrompt);
@@ -19,26 +19,25 @@ class PwaInstaller extends Component {
     componentWillUnmount() {
         window.removeEventListener('beforeinstallprompt', this.beforeInstallPrompt);
     }
-    beforeInstallPrompt = (e) => {
+    beforeInstallPrompt = e => {
         console.log('beforeinstallprompt Event fired');
         // 未安装PWA应用
-        this.setState({ installed: false })
-  
+        this.setState({ installed: false });
+
         e.preventDefault();
         // Stash the event so it can be triggered later.
         this.deferredPrompt = e;
         return false;
-    }
+    };
     download = () => {
-        if(this.deferredPrompt !== undefined) {
+        if (this.deferredPrompt !== undefined) {
             // The user has had a postive interaction with our app and Chrome
             // has tried to prompt previously, so let's show the prompt.
             this.deferredPrompt.prompt();
             // Follow what the user has done with the prompt.
             this.deferredPrompt.userChoice.then(choiceResult => {
-        
                 console.log(choiceResult.outcome);
-                if(choiceResult.outcome === 'dismissed') {
+                if (choiceResult.outcome === 'dismissed') {
                     console.log('User cancelled home screen install');
                 } else {
                     console.log('User added to home screen');
@@ -46,8 +45,8 @@ class PwaInstaller extends Component {
                 // We no longer need the prompt.  Clear it up.
                 this.deferredPrompt = null;
             });
-          }
-    }
+        }
+    };
     render() {
         const { installed } = this.state;
         return (
@@ -56,7 +55,7 @@ class PwaInstaller extends Component {
                     <div className="installer__btn" />
                 </div>
             )
-        )
+        );
     }
 }
 

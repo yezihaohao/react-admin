@@ -24,7 +24,7 @@ class Cssmodule extends Component {
                     </Col>
                 </Row>
             </div>
-        )
+        );
     }
 }
 

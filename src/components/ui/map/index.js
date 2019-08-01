@@ -8,7 +8,7 @@ export default () => (
         <BreadcrumbCustom first="UI" second="地图" />
         <Row gutter={16}>
             <Col md={24}>
-                <div style={{height: 500}}>
+                <div style={{ height: 500 }}>
                     <Card bordered={false} title="腾讯地图">
                         <Tencent />
                     </Card>
@@ -16,4 +16,4 @@ export default () => (
             </Col>
         </Row>
     </div>
-)
+);

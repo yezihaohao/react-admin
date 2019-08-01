@@ -3,10 +3,10 @@ import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 
-const renderMenuItem = item => ( // item.route 菜单单独跳转的路由
-    <Menu.Item
-        key={item.key}
-    >
+const renderMenuItem = (
+    item // item.route 菜单单独跳转的路由
+) => (
+    <Menu.Item key={item.key}>
         <Link to={(item.route || item.key) + (item.query || '')}>
             {item.icon && <Icon type={item.icon} />}
             <span className="nav-text">{item.title}</span>
@@ -28,9 +28,6 @@ const renderSubMenu = item => (
     </Menu.SubMenu>
 );
 
-
-
-
 export default ({ menus, ...props }) => {
     const [dragItems, setDragItems] = useState(menus);
     const reorder = (list, startIndex, endIndex) => {
@@ -39,33 +36,22 @@ export default ({ menus, ...props }) => {
         result.splice(endIndex, 0, removed);
         return result;
     };
-    const onDragEnd = (result) => {
+    const onDragEnd = result => {
         // dropped outside the list
-        if(!result.destination) {
-           return;
+        if (!result.destination) {
+            return;
         }
 
-        const _items = reorder(
-            dragItems,
-            result.source.index,
-            result.destination.index
-        );
+        const _items = reorder(dragItems, result.source.index, result.destination.index);
         setDragItems(_items);
-    }
+    };
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="droppable">
                 {(provided, snapshot) => (
-                    <div
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                    >
+                    <div ref={provided.innerRef} {...provided.droppableProps}>
                         {dragItems.map((item, index) => (
-                            <Draggable
-                                key={item.key}
-                                draggableId={item.key}
-                                index={index}
-                            >
+                            <Draggable key={item.key} draggableId={item.key} index={index}>
                                 {(provided, snapshot) => (
                                     <div>
                                         <div
@@ -74,7 +60,9 @@ export default ({ menus, ...props }) => {
                                             {...provided.draggableProps}
                                         >
                                             <Menu {...props}>
-                                                {item.subs ? renderSubMenu(item) : renderMenuItem(item)}
+                                                {item.subs
+                                                    ? renderSubMenu(item)
+                                                    : renderMenuItem(item)}
                                             </Menu>
                                         </div>
                                         {provided.placeholder}
@@ -88,4 +76,4 @@ export default ({ menus, ...props }) => {
             </Droppable>
         </DragDropContext>
     );
-}
+};

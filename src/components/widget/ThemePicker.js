@@ -7,11 +7,11 @@ class ThemePicker extends Component {
     state = {
         switcherOn: false,
         background: localStorage.getItem('@primary-color') || '#313653',
-    }
+    };
     _switcherOn = () => {
         this.setState({
-            switcherOn: !this.state.switcherOn
-        })
+            switcherOn: !this.state.switcherOn,
+        });
     };
     _handleChangeComplete = color => {
         console.log(color);
@@ -19,7 +19,7 @@ class ThemePicker extends Component {
         localStorage.setItem('@primary-color', color.hex);
         window.less.modifyVars({
             '@primary-color': color.hex,
-        })
+        });
     };
     render() {
         const { switcherOn, background } = this.state;
@@ -30,12 +30,12 @@ class ThemePicker extends Component {
                 </span>
                 <div style={{ padding: 10 }} className="clear">
                     <SketchPicker
-                        color={ background }
-                        onChangeComplete={ this._handleChangeComplete }
+                        color={background}
+                        onChangeComplete={this._handleChangeComplete}
                     />
                 </div>
-            </div> 
-        )
+            </div>
+        );
     }
 }
 

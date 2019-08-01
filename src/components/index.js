@@ -28,15 +28,35 @@ import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 import QueryParams from './extension/QueryParams';
 
-const WysiwygBundle = Loadable({ // 按需加载富文本配置
+const WysiwygBundle = Loadable({
+    // 按需加载富文本配置
     loader: () => import('./ui/Wysiwyg'),
     loading: Loading,
 });
 
 export default {
-    BasicForm, BasicTable, AdvancedTable, AsynchronousTable,
-    Echarts, Recharts, Icons, Buttons, Spins, Modals, Notifications,
-    Tabs, Banners, Drags, Dashboard, Gallery, BasicAnimations,
-    ExampleAnimations, AuthBasic, RouterEnter, WysiwygBundle,
-    Cssmodule, MapUi, QueryParams
-}
+    BasicForm,
+    BasicTable,
+    AdvancedTable,
+    AsynchronousTable,
+    Echarts,
+    Recharts,
+    Icons,
+    Buttons,
+    Spins,
+    Modals,
+    Notifications,
+    Tabs,
+    Banners,
+    Drags,
+    Dashboard,
+    Gallery,
+    BasicAnimations,
+    ExampleAnimations,
+    AuthBasic,
+    RouterEnter,
+    WysiwygBundle,
+    Cssmodule,
+    MapUi,
+    QueryParams,
+};
