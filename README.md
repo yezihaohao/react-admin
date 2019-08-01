@@ -1,9 +1,10 @@
-# react-admin
+# react-admin([尝试一下](https://codesandbox.io/s/react-admin-u9kdb))
 react-admin system solution
 
 <img src="https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/logo.png" alt="logo" width="150" height="53" />
 
 ![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 ### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
 
@@ -160,6 +161,14 @@ yarn start or npm start
 ```js
 yarn build or npm run build
 ```
+
+### Q&A(点击问题查看答案)
+#### 1.[create-react-app 打包项目run build 增加进度条信息?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-325383346)
+#### 2.[接口跨域了，怎么在本地开发时配置代理?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-326169055)
+#### 3.[在使用hashRouter的情况下怎么实现类似锚点跳转?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-345127221)
+#### 4.[怎么添加多页面配置?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-348088852)
+#### 5.[路由传参数接问号怎么传?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-375583089)
+#### 6.[如何兼容IE浏览器?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-510295292)
 
 ### 结尾
 该项目会不定时更新，后续时间会添加更多的模块
