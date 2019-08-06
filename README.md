@@ -1,4 +1,5 @@
 # react-admin([尝试一下](https://codesandbox.io/s/react-admin-u9kdb))
+
 react-admin system solution
 
 <img src="https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/logo.png" alt="logo" width="150" height="53" />
@@ -12,100 +13,139 @@ react-admin system solution
 
 ### 更新日志迁移至[CHANGELOG.md](https://github.com/yezihaohao/react-admin/blob/master/CHANGELOG.md)😁(重要！对于了解项目部分功能和代码很有用！)
 
-### 前言
-> 网上react后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到GitHub
-  启动和打包的时间都稍长，请耐心等待两分钟
+### cli 安装和使用 react-admin 🔥
 
-- [GitHub地址](https://github.com/yezihaohao/react-admin)
-- [预览地址](https://admiring-dijkstra-34cb29.netlify.com)(已增加响应式，可手机预览😄)
+使用 react-admin-creator 快速安装和下载 react-admin 模板来开发项目：
+
+```js
+npm i -g react-admin-creator
+
+react-admin-creator myapp
+```
+
+### 前言
+
+> 网上 react 后台管理开源免费的完整版项目比较少，所以利用空余时间集成了一个版本出来，已放到 GitHub
+> 启动和打包的时间都稍长，请耐心等待两分钟
+
+-   [GitHub 地址](https://github.com/yezihaohao/react-admin)
+-   [预览地址](https://admiring-dijkstra-34cb29.netlify.com)(已增加响应式，可手机预览 😄)
 
 ### 依赖模块
-<span style="color: rgb(184,49,47);">项目是用create-react-app创建的，主要还是列出新加的功能依赖包</span>
 
-<span style="color: rgb(184,49,47);">点击名称可跳转相关网站😄😄</span>
+<span style="color: rgb(184,49,47);">项目是用 create-react-app 创建的，主要还是列出新加的功能依赖包</span>
 
-- [react](https://facebook.github.io/react/)
-- [react-router](https://react-guide.github.io/react-router-cn/)(<span style="color: rgb(243,121,52);">react路由，4.x的版本，如果还使用3.x的版本，请切换分支（ps:分支不再维护）</span>)
-- [redux](https://redux.js.org/)(基础用法，但是封装了通用action和reducer，demo中主要用于权限控制（ps：目前可以用16.x的context api代替），可以简单了解下)
-- [antd](https://ant.design/index-cn)(<span style="color: rgb(243,121,52);">蚂蚁金服开源的react ui组件框架</span>)
-- [axios](https://github.com/mzabriskie/axios)(<span style="color: rgb(243,121,52);">http请求模块，可用于前端任何场景，很强大👍</span>)
-- [echarts-for-react](https://github.com/hustcc/echarts-for-react)(<span style="color: rgb(243,121,52);">可视化图表，别人基于react对echarts的封装，足够用了</span>)
-- [recharts](http://recharts.org/#/zh-CN/)(<span style="color: rgb(243,121,52);">另一个基于react封装的图表，个人觉得是没有echarts好用</span>)
-- [nprogress](https://github.com/rstacruz/nprogress)(<span style="color: rgb(243,121,52);">顶部加载条，蛮好用👍</span>)
-- [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)(<span style="color: rgb(243,121,52);">别人基于react的富文本封装，如果找到其他更好的可以替换</span>)
-- [react-draggable](https://github.com/mzabriskie/react-draggable)(<span style="color: rgb(243,121,52);">拖拽模块，找了个简单版的</span>)
-- [screenfull](https://github.com/sindresorhus/screenfull.js/)(<span style="color: rgb(243,121,52);">全屏插件</span>)
-- [photoswipe](https://github.com/dimsemenov/photoswipe)(<span style="color: rgb(243,121,52);">图片弹层查看插件，不依赖jQuery，还是蛮好用👍</span>)
-- [animate.css](http://daneden.me/animate)(<span style="color: rgb(243,121,52);">css动画库</span>)
-- [react-loadable](https://github.com/jamiebuilds/react-loadable)(代码拆分，按需加载，预加载，样样都行，具体见其文档，推荐使用)
-- [redux-alita](https://github.com/yezihaohao/redux-alita) 极简的redux2react工具
-- 其他小细节省略
+<span style="color: rgb(184,49,47);">点击名称可跳转相关网站 😄😄</span>
+
+-   [react](https://facebook.github.io/react/)
+-   [react-router](https://react-guide.github.io/react-router-cn/)(<span style="color: rgb(243,121,52);">react 路由，4.x 的版本，如果还使用 3.x 的版本，请切换分支（ps:分支不再维护）</span>)
+-   [redux](https://redux.js.org/)(基础用法，但是封装了通用 action 和 reducer，demo 中主要用于权限控制（ps：目前可以用 16.x 的 context api 代替），可以简单了解下)
+-   [antd](https://ant.design/index-cn)(<span style="color: rgb(243,121,52);">蚂蚁金服开源的 react ui 组件框架</span>)
+-   [axios](https://github.com/mzabriskie/axios)(<span style="color: rgb(243,121,52);">http 请求模块，可用于前端任何场景，很强大 👍</span>)
+-   [echarts-for-react](https://github.com/hustcc/echarts-for-react)(<span style="color: rgb(243,121,52);">可视化图表，别人基于 react 对 echarts 的封装，足够用了</span>)
+-   [recharts](http://recharts.org/#/zh-CN/)(<span style="color: rgb(243,121,52);">另一个基于 react 封装的图表，个人觉得是没有 echarts 好用</span>)
+-   [nprogress](https://github.com/rstacruz/nprogress)(<span style="color: rgb(243,121,52);">顶部加载条，蛮好用 👍</span>)
+-   [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)(<span style="color: rgb(243,121,52);">别人基于 react 的富文本封装，如果找到其他更好的可以替换</span>)
+-   [react-draggable](https://github.com/mzabriskie/react-draggable)(<span style="color: rgb(243,121,52);">拖拽模块，找了个简单版的</span>)
+-   [screenfull](https://github.com/sindresorhus/screenfull.js/)(<span style="color: rgb(243,121,52);">全屏插件</span>)
+-   [photoswipe](https://github.com/dimsemenov/photoswipe)(<span style="color: rgb(243,121,52);">图片弹层查看插件，不依赖 jQuery，还是蛮好用 👍</span>)
+-   [animate.css](http://daneden.me/animate)(<span style="color: rgb(243,121,52);">css 动画库</span>)
+-   [react-loadable](https://github.com/jamiebuilds/react-loadable)(代码拆分，按需加载，预加载，样样都行，具体见其文档，推荐使用)
+-   [redux-alita](https://github.com/yezihaohao/redux-alita) 极简的 redux2react 工具
+-   其他小细节省略
 
 ### 功能模块
-<span style="color: rgb(184,49,47);">备注：项目只引入了ant-design的部分组件，其他的组件antd官网有源码，可以直接复制到项目中使用，后续有时间补上全部组件。</span>
 
-<span style="color: rgb(184,49,47);">项目使用了antd的自定义主题功能-->黑色，若想替换其他颜色，具体操作请查看antd官网</span>
+<span style="color: rgb(184,49,47);">备注：项目只引入了 ant-design 的部分组件，其他的组件 antd 官网有源码，可以直接复制到项目中使用，后续有时间补上全部组件。</span>
+
+<span style="color: rgb(184,49,47);">项目使用了 antd 的自定义主题功能-->黑色，若想替换其他颜色，具体操作请查看 antd 官网</span>
+
 <!--more-->
 
-- 首页
-    - 完整布局
-    - 换肤(全局功能，暂时只实现了顶部导航的换肤，后续加上其他模块)
-- 导航菜单
-    - 顶部导航(菜单伸缩，全屏功能)
-    - 左边菜单(增加滚动条以及适配路由的active操作)
-- UI模块
-    - 按钮(antd组件)
-    - 图标(antd组件并增加彩色表情符)
-    - 加载中(antd组件并增加顶部加载条)
-    - 通知提醒框(antd组件)
-    - 标签页(antd组件)
-    - 轮播图(ant动效组件)
-    - 富文本
-    - 拖拽
-    - 画廊
-- 动画
-    - 基础动画(animate.css所有动画)
-    - 动画案例
-- 表格
-    - 基础表格(antd组件)
-    - 高级表格(antd组件)
-    - 异步表格(数据来自掘金酱的接口)
-- 表单
-    - 基础表单(antd组件)
-- 图表
-    - echarts图表
-    - recharts图表
-- 页面
-    - 登录页面(包括GitHub第三方登录)
-    - 404页面
+-   首页
+    -   完整布局
+    -   换肤(全局功能，暂时只实现了顶部导航的换肤，后续加上其他模块)
+-   导航菜单
+    -   顶部导航(菜单伸缩，全屏功能)
+    -   左边菜单(增加滚动条以及适配路由的 active 操作)
+-   UI 模块
+    -   按钮(antd 组件)
+    -   图标(antd 组件并增加彩色表情符)
+    -   加载中(antd 组件并增加顶部加载条)
+    -   通知提醒框(antd 组件)
+    -   标签页(antd 组件)
+    -   轮播图(ant 动效组件)
+    -   富文本
+    -   拖拽
+    -   画廊
+-   动画
+    -   基础动画(animate.css 所有动画)
+    -   动画案例
+-   表格
+    -   基础表格(antd 组件)
+    -   高级表格(antd 组件)
+    -   异步表格(数据来自掘金酱的接口)
+-   表单
+    -   基础表单(antd 组件)
+-   图表
+    -   echarts 图表
+    -   recharts 图表
+-   页面
+    -   登录页面(包括 GitHub 第三方登录)
+    -   404 页面
 
 ### 功能截图
+
 #### 首页
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd1.gif)
+
 #### 按钮图标等
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd2.gif)
+
 #### 轮播图
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd3.gif)
+
 #### 富文本
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd4.gif)
+
 #### 拖拽
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd5.gif)
+
 #### 画廊
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd6.gif)
+
 #### 动画
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd7.gif)
+
 #### 表格
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd8.gif)
+
 #### 表单
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd9.gif)
+
 #### 图表
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd10.gif)
+
 #### 页面
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/yezihaohao.github.io/master/imgs/rd11.gif)
+
 #### 菜单拖拽
+
 ![截图](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/menu_draggable.gif)
 
 ### 代码目录
+
 ```js
 +-- build/                                  ---打包的文件目录
 +-- config/                                 ---npm run eject 后的配置文件目录
@@ -144,42 +184,57 @@ react-admin system solution
 --- .eslintrc                               ---自定义eslint配置文件，包括增加的react jsx语法限制
 --- package.json
 ```
+
 ### 安装运行
+
 ##### 1.下载或克隆项目源码
-##### 2.yarn 或者 npm安装相关包文件(首先推荐使用yarn，国内建议增加淘宝镜像源，不然很慢，你懂的😁)
-> 有些老铁遇到运行时报错，首先确定下是不是最新稳定版的nodejs和npm或者yarn(推荐用yarn)，切记不要用cnpn
+
+##### 2.yarn 或者 npm 安装相关包文件(首先推荐使用 yarn，国内建议增加淘宝镜像源，不然很慢，你懂的 😁)
+
+> 有些老铁遇到运行时报错，首先确定下是不是最新稳定版的 nodejs 和 npm 或者 yarn(推荐用 yarn)，切记不要用 cnpn
 
 ```js
 // 首推荐使用yarn装包
 yarn or npm i
 ```
+
 ##### 3.启动项目
+
 ```js
 yarn start or npm start
 ```
+
 ##### 4.打包项目
+
 ```js
 yarn build or npm run build
 ```
 
 ### Q&A(点击问题查看答案)
-#### 1.[create-react-app 打包项目run build 增加进度条信息?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-325383346)
+
+#### 1.[create-react-app 打包项目 run build 增加进度条信息?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-325383346)
+
 #### 2.[接口跨域了，怎么在本地开发时配置代理?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-326169055)
-#### 3.[在使用hashRouter的情况下怎么实现类似锚点跳转?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-345127221)
+
+#### 3.[在使用 hashRouter 的情况下怎么实现类似锚点跳转?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-345127221)
+
 #### 4.[怎么添加多页面配置?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-348088852)
+
 #### 5.[路由传参数接问号怎么传?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-375583089)
-#### 6.[如何兼容IE浏览器?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-510295292)
+
+#### 6.[如何兼容 IE 浏览器?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-510295292)
 
 ### 结尾
+
 该项目会不定时更新，后续时间会添加更多的模块
 
-欢迎和感谢大家PR~~👏👏
+欢迎和感谢大家 PR~~👏👏
 
-若有问题，可加QQ群与我交流
+若有问题，可加 QQ 群与我交流
 
-- 1群：264591039（已满）
-- 2群：592688854（已满）
-- 3群：743490497 (已满)
-- 4群：150131600
+-   1 群：264591039（已满）
+-   2 群：592688854（已满）
+-   3 群：743490497 (已满)
+-   4 群：150131600
 
-如果对你有帮助，给个star哟~~❤️❤️❤️❤️
+如果对你有帮助，给个 star 哟~~❤️❤️❤️❤️
