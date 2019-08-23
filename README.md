@@ -1,4 +1,4 @@
-# react-admin([尝试一下](https://codesandbox.io/s/react-admin-u9kdb))
+# react-admin([尝试一下在线编辑](https://codesandbox.io/s/react-admin-u9kdb))
 
 react-admin system solution
 
@@ -223,6 +223,10 @@ yarn build or npm run build
 #### 5.[路由传参数接问号怎么传?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-375583089)
 
 #### 6.[如何兼容 IE 浏览器?](https://github.com/yezihaohao/react-admin/issues/12#issuecomment-510295292)
+
+### License
+
+MIT
 
 ### 结尾
 
