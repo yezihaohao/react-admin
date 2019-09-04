@@ -88,7 +88,19 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "theme": "node theme.js",
-    "prettier": "prettier -c --write \"src/**/*.{js,ts,html,css}\""
+    "prettier": "prettier -c --write \"src/**/*.{js,ts,html,css}\"",
+    "commit": "git-cz",
+    "release": "standard-version"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -141,6 +153,12 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^1.6.0"
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "husky": "^3.0.5",
+    "standard-version": "^7.0.0"
   }
 }
