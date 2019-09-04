@@ -84,4 +84,7 @@
 
 ![截图](https://raw.githubusercontent.com/yezihaohao/react-admin/master/screenshots/menu_draggable.gif)
 
+#### 2019-09-04
+- 增加Git提交message规范约束工具[commitizen](https://github.com/commitizen/cz-cli)
+    - Git提交规范往往是团队编码必需，借助工具能形成更好的约束，如果你不喜欢用，可参照提交记录去掉[bd426fd](https://github.com/yezihaohao/react-admin/commit/a9401d191edd077bc3e59c8dbeeb61e5029cde95)
 
