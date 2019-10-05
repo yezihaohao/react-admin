@@ -9,14 +9,22 @@ import { connectAlita } from 'redux-alita';
 
 const { Content, Footer } = Layout;
 
-class App extends Component {
+type AppProps = {
+    setAlitaState: (param: any) => void;
+    auth: any;
+    responsive: any;
+};
+
+class App extends Component<AppProps> {
     state = {
         collapsed: false,
         title: '',
     };
     componentWillMount() {
         const { setAlitaState } = this.props;
-        const user = JSON.parse(localStorage.getItem('user'));
+        let user,
+            storageUser = localStorage.getItem('user');
+        user = storageUser && JSON.parse(storageUser);
         // user && receiveData(user, 'auth');
         user && setAlitaState({ stateName: 'auth', data: user });
         // receiveData({a: 213}, 'auth');
@@ -60,8 +68,11 @@ class App extends Component {
             });
             localStorage.setItem('isFirst', JSON.stringify(true));
         };
-        const isFirst = JSON.parse(localStorage.getItem('isFirst'));
-        !isFirst && openNotification();
+        const storageFirst = localStorage.getItem('isFirst');
+        if (storageFirst) {
+            const isFirst = JSON.parse(storageFirst);
+            !isFirst && openNotification();
+        }
     }
     getClientWidth = () => {
         // 获取当前浏览器宽度并设置responsive管理响应式
@@ -79,7 +90,6 @@ class App extends Component {
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} } } = this.props;
-        console.log(auth);
         return (
             <DocumentTitle title={title}>
                 <Layout>

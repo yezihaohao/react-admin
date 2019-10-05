@@ -1263,6 +1263,10 @@
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/@types/eslint-visitor-keys/download/@types/eslint-visitor-keys-1.0.0.tgz?cache=0&sync_timestamp=1567559855431&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Feslint-visitor-keys%2Fdownload%2F%40types%2Feslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
 
+"@types/history@*":
+  version "4.7.3"
+  resolved "https://registry.npm.taobao.org/@types/history/download/@types/history-4.7.3.tgz?cache=0&sync_timestamp=1567533147731&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fhistory%2Fdownload%2F%40types%2Fhistory-4.7.3.tgz#856c99cdc1551d22c22b18b5402719affec9839a"
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/@types/istanbul-lib-coverage/download/@types/istanbul-lib-coverage-2.0.1.tgz#42995b446db9a48a11a07ec083499a860e9138ff"
@@ -1314,10 +1318,31 @@
   version "1.5.2"
   resolved "https://registry.npm.taobao.org/@types/q/download/@types/q-1.5.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fq%2Fdownload%2F%40types%2Fq-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
 
+"@types/react-document-title@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.npm.taobao.org/@types/react-document-title/download/@types/react-document-title-2.0.3.tgz#32d0b3d0d36a9041d13b01106c64309388a0153a"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@16.9.1":
   version "16.9.1"
   resolved "https://registry.npm.taobao.org/@types/react-dom/download/@types/react-dom-16.9.1.tgz#79206237cba9532a9f870b1cd5428bef6b66378c"
   dependencies:
+    "@types/react" "*"
+
+"@types/react-router-dom@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.npm.taobao.org/@types/react-router-dom/download/@types/react-router-dom-5.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact-router-dom%2Fdownload%2F%40types%2Freact-router-dom-5.1.0.tgz#8baa84a7fa8c8e7797fb3650ca51f93038cb4caf"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "5.1.1"
+  resolved "https://registry.npm.taobao.org/@types/react-router/download/@types/react-router-5.1.1.tgz#e0b827556abc70da3473d05daf074c839d6852aa"
+  dependencies:
+    "@types/history" "*"
     "@types/react" "*"
 
 "@types/react-slick@^0.23.4":
