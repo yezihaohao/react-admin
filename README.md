@@ -7,6 +7,8 @@ react-admin system solution
 ![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
+### 🔥🔥🔥 默认主分支切换成 TypeScript 开发，如果你希望继续使用 JS 开发，请使用[JS](https://github.com/yezihaohao/react-admin/tree/js)分支代码(继续维护)
+
 ### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
 
 ### 问题和方案汇总：[issue](https://github.com/yezihaohao/react-admin/issues/12)
@@ -21,6 +23,8 @@ react-admin system solution
 npm i -g react-admin-creator
 
 react-admin-creator myapp
+// 或者使用npx 下载模板
+npx react-admin-creator myapp
 ```
 
 ### 前言
