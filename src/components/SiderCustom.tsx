@@ -1,7 +1,7 @@
 /**
  * Created by hao.cheng on 2017/4/13.
  */
-import React, { Component, MouseEventHandler } from 'react';
+import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import routes from '../routes/config';
@@ -64,7 +64,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
         const state = SiderCustom.setMenuOpen(this.props);
         this.setState(state);
     }
-    menuClick = (e: { key: string } & MouseEventHandler<HTMLElement>) => {
+    menuClick = (e: any) => {
         this.setState({
             selectedKey: e.key,
         });
@@ -92,7 +92,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
                     onClick={this.menuClick}
                     mode="inline"
                     selectedKeys={[selectedKey]}
-                    openKeys={firstHide ? null : [openKey]}
+                    openKeys={firstHide ? [] : [openKey]}
                     onOpenChange={this.openMenu}
                 />
                 <style>
