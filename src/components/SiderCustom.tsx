@@ -14,42 +14,15 @@ type SiderCustomProps = RouteComponentProps<any> & {
     collapsed?: boolean;
 };
 type SiderCustomState = {
-    collapsed?: boolean;
+    collapsed?: boolean | undefined;
     openKey: string;
-    firstHide: boolean;
+    firstHide: boolean | undefined;
     selectedKey: string;
     mode: string;
 };
 
 class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
-    static getDerivedStateFromProps(props: any, state: any) {
-        if (props.collapsed !== state.collapsed) {
-            const state1 = SiderCustom.setMenuOpen(props);
-            const state2 = SiderCustom.onCollapse(props.collapsed);
-            return {
-                ...state1,
-                ...state2,
-                firstHide: state.collapsed !== props.collapsed && props.collapsed, // 两个不等时赋值props属性值否则为false
-                openKey: state.openKey || (!props.collapsed && state1.openKey),
-            };
-        }
-        return null;
-    }
-    static setMenuOpen = (props: any) => {
-        const { pathname } = props.location;
-        return {
-            openKey: pathname.substr(0, pathname.lastIndexOf('/')),
-            selectedKey: pathname,
-        };
-    };
-    static onCollapse = (collapsed: boolean) => {
-        return {
-            collapsed,
-            // firstHide: collapsed,
-            mode: collapsed ? 'vertical' : 'inline',
-        };
-    };
-    // state =
+
     constructor(props: any) {
         super(props);
         this.state = {
@@ -59,11 +32,21 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
             firstHide: true, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
         };
     }
-    componentDidMount() {
-        // this.setMenuOpen(this.props);
-        const state = SiderCustom.setMenuOpen(this.props);
-        this.setState(state);
+
+    componentDidUpdate() {
+        if (this.props.collapsed !== this.state.collapsed) {
+            const { collapsed, location } = this.props;
+            const { pathname } = location;
+            this.setState({
+                openKey: pathname.substr(0, pathname.lastIndexOf('/')),
+                selectedKey: pathname,
+                collapsed,
+                mode: collapsed ? 'vertical' : 'inline',
+                firstHide: collapsed,
+            });
+        }
     }
+
     menuClick = (e: any) => {
         this.setState({
             selectedKey: e.key,
