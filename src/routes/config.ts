@@ -6,7 +6,8 @@ export interface IFMenuBase {
     query?: string;
     auth?: string;
     route?: string;
-    login?: string;
+    /** 是否登录校验，true不进行校验（访客） */
+    login?: boolean;
 }
 
 export interface IFMenu extends IFMenuBase {
@@ -121,6 +122,12 @@ const menus: {
                     title: '问号形式参数',
                     component: 'QueryParams',
                     query: '?param1=1&param2=2',
+                },
+                {
+                    key: '/app/extension/visitor',
+                    title: '访客模式',
+                    component: 'Visitor',
+                    login: true,
                 },
             ],
         },

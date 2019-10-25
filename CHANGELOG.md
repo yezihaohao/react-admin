@@ -104,4 +104,9 @@
 
 #### 2019-09-26
 
--   更新 create-react-app3.x 版本，升级部分依赖 lib，详情请查看提交记录（有问题请提issue）
+-   更新 create-react-app3.x 版本，升级部分依赖 lib，详情请查看提交记录（有问题请提 issue）
+
+#### 2019-10-26
+
+-   新增访客模式的路由配置+demo（主路由配置）
+    -   [在线 Demo](https://admiring-dijkstra-34cb29.netlify.com/#/app/extension/visitor)

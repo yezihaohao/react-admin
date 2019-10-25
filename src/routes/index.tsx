@@ -7,27 +7,31 @@ import DocumentTitle from 'react-document-title';
 import AllComponents from '../components';
 import routesConfig, { IFMenuBase, IFMenu } from './config';
 import queryString from 'query-string';
+import { checkLogin } from '../utils';
 
 type CRouterProps = {
     auth: any;
 };
 
 export default class CRouter extends Component<CRouterProps> {
-    requireAuth = (permission: any, component: React.ReactElement) => {
+    getPermits = (): any[] | null => {
         const { auth } = this.props;
-        const { permissions } = auth.data;
+        return auth ? auth.data.permissions : null;
+    };
+
+    requireAuth = (permit: any, component: React.ReactElement) => {
+        const permits = this.getPermits();
         // const { auth } = store.getState().httpData;
-        if (!permissions || !permissions.includes(permission)) return <Redirect to={'404'} />;
+        if (!permits || !permits.includes(permit)) return <Redirect to={'404'} />;
         return component;
     };
-    requireLogin = (component: React.ReactElement, permission: any) => {
-        const { auth } = this.props;
-        const { permissions } = auth.data;
-        if (process.env.NODE_ENV === 'production' && !permissions) {
+    requireLogin = (component: React.ReactElement, permit: any) => {
+        const permits = this.getPermits();
+        if (!checkLogin(permits)) {
             // 线上环境判断是否登录
             return <Redirect to={'/login'} />;
         }
-        return permission ? this.requireAuth(permission, component) : component;
+        return permit ? this.requireAuth(permit, component) : component;
     };
     render() {
         return (

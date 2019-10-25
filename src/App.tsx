@@ -6,6 +6,7 @@ import HeaderCustom from './components/HeaderCustom';
 import { Layout, notification, Icon } from 'antd';
 import { ThemePicker } from './components/widget';
 import { connectAlita } from 'redux-alita';
+import { checkLogin } from './utils';
 
 const { Content, Footer } = Layout;
 
@@ -93,7 +94,9 @@ class App extends Component<AppProps> {
         return (
             <DocumentTitle title={title}>
                 <Layout>
-                    {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
+                    {!responsive.data.isMobile && checkLogin(auth.data.permissions) && (
+                        <SiderCustom collapsed={this.state.collapsed} />
+                    )}
                     <ThemePicker />
                     <Layout style={{ flexDirection: 'column' }}>
                         <HeaderCustom
