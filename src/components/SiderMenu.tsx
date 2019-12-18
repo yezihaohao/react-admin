@@ -16,29 +16,31 @@ const renderMenuItem = (
     </Menu.Item>
 );
 
-const renderSubMenu = (item: IFMenu) => (
-    <Menu.SubMenu
-        key={item.key}
-        title={
-            <span>
-                {item.icon && <Icon type={item.icon} />}
-                <span className="nav-text">{item.title}</span>
-            </span>
-        }
-    >
-        {item.subs!.map(item => renderMenuItem(item))}
-    </Menu.SubMenu>
-);
+const renderSubMenu = (item: IFMenu) => {
+    return (
+        <Menu.SubMenu
+            key={item.key}
+            title={
+                <span>
+                    {item.icon && <Icon type={item.icon} />}
+                    <span className="nav-text">{item.title}</span>
+                </span>
+            }
+        >
+            {item.subs!.map(sub => (sub.subs ? renderSubMenu(sub) : renderMenuItem(sub)))}
+        </Menu.SubMenu>
+    );
+};
 
 type SiderMenuProps = MenuProps & {
     menus: any;
     onClick: (e: any) => void;
     selectedKeys: string[];
-    openKeys: string[];
+    openKeys?: string[];
     onOpenChange: (v: string[]) => void;
-}
+};
 
-export default ({ menus, ...props } : SiderMenuProps) => {
+export default ({ menus, ...props }: SiderMenuProps) => {
     const [dragItems, setDragItems] = useState(menus);
     const reorder = (list: any, startIndex: number, endIndex: number) => {
         const result = Array.from(list);

@@ -110,3 +110,7 @@
 
 -   新增访客模式的路由配置+demo（主路由配置）
     -   [在线 Demo](https://admiring-dijkstra-34cb29.netlify.com/#/app/extension/visitor)
+
+#### 2019-12-18
+
+-   新增多级菜单配置功能（菜单可配置成无限的树状菜单，菜单嵌套过多时，样式问题可能需要你调整）
