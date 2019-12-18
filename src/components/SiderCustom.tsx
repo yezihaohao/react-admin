@@ -32,18 +32,28 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
         };
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps: SiderCustomProps) {
         if (this.props.collapsed !== this.state.collapsed) {
-            const { collapsed, location } = this.props;
-            const { pathname } = location;
+            const { collapsed } = this.props;
             this.setState({
-                openKeys: this.recombineOpenKeys(pathname.match(/[/](\w+)/gi) || []),
-                selectedKey: pathname,
+                ...this.getOpenAndSelectKeys(),
                 collapsed,
                 mode: collapsed ? 'vertical' : 'inline',
                 firstHide: collapsed,
             });
         }
+        if (prevProps.location.pathname !== this.props.location.pathname) {
+            this.setState({ ...this.getOpenAndSelectKeys() });
+        }
+    }
+
+    getOpenAndSelectKeys() {
+        const { location } = this.props;
+        const { pathname } = location;
+        return {
+            openKeys: this.recombineOpenKeys(pathname.match(/[/](\w+)/gi) || []),
+            selectedKey: pathname,
+        };
     }
 
     recombineOpenKeys = (openKeys: string[]) => {
@@ -73,7 +83,6 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
     };
     render() {
         const { selectedKey, openKeys, firstHide, collapsed } = this.state;
-        console.log(openKeys);
         return (
             <Sider
                 trigger={null}
