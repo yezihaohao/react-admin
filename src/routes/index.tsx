@@ -65,7 +65,7 @@ export default class CRouter extends Component<CRouterProps> {
                             );
                             return r.login
                                 ? wrappedComponent
-                                : this.requireLogin(wrappedComponent, r.auth);
+                                : this.requireLogin(wrappedComponent, r.requireAuth);
                         }}
                     />
                 );

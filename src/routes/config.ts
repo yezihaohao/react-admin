@@ -4,7 +4,7 @@ export interface IFMenuBase {
     icon?: string;
     component?: string;
     query?: string;
-    auth?: string;
+    requireAuth?: string;
     route?: string;
     /** 是否登录校验，true不进行校验（访客） */
     login?: boolean;
@@ -105,7 +105,7 @@ const menus: {
                     key: '/app/auth/routerEnter',
                     title: '路由拦截',
                     component: 'RouterEnter',
-                    auth: 'auth/testPage',
+                    requireAuth: 'auth/testPage',
                 },
             ],
         },
