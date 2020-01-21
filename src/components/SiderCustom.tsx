@@ -4,15 +4,16 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import routes, { IFMenuBase } from '../routes/config';
+import routes from '../routes/config';
 import SiderMenu from './SiderMenu';
-import { fetchMenu } from '../axios';
+import { connectAlita } from 'redux-alita';
 
 const { Sider } = Layout;
 
 type SiderCustomProps = RouteComponentProps<any> & {
     popoverHide?: () => void;
     collapsed?: boolean;
+    smenus?: any;
 };
 type SiderCustomState = {
     collapsed?: boolean | undefined;
@@ -20,7 +21,6 @@ type SiderCustomState = {
     firstHide: boolean | undefined;
     selectedKey: string;
     mode: string;
-    smenus: IFMenuBase[];
 };
 
 class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
@@ -31,12 +31,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
             openKeys: [],
             selectedKey: '',
             firstHide: true, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
-            smenus: [],
         };
-    }
-
-    componentDidMount() {
-        fetchMenu().then(smenus => this.setState({ smenus }));
     }
 
     componentDidUpdate(prevProps: SiderCustomProps) {
@@ -89,7 +84,8 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
         });
     };
     render() {
-        const { selectedKey, openKeys, firstHide, collapsed, smenus } = this.state;
+        const { selectedKey, openKeys, firstHide, collapsed } = this.state;
+        const { smenus } = this.props;
         return (
             <Sider
                 trigger={null}
@@ -100,7 +96,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
             >
                 <div className="logo" />
                 <SiderMenu
-                    menus={[...routes.menus, ...smenus]}
+                    menus={[...routes.menus, ...smenus.data]}
                     onClick={this.menuClick}
                     mode="inline"
                     selectedKeys={[selectedKey]}
@@ -120,4 +116,4 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
     }
 }
 
-export default withRouter(SiderCustom);
+export default connectAlita([{ smenus: [] }])(withRouter(SiderCustom));

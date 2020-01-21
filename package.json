@@ -91,6 +91,7 @@
         "terser-webpack-plugin": "1.4.1",
         "ts-pnp": "1.1.4",
         "typescript": "3.6.3",
+        "umbrella-storage": "^1.0.2",
         "url-loader": "2.1.0",
         "webpack": "4.41.0",
         "webpack-dev-server": "3.2.1",

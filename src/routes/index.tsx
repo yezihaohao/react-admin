@@ -8,27 +8,17 @@ import AllComponents from '../components';
 import routesConfig, { IFMenuBase, IFMenu } from './config';
 import queryString from 'query-string';
 import { checkLogin } from '../utils';
-import { fetchMenu } from '../axios';
+import { connectAlita } from 'redux-alita';
+import umbrella from 'umbrella-storage';
 
 type CRouterProps = {
     auth: any;
+    smenus: any;
 };
 
-type CRouterState = {
-    smenus: any[];
-};
+type CRouterState = {};
 
-export default class CRouter extends Component<CRouterProps, CRouterState> {
-    constructor(props: CRouterProps) {
-        super(props);
-        this.state = {
-            smenus: [],
-        };
-    }
-    componentDidMount() {
-        fetchMenu().then(smenus => this.setState({ smenus }));
-    }
-
+class CRouter extends Component<CRouterProps, CRouterState> {
     getPermits = (): any[] | null => {
         const { auth } = this.props;
         return auth ? auth.data.permissions : null;
@@ -96,13 +86,15 @@ export default class CRouter extends Component<CRouterProps, CRouterState> {
     };
 
     render() {
-        const { smenus } = this.state;
+        const { smenus } = this.props;
         return (
             <Switch>
                 {Object.keys(routesConfig).map(key => this.createRoute(key))}
-                {smenus.map(this.iterteMenu)}
+                {(smenus.data || umbrella.getLocalStorage('smenus') || []).map(this.iterteMenu)}
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>
         );
     }
 }
+
+export default connectAlita([{ smenus: null }])(CRouter);

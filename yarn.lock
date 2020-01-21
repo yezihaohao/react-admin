@@ -10898,6 +10898,11 @@ uglify-js@^3.1.4:
     commander "~2.20.0"
     source-map "~0.6.1"
 
+umbrella-storage@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/umbrella-storage/-/umbrella-storage-1.0.2.tgz#3b63bd043bc0a400fb1965677df8b68d8a286eab"
+  integrity sha512-6w5OcVmUYws3N40f1bnEVONtjWlIqGBbdsEJmlfe6BS0xYx/m2sbx+jKA3fM194VNLYp0Y//6uAd4DjbIV58Rg==
+
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/unicode-canonical-property-names-ecmascript/download/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
