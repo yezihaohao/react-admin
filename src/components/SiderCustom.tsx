@@ -4,8 +4,9 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import routes from '../routes/config';
+import routes, { IFMenuBase } from '../routes/config';
 import SiderMenu from './SiderMenu';
+import { fetchMenu } from '../axios';
 
 const { Sider } = Layout;
 
@@ -19,6 +20,7 @@ type SiderCustomState = {
     firstHide: boolean | undefined;
     selectedKey: string;
     mode: string;
+    smenus: IFMenuBase[];
 };
 
 class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
@@ -29,7 +31,12 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
             openKeys: [],
             selectedKey: '',
             firstHide: true, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
+            smenus: [],
         };
+    }
+
+    componentDidMount() {
+        fetchMenu().then(smenus => this.setState({ smenus }));
     }
 
     componentDidUpdate(prevProps: SiderCustomProps) {
@@ -82,7 +89,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
         });
     };
     render() {
-        const { selectedKey, openKeys, firstHide, collapsed } = this.state;
+        const { selectedKey, openKeys, firstHide, collapsed, smenus } = this.state;
         return (
             <Sider
                 trigger={null}
@@ -93,7 +100,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
             >
                 <div className="logo" />
                 <SiderMenu
-                    menus={routes.menus}
+                    menus={[...routes.menus, ...smenus]}
                     onClick={this.menuClick}
                     mode="inline"
                     selectedKeys={[selectedKey]}

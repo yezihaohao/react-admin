@@ -29,6 +29,8 @@ import MapUi from './ui/map';
 import QueryParams from './extension/QueryParams';
 import Visitor from './extension/Visitor';
 import MultipleMenu from './extension/MultipleMenu';
+import Sub1 from './smenu/Sub1';
+import Sub2 from './smenu/Sub2';
 
 const WysiwygBundle = Loadable({
     // 按需加载富文本配置
@@ -63,4 +65,6 @@ export default {
     QueryParams,
     Visitor,
     MultipleMenu,
+    Sub1,
+    Sub2,
 } as any;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
@@ -40,8 +40,13 @@ type SiderMenuProps = MenuProps & {
     onOpenChange: (v: string[]) => void;
 };
 
-export default ({ menus, ...props }: SiderMenuProps) => {
-    const [dragItems, setDragItems] = useState(menus);
+const SiderMenu = ({ menus, ...props }: SiderMenuProps) => {
+    const [dragItems, setDragItems] = useState<any>([]);
+
+    useEffect(() => {
+        setDragItems(menus);
+    }, [menus]);
+
     const reorder = (list: any, startIndex: number, endIndex: number) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
@@ -89,3 +94,5 @@ export default ({ menus, ...props }: SiderMenuProps) => {
         </DragDropContext>
     );
 };
+
+export default React.memo(SiderMenu);
