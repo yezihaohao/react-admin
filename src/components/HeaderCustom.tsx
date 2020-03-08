@@ -11,6 +11,7 @@ import { queryString } from '../utils';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { PwaInstaller } from './widget';
 import { connectAlita } from 'redux-alita';
+import umbrella from 'umbrella-storage';
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -34,22 +35,21 @@ class HeaderCustom extends Component<HeaderCustomProps, HeaderCustomState> {
     };
     componentDidMount() {
         const QueryString = queryString() as any;
-        let _user,
-            storageUser = localStorage.getItem('user');
+        let storageUser = umbrella.getLocalStorage('user');
 
-        _user = (storageUser && JSON.parse(storageUser)) || '测试';
-        if (!_user && QueryString.hasOwnProperty('code')) {
+        // _user = (storageUser && JSON.parse(storageUser)) || '测试';
+        if (!storageUser && QueryString.hasOwnProperty('code')) {
             gitOauthToken(QueryString.code).then((res: any) => {
                 gitOauthInfo(res.access_token).then((info: any) => {
                     this.setState({
                         user: info,
                     });
-                    localStorage.setItem('user', JSON.stringify(info));
+                    umbrella.setLocalStorage('user', info);
                 });
             });
         } else {
             this.setState({
-                user: _user,
+                user: storageUser,
             });
         }
     }
@@ -62,7 +62,7 @@ class HeaderCustom extends Component<HeaderCustomProps, HeaderCustomState> {
         e.key === 'logout' && this.logout();
     };
     logout = () => {
-        localStorage.removeItem('user');
+        umbrella.removeLocalStorage('user');
         this.props.history.push('/login');
     };
     popoverHide = () => {

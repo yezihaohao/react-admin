@@ -25,9 +25,8 @@ class App extends Component<AppProps> {
     };
     componentWillMount() {
         const { setAlitaState } = this.props;
-        let user,
-            storageUser = localStorage.getItem('user');
-        user = storageUser && JSON.parse(storageUser);
+        let user = umbrella.getLocalStorage('user');
+        // user = storageUser && JSON.parse(storageUser);
         user && setAlitaState({ stateName: 'auth', data: user });
         this.getClientWidth();
         window.onresize = () => {
@@ -70,12 +69,11 @@ class App extends Component<AppProps> {
                 icon: <Icon type="smile-circle" style={{ color: 'red' }} />,
                 duration: 0,
             });
-            localStorage.setItem('isFirst', JSON.stringify(true));
+            umbrella.setLocalStorage('hideBlog', true);
         };
-        const storageFirst = localStorage.getItem('isFirst');
-        if (storageFirst) {
-            const isFirst = JSON.parse(storageFirst);
-            !isFirst && openNotification();
+        const storageFirst = umbrella.getLocalStorage('hideBlog');
+        if (!storageFirst) {
+            openNotification();
         }
     };
     /**
@@ -85,7 +83,7 @@ class App extends Component<AppProps> {
         const setAlitaMenu = (menus: any) => {
             this.props.setAlitaState({ stateName: 'smenus', data: menus });
         };
-        setAlitaMenu(umbrella.getLocalStorage('smenus'));
+        setAlitaMenu(umbrella.getLocalStorage('smenus') || []);
         fetchMenu().then(smenus => {
             setAlitaMenu(smenus);
             umbrella.setLocalStorage('smenus', smenus);

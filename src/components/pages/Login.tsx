@@ -7,6 +7,7 @@ import { PwaInstaller } from '../widget';
 import { connectAlita } from 'redux-alita';
 import { RouteComponentProps } from 'react-router';
 import { FormProps } from 'antd/lib/form';
+import umbrella from 'umbrella-storage';
 
 const FormItem = Form.Item;
 type LoginProps = {
@@ -25,7 +26,7 @@ class Login extends React.Component<LoginProps> {
         // const { history } = this.props;
         if (nextAuth.data && nextAuth.data.uid) {
             // 判断是否登陆
-            localStorage.setItem('user', JSON.stringify(nextAuth.data));
+            umbrella.setLocalStorage('user', nextAuth.data);
             history.push('/');
         }
     }
