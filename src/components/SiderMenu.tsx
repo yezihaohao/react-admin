@@ -27,7 +27,7 @@ const renderSubMenu = (item: IFMenu) => {
                 </span>
             }
         >
-            {item.subs!.map(sub => (sub.subs ? renderSubMenu(sub) : renderMenuItem(sub)))}
+            {item.subs!.map((sub) => (sub.subs ? renderSubMenu(sub) : renderMenuItem(sub)))}
         </Menu.SubMenu>
     );
 };
@@ -70,19 +70,20 @@ const SiderMenu = ({ menus, ...props }: SiderMenuProps) => {
                         {dragItems.map((item: IFMenu, index: number) => (
                             <Draggable key={item.key} draggableId={item.key} index={index}>
                                 {(provided, snapshot) => (
-                                    <div>
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.dragHandleProps}
-                                            {...provided.draggableProps}
-                                        >
-                                            <Menu {...props}>
-                                                {item.subs!
-                                                    ? renderSubMenu(item)
-                                                    : renderMenuItem(item)}
-                                            </Menu>
-                                        </div>
-                                        {provided.placeholder}
+                                    <div
+                                        ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps}
+                                        onDragStart={(e: React.DragEvent<any>) =>
+                                            provided.dragHandleProps &&
+                                            provided.dragHandleProps.onDragStart(e as any)
+                                        }
+                                    >
+                                        <Menu {...props}>
+                                            {item.subs!
+                                                ? renderSubMenu(item)
+                                                : renderMenuItem(item)}
+                                        </Menu>
                                     </div>
                                 )}
                             </Draggable>
