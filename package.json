@@ -112,7 +112,8 @@
     },
     "husky": {
         "hooks": {
-            "commit-msg": "commitlint -e $GIT_PARAMS"
+            "commit-msg": "commitlint -e $GIT_PARAMS",
+            "pre-commit": "pretty-quick --staged"
         }
     },
     "eslintConfig": {
@@ -202,6 +203,8 @@
         "husky": "^3.0.5",
         "less": "2.x",
         "less-loader": "^5.0.0",
+        "prettier": "^2.0.4",
+        "pretty-quick": "^2.0.1",
         "standard-version": "^7.0.0"
     }
 }
