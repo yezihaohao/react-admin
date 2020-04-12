@@ -1,5 +1,4 @@
-import ThemePicker from './ThemePicker';
-import AuthWidget from './AuthWidget';
-import PwaInstaller from './PwaInstaller';
-
-export { ThemePicker, AuthWidget, PwaInstaller };
+export { default as PwaInstaller } from './PwaInstaller';
+export { default as AuthWidget } from './AuthWidget';
+export { default as ThemePicker } from './ThemePicker';
+export { default as Copyright } from './Copyright';

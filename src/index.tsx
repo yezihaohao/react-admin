@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
-import Page from './Page';
-import * as apis from './axios';
-// import { AppContainer } from 'react-hot-loader';
 import { AlitaProvider, setConfig } from 'redux-alita';
 import umbrella from 'umbrella-storage';
+import Page from './Page';
+import * as serviceWorker from './serviceWorker';
+import * as apis from './axios';
+// import { AppContainer } from 'react-hot-loader';
 import './style/lib/animate.css';
-import './style/antd/index.less';
 import './style/index.less';
+import './style/antd/index.less';
 
 setConfig(apis);
 umbrella.config('REACT-ADMIN');

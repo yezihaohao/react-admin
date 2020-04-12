@@ -4,12 +4,12 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import DocumentTitle from 'react-document-title';
-import AllComponents from '../components';
-import routesConfig, { IFMenuBase, IFMenu } from './config';
-import queryString from 'query-string';
-import { checkLogin } from '../utils';
 import { connectAlita } from 'redux-alita';
 import umbrella from 'umbrella-storage';
+import queryString from 'query-string';
+import AllComponents from '../components';
+import routesConfig, { IFMenuBase, IFMenu } from './config';
+import { checkLogin } from '../utils';
 
 type CRouterProps = {
     auth: any;
@@ -40,6 +40,29 @@ class CRouter extends Component<CRouterProps, CRouterState> {
     };
 
     iterteMenu = (r: IFMenu) => {
+        const mergeQueryToProps = (props: any) => {
+            const queryReg = /\?\S*/g;
+
+            const matchQuery = (reg: RegExp) => {
+                const queryParams = window.location.hash.match(reg);
+                return queryParams ? queryParams[0] : '{}';
+            };
+            const removeQueryInRouter = (props: any, reg: RegExp) => {
+                const { params } = props.match;
+                Object.keys(params).forEach((key) => {
+                    params[key] = params[key] && params[key].replace(reg, '');
+                });
+                props.match.params = { ...params };
+            };
+
+            props = removeQueryInRouter(props, queryReg);
+
+            const merge = {
+                ...props,
+                query: queryString.parse(matchQuery(queryReg)),
+            };
+            return merge;
+        };
         const route = (r: IFMenuBase) => {
             const Component = r.component && AllComponents[r.component];
             return (
@@ -47,24 +70,11 @@ class CRouter extends Component<CRouterProps, CRouterState> {
                     key={r.route || r.key}
                     exact
                     path={r.route || r.key}
-                    render={props => {
-                        const reg = /\?\S*/g;
-                        // 匹配?及其以后字符串
-                        const queryParams = window.location.hash.match(reg);
-                        // 去除?的参数
-                        const { params } = props.match;
-                        Object.keys(params).forEach(key => {
-                            params[key] = params[key] && params[key].replace(reg, '');
-                        });
-                        props.match.params = { ...params };
-                        const merge = {
-                            ...props,
-                            query: queryParams ? queryString.parse(queryParams[0]) : {},
-                        };
+                    render={(props: any) => {
                         // 重新包装组件
                         const wrappedComponent = (
                             <DocumentTitle title={r.title}>
-                                <Component {...merge} />
+                                <Component {...mergeQueryToProps(props)} />
                             </DocumentTitle>
                         );
                         return r.login
@@ -89,7 +99,7 @@ class CRouter extends Component<CRouterProps, CRouterState> {
         const { smenus } = this.props;
         return (
             <Switch>
-                {Object.keys(routesConfig).map(key => this.createRoute(key))}
+                {Object.keys(routesConfig).map((key) => this.createRoute(key))}
                 {(smenus.data || umbrella.getLocalStorage('smenus') || []).map(this.iterteMenu)}
                 <Route render={() => <Redirect to="/404" />} />
             </Switch>
