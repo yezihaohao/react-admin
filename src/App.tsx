@@ -24,14 +24,13 @@ class App extends Component<AppProps> {
         collapsed: false,
         title: '',
     };
-    componentWillMount() {
+    componentDidMount() {
         const { setAlitaState } = this.props;
         let user = umbrella.getLocalStorage('user');
         user && setAlitaState({ stateName: 'auth', data: user });
         this.getClientWidth();
         this.handleResize();
-    }
-    componentDidMount() {
+
         this.openFNotification();
         this.fetchSmenu();
     }
