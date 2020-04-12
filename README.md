@@ -17,14 +17,14 @@ react-admin system solution
 
 ### cli 安装和使用 react-admin 🔥
 
-使用 react-admin-creator 快速安装和下载 react-admin 模板来开发项目：
+使用 [saigao](https://github.com/yezihaohao/saigao) 快速安装和下载 react-admin 模板来开发项目：
 
 ```js
-npm i -g react-admin-creator
+npm i -g saigao
 
-react-admin-creator myapp
+saigao myapp
 // 或者使用npx 下载模板
-npx react-admin-creator myapp
+npx saigao myapp
 ```
 
 ### 前言
