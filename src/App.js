@@ -95,7 +95,7 @@ class App extends Component {
                             <Routes auth={auth} />
                         </Content>
                         <Footer style={{ textAlign: 'center' }}>
-                            React-Admin ©{new Date().getFullYear()} Created by 865470087@qq.com
+                            React-Admin ©{new Date().getFullYear()} Created by ychjixian@163.com
                         </Footer>
                     </Layout>
                 </Layout>

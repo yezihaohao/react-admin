@@ -35,7 +35,7 @@ class Login extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <div className="login">
+            <div className="login" style={{background: '#333'}}>
                 <div className="login-form" >
                     <div className="login-logo">
                         <span>React Admin</span>

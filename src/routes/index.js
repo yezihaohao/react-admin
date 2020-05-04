@@ -1,6 +1,3 @@
-/**
- * Created by 叶子 on 2017/8/13.
- */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import DocumentTitle from 'react-document-title';
