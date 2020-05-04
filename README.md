@@ -1,4 +1,4 @@
-# react-admin([尝试一下在线编辑](https://codesandbox.io/s/react-admin-u9kdb))
+# react-admin
 
 react-admin system solution
 
