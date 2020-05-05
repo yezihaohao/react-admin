@@ -1,6 +1,3 @@
-/**
- * Created by SEELE on 2017/8/23.
- */
 import React, { Component } from 'react';
 import ReactEcharts from 'echarts-for-react';
 

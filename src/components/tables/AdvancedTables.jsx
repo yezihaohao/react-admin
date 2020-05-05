@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/16.
- */
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import FixedTable from './FixedTable';

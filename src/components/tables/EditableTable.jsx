@@ -1,7 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/16.
- */
-
 import React from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form, Button } from 'antd';
 

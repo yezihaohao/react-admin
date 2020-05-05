@@ -1,12 +1,8 @@
-/**
- * Created by hao.cheng on 2017/4/13.
- */
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { withRouter } from 'react-router-dom';
 import routes from '../routes/config';
 import SiderMenu from './SiderMenu';
-
 const { Sider } = Layout;
 
 class SiderCustom extends Component {
@@ -68,9 +64,11 @@ class SiderCustom extends Component {
                 trigger={null}
                 breakpoint="lg"
                 collapsed={collapsed}
-                style={{ overflowY: 'auto' }}
-            >
-                <div className="logo" />
+                style={{ overflowY: 'auto' }}>
+                <div className="logo" style={{textAlign:'center'}}>
+                    <img style={{width:'32px'}} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="" />
+                    &nbsp;&nbsp;Ant Design
+                </div>
                 <SiderMenu
                     menus={routes.menus}
                     onClick={this.menuClick}

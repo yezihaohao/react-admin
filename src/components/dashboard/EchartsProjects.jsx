@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/5/5.
- */
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 

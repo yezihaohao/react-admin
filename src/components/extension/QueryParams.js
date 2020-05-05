@@ -1,10 +1,3 @@
-/*
- * File: QueryParams.js
- * Desc: query参数demo
- * File Created: 2018-11-25 23:18:09
- * Author: chenghao
- * Copyright 2018 - present, chenghao
- */
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
 import BreadcrumbCustom from '../BreadcrumbCustom';

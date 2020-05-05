@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/26.
- */
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
 import BreadcrumbCustom from '../BreadcrumbCustom';

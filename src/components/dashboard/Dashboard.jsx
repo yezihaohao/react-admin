@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/5/3.
- */
 import React from 'react';
 import { Row, Col, Card, Timeline, Icon } from 'antd';
 import BreadcrumbCustom from '../BreadcrumbCustom';
@@ -113,6 +110,15 @@ class Dashboard extends React.Component {
                                 </div>
                                 <span className="card-tool"><Icon type="sync" /></span>
                                 <ul className="list-group no-border">
+                                    <li className="list-group-item">
+                                        <span className="pull-left w-40 mr-m">
+                                            <img src={b1} className="img-responsive img-circle" alt="test" />
+                                        </span>
+                                        <div className="clear">
+                                            <span className="block">memorychen-Js</span>
+                                            <span className="text-muted">React Admin is studying.</span>
+                                        </div>
+                                    </li>
                                     <li className="list-group-item">
                                         <span className="pull-left w-40 mr-m">
                                             <img src={b1} className="img-responsive img-circle" alt="test" />

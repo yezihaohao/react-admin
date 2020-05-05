@@ -58,7 +58,6 @@ class App extends Component {
         const clientWidth = window.innerWidth;
         console.log(clientWidth);
         setAlitaState({ stateName: 'responsive', data: { isMobile: clientWidth <= 992 } });
-        // receiveData({isMobile: clientWidth <= 992}, 'responsive');
     };
     toggle = () => {
         this.setState({

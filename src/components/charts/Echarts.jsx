@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/17.
- */
 import React from 'react';
 import { Row, Col, Card } from 'antd';
 import EchartsArea from './EchartsArea';

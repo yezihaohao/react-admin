@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/22.
- */
 import React from 'react';
 import {Radar, RadarChart, PolarGrid, Legend,
     PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer} from 'recharts';

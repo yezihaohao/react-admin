@@ -1,9 +1,3 @@
-/**
- *
- * 添加注释
- * Created by SEELE on 2018/1/12
- *
- */
 import React, { Component } from 'react';
 import { Col, Card, Row } from 'antd';
 import BreadcrumbCustom from '../BreadcrumbCustom';

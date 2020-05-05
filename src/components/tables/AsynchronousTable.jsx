@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/16.
- */
 import React from 'react';
 import { Table, Button, Row, Col, Card } from 'antd';
 import { getBbcNews } from '../../axios';

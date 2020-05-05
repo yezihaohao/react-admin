@@ -1,6 +1,3 @@
-/**
- * Created by hao.cheng on 2017/4/13.
- */
 import React, { Component } from 'react';
 import screenfull from 'screenfull';
 import avater from '../style/imgs/b1.jpg';
@@ -77,11 +74,7 @@ class HeaderCustom extends Component {
                         />
                     )
                 }
-                <Menu
-                    mode="horizontal"
-                    style={{ lineHeight: '64px', float: 'right' }}
-                    onClick={this.menuClick}
-                >
+                <Menu mode="horizontal" style={{ lineHeight: '64px', float: 'right' }} onClick={this.menuClick}>
                     <Menu.Item key="pwa">
                         <PwaInstaller />
                     </Menu.Item>
