@@ -12,7 +12,6 @@ class Login extends React.Component {
     }
     componentDidUpdate(prevProps) { // React 16.3+弃用componentWillReceiveProps
         const { auth: nextAuth = {}, history } = this.props;
-        // const { history } = this.props;
         if (nextAuth.data && nextAuth.data.uid) { // 判断是否登陆
             localStorage.setItem('user', JSON.stringify(nextAuth.data));
             history.push('/');

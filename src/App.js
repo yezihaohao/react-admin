@@ -17,10 +17,7 @@ class App extends Component {
     componentWillMount() {
         const { setAlitaState } = this.props;
         const user = JSON.parse(localStorage.getItem('user'));
-        // user && receiveData(user, 'auth');
         user && setAlitaState({ stateName: 'auth', data: user });
-        // receiveData({a: 213}, 'auth');
-        // fetchData({funcName: 'admin', stateName: 'auth'});
         this.getClientWidth();
         window.onresize = () => {
             console.log('屏幕变化了');
@@ -35,21 +32,13 @@ class App extends Component {
                     <div>
                         <p>
                             GitHub地址：{' '}
-                            <a
-                                href="https://github.com/yezihaohao"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://github.com/yezihaohao" target="_blank" rel="noopener noreferrer">
                                 https://github.com/yezihaohao
                             </a>
                         </p>
                         <p>
                             博客地址：{' '}
-                            <a
-                                href="https://yezihaohao.github.io/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <a href="https://yezihaohao.github.io/" target="_blank" rel="noopener noreferrer">
                                 https://yezihaohao.github.io/
                             </a>
                         </p>
@@ -79,7 +68,6 @@ class App extends Component {
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} } } = this.props;
-        console.log(auth);
         return (
             <DocumentTitle title={title}>
                 <Layout>
