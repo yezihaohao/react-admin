@@ -3,13 +3,12 @@
  */
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import DocumentTitle from 'react-document-title';
 import { connectAlita } from 'redux-alita';
 import umbrella from 'umbrella-storage';
-import queryString from 'query-string';
 import AllComponents from '../components';
 import routesConfig, { IFMenuBase, IFMenu } from './config';
 import { checkLogin } from '../utils';
+import RouteWrapper from './RouteWrapper';
 
 type CRouterProps = {
     auth: any;
@@ -40,29 +39,6 @@ class CRouter extends Component<CRouterProps, CRouterState> {
     };
 
     iterteMenu = (r: IFMenu) => {
-        const mergeQueryToProps = (props: any) => {
-            const queryReg = /\?\S*/g;
-
-            const matchQuery = (reg: RegExp) => {
-                const queryParams = window.location.hash.match(reg);
-                return queryParams ? queryParams[0] : '{}';
-            };
-            const removeQueryInRouter = (props: any, reg: RegExp) => {
-                const { params } = props.match;
-                Object.keys(params).forEach((key) => {
-                    params[key] = params[key] && params[key].replace(reg, '');
-                });
-                props.match.params = { ...params };
-            };
-
-            props = removeQueryInRouter(props, queryReg);
-
-            const merge = {
-                ...props,
-                query: queryString.parse(matchQuery(queryReg)),
-            };
-            return merge;
-        };
         const route = (r: IFMenuBase) => {
             const Component = r.component && AllComponents[r.component];
             return (
@@ -72,14 +48,10 @@ class CRouter extends Component<CRouterProps, CRouterState> {
                     path={r.route || r.key}
                     render={(props: any) => {
                         // 重新包装组件
-                        const wrappedComponent = (
-                            <DocumentTitle title={r.title}>
-                                <Component {...mergeQueryToProps(props)} />
-                            </DocumentTitle>
+                        const wrapper = (
+                            <RouteWrapper {...{ ...props, Comp: Component, route: r }} />
                         );
-                        return r.login
-                            ? wrappedComponent
-                            : this.requireLogin(wrappedComponent, r.requireAuth);
+                        return r.login ? wrapper : this.requireLogin(wrapper, r.requireAuth);
                     }}
                 />
             );
