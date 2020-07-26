@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, notification, Icon } from 'antd';
-import DocumentTitle from 'react-document-title';
 import umbrella from 'umbrella-storage';
-import { connectAlita } from 'redux-alita';
+import { useAlita } from 'redux-alita';
 import Routes from './routes';
 import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
@@ -12,140 +11,123 @@ import { fetchMenu } from './service';
 
 const { Content, Footer } = Layout;
 
-type AppProps = {
-    setAlitaState: (param: any) => void;
-    auth: any;
-    responsive: any;
-};
+type AppProps = {};
 
-class App extends Component<AppProps> {
-    state = {
-        collapsed: false,
-        title: '',
-    };
-    componentDidMount() {
-        const { setAlitaState } = this.props;
-        let user = umbrella.getLocalStorage('user');
-        user && setAlitaState({ stateName: 'auth', data: user });
-        this.getClientWidth();
-        this.handleResize();
+function checkIsMobile() {
+    const clientWidth = window.innerWidth;
+    return clientWidth <= 992;
+}
 
-        this.openFNotification();
-        this.fetchSmenu();
+let _resizeThrottled = false;
+function resizeListener(handler: (isMobile: boolean) => void) {
+    const delay = 250;
+    if (!_resizeThrottled) {
+        _resizeThrottled = true;
+        const timer = setTimeout(() => {
+            handler(checkIsMobile());
+            _resizeThrottled = false;
+            clearTimeout(timer);
+        }, delay);
     }
-    _resizeThrottled = false;
+}
+function handleResize(handler: (isMobile: boolean) => void) {
+    window.addEventListener('resize', resizeListener.bind(null, handler));
+}
 
-    handleResize = () => {
-        window.addEventListener('resize', this.resizeListener);
-    };
-
-    resizeListener = () => {
-        const delay = 250;
-        if (!this._resizeThrottled) {
-            this._resizeThrottled = true;
-            const timer = setTimeout(() => {
-                this.getClientWidth();
-
-                this._resizeThrottled = false;
-                clearTimeout(timer);
-            }, delay);
-        }
-    };
-
-    openFNotification = () => {
-        const openNotification = () => {
-            notification.open({
-                message: '博主-yezihaohao',
-                description: (
-                    <div>
-                        <p>
-                            GitHub地址：
-                            <a
-                                href="https://github.com/yezihaohao"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                https://github.com/yezihaohao
-                            </a>
-                        </p>
-                        <p>
-                            博客地址：
-                            <a
-                                href="https://yezihaohao.github.io/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                https://yezihaohao.github.io/
-                            </a>
-                        </p>
-                    </div>
-                ),
-                icon: <Icon type="smile-circle" style={{ color: 'red' }} />,
-                duration: 0,
-            });
-            umbrella.setLocalStorage('hideBlog', true);
-        };
-        const storageFirst = umbrella.getLocalStorage('hideBlog');
-        if (!storageFirst) {
-            openNotification();
-        }
-    };
-    /**
-     * 获取服务端异步菜单
-     */
-    fetchSmenu = () => {
-        const setAlitaMenu = (menus: any) => {
-            this.props.setAlitaState({ stateName: 'smenus', data: menus });
-        };
-        setAlitaMenu(umbrella.getLocalStorage('smenus') || []);
-        fetchMenu().then((smenus) => {
-            setAlitaMenu(smenus);
-            umbrella.setLocalStorage('smenus', smenus);
+function openFNotification() {
+    const openNotification = () => {
+        notification.open({
+            message: '博主-yezihaohao',
+            description: (
+                <div>
+                    <p>
+                        GitHub地址：
+                        <a
+                            href="https://github.com/yezihaohao"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            https://github.com/yezihaohao
+                        </a>
+                    </p>
+                    <p>
+                        博客地址：
+                        <a
+                            href="https://yezihaohao.github.io/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            https://yezihaohao.github.io/
+                        </a>
+                    </p>
+                </div>
+            ),
+            icon: <Icon type="smile-circle" style={{ color: 'red' }} />,
+            duration: 0,
         });
+        umbrella.setLocalStorage('hideBlog', true);
     };
-
-    getClientWidth = () => {
-        // 获取当前浏览器宽度并设置responsive管理响应式
-        const { setAlitaState } = this.props;
-        const clientWidth = window.innerWidth;
-        setAlitaState({ stateName: 'responsive', data: { isMobile: clientWidth <= 992 } });
-    };
-
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
-
-    render() {
-        const { title } = this.state;
-        const { auth, responsive } = this.props;
-        return (
-            <DocumentTitle title={title}>
-                <Layout>
-                    {!responsive.data.isMobile && checkLogin(auth.data.permissions) && (
-                        <SiderCustom collapsed={this.state.collapsed} />
-                    )}
-                    <ThemePicker />
-                    <Layout className="app_layout">
-                        <HeaderCustom
-                            toggle={this.toggle}
-                            collapsed={this.state.collapsed}
-                            user={auth.data || {}}
-                        />
-                        <Content className="app_layout_content">
-                            <Routes auth={auth} />
-                        </Content>
-                        <Footer className="app_layout_foot">
-                            <Copyright />
-                        </Footer>
-                    </Layout>
-                </Layout>
-            </DocumentTitle>
-        );
+    const storageFirst = umbrella.getLocalStorage('hideBlog');
+    if (!storageFirst) {
+        openNotification();
     }
 }
 
-export default connectAlita([{ auth: { permissions: null } }, { responsive: { isMobile: false } }])(
-    App
-);
+/**
+ * 获取服务端异步菜单
+ * @param handler 执行回调
+ */
+function fetchSmenu(handler: any) {
+    const setAlitaMenu = (menus: any) => {
+        handler(menus);
+        // this.props.setAlitaState({ stateName: 'smenus', data: menus });
+    };
+    setAlitaMenu(umbrella.getLocalStorage('smenus') || []);
+    fetchMenu().then((smenus) => {
+        setAlitaMenu(smenus);
+        umbrella.setLocalStorage('smenus', smenus);
+    });
+}
+
+const App = (props: AppProps) => {
+    const [collapsed, setCollapsed] = useState<boolean>(false);
+    const [auth, responsive, setAlita] = useAlita(
+        { auth: { permissions: null } },
+        { responsive: { isMobile: false } },
+        { light: true }
+    );
+
+    useEffect(() => {
+        let user = umbrella.getLocalStorage('user');
+        user && setAlita('auth', user);
+        setAlita('responsive', { isMobile: checkIsMobile() });
+
+        handleResize((isMobile: boolean) => setAlita('responsive', { isMobile }));
+        openFNotification();
+        fetchSmenu((smenus: any[]) => setAlita('smenus', smenus));
+    }, [setAlita]);
+
+    function toggle() {
+        setCollapsed(!collapsed);
+    }
+    debugger;
+    return (
+        <Layout>
+            {!responsive.isMobile && checkLogin(auth.permissions) && (
+                <SiderCustom collapsed={collapsed} />
+            )}
+            <ThemePicker />
+            <Layout className="app_layout">
+                <HeaderCustom toggle={toggle} collapsed={collapsed} user={auth || {}} />
+                <Content className="app_layout_content">
+                    <Routes auth={auth} />
+                </Content>
+                <Footer className="app_layout_foot">
+                    <Copyright />
+                </Footer>
+            </Layout>
+        </Layout>
+    );
+};
+
+export default App;

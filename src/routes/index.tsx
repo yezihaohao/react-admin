@@ -20,7 +20,7 @@ type CRouterState = {};
 class CRouter extends Component<CRouterProps, CRouterState> {
     getPermits = (): any[] | null => {
         const { auth } = this.props;
-        return auth ? auth.data.permissions : null;
+        return auth ? auth.permissions : null;
     };
 
     requireAuth = (permit: any, component: React.ReactElement) => {
