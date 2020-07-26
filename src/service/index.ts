@@ -10,14 +10,14 @@ export const getBbcNews = () => get({ url: config.NEWS_BBC });
 export const npmDependencies = () =>
     axios
         .get('./npm.json')
-        .then(res => res.data)
-        .catch(err => console.log(err));
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
 
 export const weibo = () =>
     axios
         .get('./weibo.json')
-        .then(res => res.data)
-        .catch(err => console.log(err));
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
 
 export const gitOauthLogin = () =>
     get({

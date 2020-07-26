@@ -8,8 +8,7 @@ import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
 import { ThemePicker, Copyright } from './components/widget';
 import { checkLogin } from './utils';
-import { fetchMenu } from './axios';
-import './App.less';
+import { fetchMenu } from './service';
 
 const { Content, Footer } = Layout;
 
@@ -120,7 +119,7 @@ class App extends Component<AppProps> {
 
     render() {
         const { title } = this.state;
-        const { auth = { data: {} }, responsive = { data: {} } } = this.props;
+        const { auth, responsive } = this.props;
         return (
             <DocumentTitle title={title}>
                 <Layout>
@@ -147,4 +146,6 @@ class App extends Component<AppProps> {
     }
 }
 
-export default connectAlita(['auth', 'responsive'])(App);
+export default connectAlita([{ auth: { permissions: null } }, { responsive: { isMobile: false } }])(
+    App
+);

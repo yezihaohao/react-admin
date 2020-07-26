@@ -8,7 +8,7 @@ const MOCK_API = 'https://react-admin-mock.now.sh/api';
 export const MOCK_AUTH_ADMIN = MOCK_API + '/admin.js'; // 管理员权限接口
 export const MOCK_AUTH_VISITOR = MOCK_API + '/visitor.js'; // 访问权限接口
 /** 服务端异步菜单接口 */
-export const MOCK_MENU = MOCK_API + '/menu.js'
+export const MOCK_MENU = MOCK_API + '/menu.js';
 
 // github授权
 export const GIT_OAUTH = 'https://github.com/login/oauth';

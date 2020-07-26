@@ -1,72 +1,73 @@
-@import "variables";
-@import "global";
-@import "scroll";
-@import "table";
-@import "login";
-@import "icons";
-@import "button";
-@import "modal";
-@import "menu";
-@import "banner";
-@import "card";
-@import "img";
-@import "utils-text";
-@import "utils-color";
-@import "utils-size";
-@import "utils-border";
-@import "utils-spacing";
+@import 'variables';
+@import 'global';
+@import 'scroll';
+@import 'table';
+@import 'login';
+@import 'icons';
+@import 'button';
+@import 'modal';
+@import 'menu';
+@import 'banner';
+@import 'card';
+@import 'img';
+@import 'utils-text';
+@import 'utils-color';
+@import 'utils-size';
+@import 'utils-border';
+@import 'utils-spacing';
+@import 'app.less';
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-#root{
-  height: 100%;
+#root {
+    height: 100%;
 }
-.ant-layout{
-  height: 100%;
-  .logo{
-    height: 32px;
-    background: #ffffff;
-    border-radius: 6px;
-    margin: 16px;
-  }
-  .ant-layout-sider-collapsed{
-    .anticon{
-      font-size: 16px;
-      // margin-left: 8px;
+.ant-layout {
+    height: 100%;
+    .logo {
+        height: 32px;
+        background: #ffffff;
+        border-radius: 6px;
+        margin: 16px;
     }
-    .nav-text{
-      display: none;
+    .ant-layout-sider-collapsed {
+        .anticon {
+            font-size: 16px;
+            // margin-left: 8px;
+        }
+        .nav-text {
+            display: none;
+        }
+        .ant-menu-submenu-vertical > .ant-menu-submenu-title:after {
+            display: none;
+        }
+        .ant-menu-dark:not(.ant-menu-inline) .ant-menu-submenu-open {
+            color: inherit;
+        }
     }
-    .ant-menu-submenu-vertical > .ant-menu-submenu-title:after{
-      display: none;
+    p {
+        margin: 10px 0 10px 0;
     }
-    .ant-menu-dark:not(.ant-menu-inline) .ant-menu-submenu-open {
-      color: inherit;
-    }
-  }
-  p {
-    margin: 10px 0 10px 0;
-  }
 }
-.gutter-example{
-  .ant-row{
-    //margin-left: 0 !important;
-    //margin-right: 0 !important;
-    >div{
-      background: transparent;
-      border: 0;
+.gutter-example {
+    .ant-row {
+        //margin-left: 0 !important;
+        //margin-right: 0 !important;
+        > div {
+            background: transparent;
+            border: 0;
+        }
     }
-  }
 }
 .gutter-box {
-  padding: 5px 0;
+    padding: 5px 0;
 }
 
 :global {
-  .ant-card-head-title {
-    font-size: 14px !important;
-  }
+    .ant-card-head-title {
+        font-size: 14px !important;
+    }
 }

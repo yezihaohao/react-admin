@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ReactEcharts from 'echarts-for-react';
-import { npmDependencies } from '../../axios';
+import { npmDependencies } from '../../service';
 
 class EchartsGraphnpm extends React.Component {
     state = {
@@ -40,12 +40,12 @@ class EchartsGraphnpm extends React.Component {
         },
     };
     componentDidMount() {
-        npmDependencies().then(npm => {
+        npmDependencies().then((npm) => {
             this.setState({
                 option: {
                     series: [
                         {
-                            data: npm.nodes.map(function(node: any) {
+                            data: npm.nodes.map(function (node: any) {
                                 return {
                                     x: node.x,
                                     y: node.y,
@@ -59,7 +59,7 @@ class EchartsGraphnpm extends React.Component {
                                     },
                                 };
                             }),
-                            edges: npm.edges.map(function(edge: any) {
+                            edges: npm.edges.map(function (edge: any) {
                                 return {
                                     source: edge.sourceID,
                                     target: edge.targetID,

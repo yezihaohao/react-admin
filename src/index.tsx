@@ -4,7 +4,7 @@ import { AlitaProvider, setConfig } from 'redux-alita';
 import umbrella from 'umbrella-storage';
 import Page from './Page';
 import * as serviceWorker from './serviceWorker';
-import * as apis from './axios';
+import * as apis from './service';
 // import { AppContainer } from 'react-hot-loader';
 import './style/lib/animate.css';
 import './style/index.less';

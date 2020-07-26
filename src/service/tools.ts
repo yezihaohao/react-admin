@@ -20,8 +20,8 @@ interface IFRequestParam {
 export const get = ({ url, msg = '接口异常', config }: IFRequestParam) =>
     axios
         .get(url, config)
-        .then(res => res.data)
-        .catch(err => {
+        .then((res) => res.data)
+        .catch((err) => {
             console.log(err);
             message.warn(msg);
         });
@@ -36,8 +36,8 @@ export const get = ({ url, msg = '接口异常', config }: IFRequestParam) =>
 export const post = ({ url, data, msg = '接口异常', config }: IFRequestParam) =>
     axios
         .post(url, data, config)
-        .then(res => res.data)
-        .catch(err => {
+        .then((res) => res.data)
+        .catch((err) => {
             console.log(err);
             message.warn(msg);
         });

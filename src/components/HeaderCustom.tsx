@@ -6,7 +6,7 @@ import screenfull from 'screenfull';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
 import { Menu, Icon, Layout, Badge, Popover } from 'antd';
-import { gitOauthToken, gitOauthInfo } from '../axios';
+import { gitOauthToken, gitOauthInfo } from '../service';
 import { queryString } from '../utils';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { PwaInstaller } from './widget';
@@ -74,7 +74,7 @@ class HeaderCustom extends Component<HeaderCustomProps, HeaderCustomState> {
         this.setState({ visible });
     };
     render() {
-        const { responsive = { data: {} } } = this.props;
+        const { responsive } = this.props;
         return (
             <Header className="custom-theme header">
                 {responsive.data.isMobile ? (
@@ -140,6 +140,6 @@ class HeaderCustom extends Component<HeaderCustomProps, HeaderCustomState> {
 const HeaderCustomConnect: React.ComponentClass<
     HeaderCustomProps,
     HeaderCustomState
-> = connectAlita(['responsive'])(HeaderCustom);
+> = connectAlita([{ responsive: { isMobile: false } }])(HeaderCustom);
 
 export default withRouter(HeaderCustomConnect);

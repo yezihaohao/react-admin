@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Table, Button, Row, Col, Card } from 'antd';
-import { getBbcNews } from '../../axios';
+import { getBbcNews } from '../../service';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 import { TableRowSelection } from 'antd/lib/table';
 
