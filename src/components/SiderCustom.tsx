@@ -30,7 +30,7 @@ class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
             mode: 'inline',
             openKeys: [],
             selectedKey: '',
-            firstHide: true, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
+            firstHide: false, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
         };
     }
 

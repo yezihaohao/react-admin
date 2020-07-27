@@ -110,7 +110,6 @@ const App = (props: AppProps) => {
     function toggle() {
         setCollapsed(!collapsed);
     }
-    debugger;
     return (
         <Layout>
             {!responsive.isMobile && checkLogin(auth.permissions) && (
