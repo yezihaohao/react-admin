@@ -149,6 +149,11 @@ const menus: {
                         },
                     ],
                 },
+                {
+                    key: '/app/extension/env',
+                    title: '环境配置',
+                    component: 'Env',
+                },
             ],
         },
     ],

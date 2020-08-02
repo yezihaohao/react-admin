@@ -31,6 +31,7 @@ import Visitor from './extension/Visitor';
 import MultipleMenu from './extension/MultipleMenu';
 import Sub1 from './smenu/Sub1';
 import Sub2 from './smenu/Sub2';
+import Env from './env';
 
 const WysiwygBundle = Loadable({
     // 按需加载富文本配置
@@ -67,4 +68,5 @@ export default {
     MultipleMenu,
     Sub1,
     Sub2,
+    Env,
 } as any;
