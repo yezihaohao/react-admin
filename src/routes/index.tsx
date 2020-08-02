@@ -1,9 +1,9 @@
 /**
  * Created by 叶子 on 2017/8/13.
  */
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
-import { connectAlita } from 'redux-alita';
+import { useAlita } from 'redux-alita';
 import umbrella from 'umbrella-storage';
 import AllComponents from '../components';
 import routesConfig, { IFMenuBase, IFMenu } from './config';
@@ -12,33 +12,29 @@ import RouteWrapper from './RouteWrapper';
 
 type CRouterProps = {
     auth: any;
-    smenus: any;
 };
 
-type CRouterState = {};
+const CRouter = (props: CRouterProps) => {
+    const { auth } = props;
+    const [smenus] = useAlita({ smenus: null }, { light: true });
 
-class CRouter extends Component<CRouterProps, CRouterState> {
-    getPermits = (): any[] | null => {
-        const { auth } = this.props;
+    const getPermits = (): any[] | null => {
         return auth ? auth.permissions : null;
     };
-
-    requireAuth = (permit: any, component: React.ReactElement) => {
-        const permits = this.getPermits();
-        // const { auth } = store.getState().httpData;
+    const requireAuth = (permit: any, component: React.ReactElement) => {
+        const permits = getPermits();
         if (!permits || !permits.includes(permit)) return <Redirect to={'404'} />;
         return component;
     };
-    requireLogin = (component: React.ReactElement, permit: any) => {
-        const permits = this.getPermits();
+    const requireLogin = (component: React.ReactElement, permit: any) => {
+        const permits = getPermits();
         if (!checkLogin(permits)) {
             // 线上环境判断是否登录
             return <Redirect to={'/login'} />;
         }
-        return permit ? this.requireAuth(permit, component) : component;
+        return permit ? requireAuth(permit, component) : component;
     };
-
-    iterteMenu = (r: IFMenu) => {
+    const createMenu = (r: IFMenu) => {
         const route = (r: IFMenuBase) => {
             const Component = r.component && AllComponents[r.component];
             return (
@@ -51,7 +47,7 @@ class CRouter extends Component<CRouterProps, CRouterState> {
                         const wrapper = (
                             <RouteWrapper {...{ ...props, Comp: Component, route: r }} />
                         );
-                        return r.login ? wrapper : this.requireLogin(wrapper, r.requireAuth);
+                        return r.login ? wrapper : requireLogin(wrapper, r.requireAuth);
                     }}
                 />
             );
@@ -62,21 +58,15 @@ class CRouter extends Component<CRouterProps, CRouterState> {
 
         return r.component ? route(r) : subRoute(r);
     };
+    const createRoute = (key: string) => routesConfig[key].map(createMenu);
+    const getAsyncMenus = () => smenus || umbrella.getLocalStorage('smenus') || [];
+    return (
+        <Switch>
+            {Object.keys(routesConfig).map((key) => createRoute(key))}
+            {getAsyncMenus().map(createMenu)}
+            <Route render={() => <Redirect to="/404" />} />
+        </Switch>
+    );
+};
 
-    createRoute = (key: string) => {
-        return routesConfig[key].map(this.iterteMenu);
-    };
-
-    render() {
-        const { smenus } = this.props;
-        return (
-            <Switch>
-                {Object.keys(routesConfig).map((key) => this.createRoute(key))}
-                {(smenus.data || umbrella.getLocalStorage('smenus') || []).map(this.iterteMenu)}
-                <Route render={() => <Redirect to="/404" />} />
-            </Switch>
-        );
-    }
-}
-
-export default connectAlita([{ smenus: null }])(CRouter);
+export default CRouter;
