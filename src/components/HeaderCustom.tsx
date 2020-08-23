@@ -7,7 +7,7 @@ import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
 import { Menu, Icon, Layout, Badge, Popover } from 'antd';
 import { gitOauthToken, gitOauthInfo } from '../service';
-import { queryString } from '../utils';
+import { parseQuery } from '../utils';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { PwaInstaller } from './widget';
 import { connectAlita } from 'redux-alita';
@@ -34,12 +34,12 @@ class HeaderCustom extends Component<HeaderCustomProps, HeaderCustomState> {
         visible: false,
     };
     componentDidMount() {
-        const QueryString = queryString() as any;
+        const query = parseQuery();
         let storageUser = umbrella.getLocalStorage('user');
 
         // _user = (storageUser && JSON.parse(storageUser)) || '测试';
-        if (!storageUser && QueryString.hasOwnProperty('code')) {
-            gitOauthToken(QueryString.code).then((res: any) => {
+        if (!storageUser && query.code) {
+            gitOauthToken(query.code as string).then((res: any) => {
                 gitOauthInfo(res.access_token).then((info: any) => {
                     this.setState({
                         user: info,
