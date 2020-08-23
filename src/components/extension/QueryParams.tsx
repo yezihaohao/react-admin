@@ -7,7 +7,7 @@
  */
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 
 type QueryParamsProps = {
     query: any;
@@ -18,7 +18,7 @@ class QueryParams extends Component<QueryParamsProps> {
         const { query } = this.props;
         return (
             <div>
-                <BreadcrumbCustom first="queryParams" />
+                <BreadcrumbCustom breads={['queryParams']} />
                 <Row gutter={16}>
                     <Col md={24}>
                         <Card title="query参数Demo" bordered={false}>

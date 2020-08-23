@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import draftToHtml from 'draftjs-to-html';
@@ -104,7 +104,7 @@ class Wysiwyg extends Component {
         const { editorContent, editorState } = this.state;
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="富文本" />
+                <BreadcrumbCustom breads={['UI', '富文本']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">

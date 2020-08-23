@@ -1,11 +1,11 @@
 import React from 'react';
 import Tencent from './Tencent';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../../BreadcrumbCustom';
+import BreadcrumbCustom from '../../widget/BreadcrumbCustom';
 
 export default () => (
     <div>
-        <BreadcrumbCustom first="UI" second="地图" />
+        <BreadcrumbCustom breads={['UI', '地图']} />
         <Row gutter={16}>
             <Col md={24}>
                 <div style={{ height: 500 }}>

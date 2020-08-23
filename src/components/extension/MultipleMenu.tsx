@@ -7,13 +7,13 @@
  * Copyright 2019 - present, karakal
  */
 import React from 'react';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { Row, Col, Card } from 'antd';
 
 const MultipleMenu = () => {
     return (
         <div>
-            <BreadcrumbCustom first="多级菜单" />
+            <BreadcrumbCustom breads={['多级菜单']} />
             <Row gutter={16}>
                 <Col md={24}>
                     <Card title="多级菜单" bordered={false}>

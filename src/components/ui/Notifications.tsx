@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Row, Col, Card, Button, notification, Icon, Select } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { IconType, ConfigProps } from 'antd/lib/notification';
 const { Option } = Select;
 const options = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
@@ -33,7 +33,7 @@ class Notifications extends Component {
     };
     openNotification3 = () => {
         const key = `open${Date.now()}`;
-        const btnClick = function() {
+        const btnClick = function () {
             // to hide notification box
             notification.close(key);
         };
@@ -68,7 +68,7 @@ class Notifications extends Component {
     render() {
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="通知提醒框" />
+                <BreadcrumbCustom breads={['UI', '通知提醒框']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
@@ -144,7 +144,7 @@ class Notifications extends Component {
                                         });
                                     }}
                                 >
-                                    {options.map(val => (
+                                    {options.map((val) => (
                                         <Option key={val} value={val}>
                                             {val}
                                         </Option>

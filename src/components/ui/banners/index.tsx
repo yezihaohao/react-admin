@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../../BreadcrumbCustom';
+import BreadcrumbCustom from '../../widget/BreadcrumbCustom';
 import Basic from './Basic';
 import AutoPlay from './AutoPlay';
 // import Custom from './Custom';
@@ -12,7 +12,7 @@ class Banners extends React.Component {
     render() {
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="轮播图" />
+                <BreadcrumbCustom breads={['UI', '轮播图']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
@@ -38,7 +38,7 @@ class Banners extends React.Component {
                     </Col>
                 </Row>
             </div>
-        )
+        );
     }
 }
 

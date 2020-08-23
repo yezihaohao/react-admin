@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Row, Col, Card, Table, Popconfirm, Button } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 
 type ExampleAnimationsProps = {};
 type ExampleAnimationsState = {
@@ -90,7 +90,7 @@ class ExampleAnimations extends React.Component<ExampleAnimationsProps, ExampleA
         const columns = this.columns;
         return (
             <div className="gutter-example">
-                <BreadcrumbCustom first="动画" second="动画案例" />
+                <BreadcrumbCustom breads={['动画', '动画案例']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">

@@ -4,7 +4,7 @@
 import React from 'react';
 import { Table, Button, Row, Col, Card } from 'antd';
 import { getBbcNews } from '../../service';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { TableRowSelection } from 'antd/lib/table';
 
 const columns = [
@@ -66,7 +66,7 @@ class AsynchronousTable extends React.Component {
         const hasSelected = selectedRowKeys.length > 0;
         return (
             <div className="gutter-example">
-                <BreadcrumbCustom first="表格" second="异步表格" />
+                <BreadcrumbCustom breads={['表格', '异步表格']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">

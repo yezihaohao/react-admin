@@ -6,7 +6,7 @@
  */
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { AuthWidget } from '../widget';
 
 class RouterEnter extends Component {
@@ -16,7 +16,7 @@ class RouterEnter extends Component {
     render() {
         return (
             <div>
-                <BreadcrumbCustom first="权限管理" second="路由拦截" />
+                <BreadcrumbCustom breads={['权限管理', '路由拦截']} />
                 <AuthWidget
                     children={(auth: any) => (
                         <Row>

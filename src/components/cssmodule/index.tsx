@@ -6,14 +6,14 @@
  */
 import React, { Component } from 'react';
 import { Col, Card, Row } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import styles from './index.module.less';
 
 class Cssmodule extends Component {
     render() {
         return (
             <div>
-                <BreadcrumbCustom first="cssModule" />
+                <BreadcrumbCustom breads={['cssModule']} />
                 <Row gutter={16}>
                     <Col md={24}>
                         <Card title="cssModule" bordered={false}>

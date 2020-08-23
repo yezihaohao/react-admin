@@ -4,14 +4,14 @@
 import React, { Component } from 'react';
 import { Row, Col, Card } from 'antd';
 import beauty from '@/style/imgs/beauty.jpg';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { AuthWidget } from '../widget';
 
 class Basic extends Component {
     render() {
         return (
             <div>
-                <BreadcrumbCustom first="权限管理" second="基础演示" />
+                <BreadcrumbCustom breads={['权限管理', '基础演示']} />
                 <AuthWidget
                     children={(auth: any) => (
                         <Row>

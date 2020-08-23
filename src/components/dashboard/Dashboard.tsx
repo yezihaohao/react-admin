@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Row, Col, Card, Timeline, Icon } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import EchartsViews from './EchartsViews';
 import EchartsProjects from './EchartsProjects';
 import b1 from '../../style/imgs/b1.jpg';
@@ -86,7 +86,9 @@ class Dashboard extends React.Component {
                                     <h3>任务</h3>
                                     <small>10个已经完成，2个待完成，1个正在进行中</small>
                                 </div>
-                                <span className="card-tool"><Icon type="sync" /></span>
+                                <span className="card-tool">
+                                    <Icon type="sync" />
+                                </span>
                                 <Timeline>
                                     <Timeline.Item color="green">新版本迭代会</Timeline.Item>
                                     <Timeline.Item color="green">完成网站设计初版</Timeline.Item>
@@ -110,11 +112,17 @@ class Dashboard extends React.Component {
                                 <div className="pb-m">
                                     <h3>消息栏</h3>
                                 </div>
-                                <span className="card-tool"><Icon type="sync" /></span>
+                                <span className="card-tool">
+                                    <Icon type="sync" />
+                                </span>
                                 <ul className="list-group no-border">
                                     <li className="list-group-item">
                                         <span className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test" />
+                                            <img
+                                                src={b1}
+                                                className="img-responsive img-circle"
+                                                alt="test"
+                                            />
                                         </span>
                                         <div className="clear">
                                             <span className="block">鸣人</span>
@@ -123,7 +131,11 @@ class Dashboard extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <span className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test" />
+                                            <img
+                                                src={b1}
+                                                className="img-responsive img-circle"
+                                                alt="test"
+                                            />
                                         </span>
                                         <div className="clear">
                                             <span className="block">佐助</span>
@@ -132,7 +144,11 @@ class Dashboard extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <span className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test" />
+                                            <img
+                                                src={b1}
+                                                className="img-responsive img-circle"
+                                                alt="test"
+                                            />
                                         </span>
                                         <div className="clear">
                                             <span className="block">小樱</span>
@@ -141,11 +157,17 @@ class Dashboard extends React.Component {
                                     </li>
                                     <li className="list-group-item">
                                         <span className="pull-left w-40 mr-m">
-                                            <img src={b1} className="img-responsive img-circle" alt="test" />
+                                            <img
+                                                src={b1}
+                                                className="img-responsive img-circle"
+                                                alt="test"
+                                            />
                                         </span>
                                         <div className="clear">
                                             <span className="block">雏田</span>
-                                            <span className="text-muted">鸣人君。。。那个。。。我。。喜欢你..</span>
+                                            <span className="text-muted">
+                                                鸣人君。。。那个。。。我。。喜欢你..
+                                            </span>
                                         </div>
                                     </li>
                                 </ul>
@@ -159,14 +181,16 @@ class Dashboard extends React.Component {
                                     <h3>访问量统计</h3>
                                     <small>最近7天用户访问量</small>
                                 </div>
-                                <span className="card-tool"><Icon type="sync" /></span>
+                                <span className="card-tool">
+                                    <Icon type="sync" />
+                                </span>
                                 <EchartsViews />
                             </Card>
                         </div>
                     </Col>
                 </Row>
             </div>
-        )
+        );
     }
 }
 

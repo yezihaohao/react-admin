@@ -7,7 +7,7 @@
  * Copyright 2020 - present, yezi
  */
 import React from 'react';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { Row, Col, Card, Descriptions } from 'antd';
 
 const getEnvs = () => Object.keys(process.env).filter((key) => /^REACT_ADMIN_/i.test(key));
@@ -16,7 +16,7 @@ const Env = () => {
     console.log(process.env);
     return (
         <div>
-            <BreadcrumbCustom first="环境变量配置" />
+            <BreadcrumbCustom breads={['环境变量配置']} />
             <Row gutter={16}>
                 <Col md={24}>
                     <Card title="环境变量配置" bordered={false}>

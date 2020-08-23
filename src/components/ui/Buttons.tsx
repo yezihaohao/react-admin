@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Row, Col, Card, Button, Radio, Icon, Menu, Dropdown } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { ClickParam } from 'antd/lib/menu';
 import { ButtonSize } from 'antd/lib/button';
@@ -46,7 +46,7 @@ class Buttons extends React.Component<any, ButtonsState> {
         );
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="按钮" />
+                <BreadcrumbCustom breads={['UI', '按钮']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={12}>
                         <div className="gutter-box">

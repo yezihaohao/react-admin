@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Row, Col, Card, Tabs, Icon, Radio, Button } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { TabsPosition } from 'antd/lib/tabs';
 const TabPane = Tabs.TabPane;
@@ -64,7 +64,7 @@ class TabsCustom extends Component<any, TabsCustomState> {
         const { mode } = this.state;
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="标签页" />
+                <BreadcrumbCustom breads={['UI', '标签页']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={12}>
                         <div className="gutter-box">

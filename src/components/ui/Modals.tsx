@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Row, Col, Card, Modal, Button } from 'antd';
-import BreadcrumbCustom from '../BreadcrumbCustom';
+import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 const confirm = Modal.confirm;
 
 class S extends Component {
@@ -122,7 +122,7 @@ class S extends Component {
     render() {
         return (
             <div className="gutter-example button-demo">
-                <BreadcrumbCustom first="UI" second="对话框" />
+                <BreadcrumbCustom breads={['UI', '对话框']} />
                 <Row gutter={16}>
                     <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
