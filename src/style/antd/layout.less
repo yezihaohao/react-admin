@@ -1,3 +1,14 @@
 .ant-layout-content {
     min-height: auto;
 }
+
+.ant-layout {
+    &.ant-layout-has-sider {
+        &.app_layout-mobile {
+            flex-direction: column;
+            .ant-layout-content {
+                margin: 0;
+            }
+        }
+    }
+}

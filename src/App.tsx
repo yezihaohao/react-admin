@@ -8,6 +8,7 @@ import HeaderCustom from './components/HeaderCustom';
 import { ThemePicker, Copyright } from './components/widget';
 import { checkLogin } from './utils';
 import { fetchMenu } from './service';
+import classNames from 'classnames';
 
 const { Content, Footer } = Layout;
 
@@ -116,7 +117,9 @@ const App = (props: AppProps) => {
                 <SiderCustom collapsed={collapsed} />
             )}
             <ThemePicker />
-            <Layout className="app_layout">
+            <Layout
+                className={classNames('app_layout', { 'app_layout-mobile': responsive.isMobile })}
+            >
                 <HeaderCustom toggle={toggle} collapsed={collapsed} user={auth || {}} />
                 <Content className="app_layout_content">
                     <Routes auth={auth} />
