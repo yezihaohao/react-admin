@@ -7,7 +7,7 @@ react-admin system solution
 ![travis-ci](https://travis-ci.org/yezihaohao/react-admin.svg?branch=master)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-### 🔥🔥🔥 默认主分支切换成 TypeScript 开发，如果你希望继续使用 JS 开发，请使用[JS](https://github.com/yezihaohao/react-admin/tree/js)分支代码(继续维护)
+<!-- ### 🔥🔥🔥 默认主分支切换成 TypeScript 开发，如果你希望继续使用 JS 开发，请使用[JS](https://github.com/yezihaohao/react-admin/tree/js)分支代码(继续维护) -->
 
 ### 文档地址：[wiki](https://github.com/yezihaohao/react-admin/wiki)
 
@@ -193,25 +193,25 @@ npx saigao myapp
 
 ##### 1.下载或克隆项目源码
 
-##### 2.yarn 或者 npm 安装相关包文件(首先推荐使用 yarn，国内建议增加淘宝镜像源，不然很慢，你懂的 😁)
+##### 2.yarn 安装依赖(国内建议增加淘宝镜像源，不然很慢，你懂的 😁)
 
-> 有些老铁遇到运行时报错，首先确定下是不是最新稳定版的 nodejs 和 npm 或者 yarn(推荐用 yarn)，切记不要用 cnpm
+> 有些老铁遇到运行时报错，首先确定下是不是最新稳定版的 nodejs 和 yarn，切记不要用 cnpm
 
 ```js
 // 首推荐使用yarn装包，避免自动升级依赖包
-yarn or npm i
+yarn;
 ```
 
 ##### 3.启动项目
 
 ```js
-yarn start or npm start
+yarn start
 ```
 
 ##### 4.打包项目
 
 ```js
-yarn build or npm run build
+yarn build
 ```
 
 ### Q&A(点击问题查看答案)
@@ -243,6 +243,6 @@ MIT
 -   1 群：264591039（已满）
 -   2 群：592688854（已满）
 -   3 群：743490497 (已满)
--   4 群：150131600
+-   4 群：150131600 (已满)
 
 如果对你有帮助，给个 star 哟~~❤️❤️❤️❤️
