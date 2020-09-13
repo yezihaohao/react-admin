@@ -53,7 +53,7 @@ const HeaderCustom = (props: HeaderCustomProps) => {
 
     const screenFull = () => {
         if (screenfull.isEnabled) {
-            screenfull.request();
+            screenfull.toggle();
         }
     };
     const menuClick = (e: { key: string }) => {
@@ -90,7 +90,7 @@ const HeaderCustom = (props: HeaderCustomProps) => {
                 <Menu.Item key="pwa">
                     <PwaInstaller />
                 </Menu.Item>
-                <Menu.Item key="full" onClick={screenFull}>
+                <Menu.Item key="full">
                     <Icon type="arrows-alt" onClick={screenFull} />
                 </Menu.Item>
                 <Menu.Item key="1">
