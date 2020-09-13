@@ -28,7 +28,7 @@ type HeaderCustomProps = {
 const HeaderCustom = (props: HeaderCustomProps) => {
     const [user, setUser] = useState<any>();
     const [responsive] = useAlita('responsive', { light: true });
-    const [visible, turnOn, turnOff] = useSwitch();
+    const [visible, turn] = useSwitch();
     const history = useHistory();
 
     useEffect(() => {
@@ -67,11 +67,11 @@ const HeaderCustom = (props: HeaderCustomProps) => {
         <Header className="custom-theme header">
             {responsive?.isMobile ? (
                 <Popover
-                    content={<SiderCustom popoverHide={turnOff} />}
+                    content={<SiderCustom popoverHide={turn.turnOff} />}
                     trigger="click"
                     placement="bottomLeft"
                     visible={visible}
-                    onVisibleChange={(visible) => (visible ? turnOn() : turnOff())}
+                    onVisibleChange={(visible) => (visible ? turn.turnOn() : turn.turnOff())}
                 >
                     <Icon type="bars" className="header__trigger custom-trigger" />
                 </Popover>

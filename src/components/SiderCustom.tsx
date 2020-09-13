@@ -1,13 +1,14 @@
 /**
  * Created by hao.cheng on 2017/4/13.
  */
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout } from 'antd';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import routes from '../routes/config';
 import SiderMenu from './SiderMenu';
-import { connectAlita } from 'redux-alita';
-
+import { useAlita } from 'redux-alita';
+import { useSwitch } from '../utils/hooks';
+import { usePrevious } from 'ahooks';
 const { Sider } = Layout;
 
 type SiderCustomProps = RouteComponentProps<any> & {
@@ -15,105 +16,88 @@ type SiderCustomProps = RouteComponentProps<any> & {
     collapsed?: boolean;
     smenus?: any;
 };
-type SiderCustomState = {
-    collapsed?: boolean | undefined;
+interface IMenu {
     openKeys: string[];
-    firstHide: boolean | undefined;
     selectedKey: string;
-    mode: string;
-};
+}
 
-class SiderCustom extends Component<SiderCustomProps, SiderCustomState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            mode: 'inline',
-            openKeys: [],
-            selectedKey: '',
-            firstHide: false, // 点击收缩菜单，第一次隐藏展开子菜单，openMenu时恢复
+const SiderCustom = (props: SiderCustomProps) => {
+    const [collapsed, tCollapsed] = useSwitch();
+    const [firstHide, tFirstHide] = useSwitch();
+    const [menu, setMenu] = useState<IMenu>({ openKeys: [''], selectedKey: '' });
+    // 异步菜单
+    const [smenus] = useAlita({ smenus: [] }, { light: true });
+    const { location, collapsed: pCollapsed } = props;
+    const prePathname = usePrevious(props.location.pathname);
+
+    useEffect(() => {
+        const recombineOpenKeys = (openKeys: string[]) => {
+            let i = 0;
+            let strPlus = '';
+            let tempKeys: string[] = [];
+            // 多级菜单循环处理
+            while (i < openKeys.length) {
+                strPlus += openKeys[i];
+                tempKeys.push(strPlus);
+                i++;
+            }
+            return tempKeys;
         };
-    }
-
-    componentDidUpdate(prevProps: SiderCustomProps) {
-        if (this.props.collapsed !== this.state.collapsed) {
-            const { collapsed } = this.props;
-            this.setState({
-                ...this.getOpenAndSelectKeys(),
-                collapsed,
-                mode: collapsed ? 'vertical' : 'inline',
-                firstHide: collapsed,
-            });
-        }
-        if (prevProps.location.pathname !== this.props.location.pathname) {
-            this.setState({ ...this.getOpenAndSelectKeys() });
-        }
-    }
-
-    getOpenAndSelectKeys() {
-        const { location } = this.props;
-        const { pathname } = location;
-        return {
-            openKeys: this.recombineOpenKeys(pathname.match(/[/](\w+)/gi) || []),
-            selectedKey: pathname,
+        const getOpenAndSelectKeys = () => {
+            return {
+                openKeys: recombineOpenKeys(location.pathname.match(/[/](\w+)/gi) || []),
+                selectedKey: location.pathname,
+            };
         };
-    }
 
-    recombineOpenKeys = (openKeys: string[]) => {
-        let i = 0;
-        let strPlus = '';
-        let tempKeys: string[] = [];
-        while (i < openKeys.length) {
-            strPlus += openKeys[i];
-            tempKeys.push(strPlus);
-            i++;
+        if (pCollapsed !== collapsed) {
+            setMenu(getOpenAndSelectKeys());
+            tCollapsed.setSwitcher(!!pCollapsed);
+            tFirstHide.setSwitcher(!!pCollapsed);
         }
-        return tempKeys;
+
+        if (prePathname !== location.pathname) {
+            setMenu(getOpenAndSelectKeys());
+        }
+    }, [prePathname, location.pathname, collapsed, tFirstHide, tCollapsed, pCollapsed]);
+
+    const menuClick = (e: any) => {
+        setMenu((state) => ({ ...state, selectedKey: e.key }));
+        props.popoverHide?.(); // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
     };
 
-    menuClick = (e: any) => {
-        this.setState({
-            selectedKey: e.key,
-        });
-        const { popoverHide } = this.props; // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
-        popoverHide && popoverHide();
+    const openMenu = (v: string[]) => {
+        setMenu((state) => ({ ...state, openKeys: v }));
+        tFirstHide.turnOff();
     };
-    openMenu = (v: string[]) => {
-        this.setState({
-            openKeys: v,
-            firstHide: false,
-        });
-    };
-    render() {
-        const { selectedKey, openKeys, firstHide, collapsed } = this.state;
-        const { smenus } = this.props;
-        return (
-            <Sider
-                trigger={null}
-                breakpoint="lg"
-                collapsed={collapsed}
-                style={{ overflowY: 'auto' }}
-                className="sider-custom"
-            >
-                <div className="logo" />
-                <SiderMenu
-                    menus={[...routes.menus, ...smenus.data]}
-                    onClick={this.menuClick}
-                    mode="inline"
-                    selectedKeys={[selectedKey]}
-                    openKeys={firstHide ? [] : openKeys}
-                    onOpenChange={this.openMenu}
-                />
-                <style>
-                    {`
+
+    return (
+        <Sider
+            trigger={null}
+            breakpoint="lg"
+            collapsed={collapsed}
+            style={{ overflowY: 'auto' }}
+            className="sider-custom"
+        >
+            <div className="logo" />
+            <SiderMenu
+                menus={[...routes.menus, ...smenus]}
+                onClick={menuClick}
+                mode="inline"
+                selectedKeys={[menu.selectedKey]}
+                openKeys={firstHide ? [] : menu.openKeys}
+                onOpenChange={openMenu}
+            />
+            <style>
+                {`
                     #nprogress .spinner{
                         left: ${collapsed ? '70px' : '206px'};
                         right: 0 !important;
                     }
                     `}
-                </style>
-            </Sider>
-        );
-    }
-}
+            </style>
+        </Sider>
+    );
+};
 
-export default connectAlita([{ smenus: [] }])(withRouter(SiderCustom));
+export default withRouter(SiderCustom);
