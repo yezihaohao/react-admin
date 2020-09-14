@@ -2,10 +2,11 @@
  * Created by hao.cheng on 2017/4/25.
  */
 import React, { Component } from 'react';
-import { Row, Col, Card, Tabs, Icon, Radio, Button } from 'antd';
+import { Row, Col, Card, Tabs, Radio, Button } from 'antd';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { TabsPosition } from 'antd/lib/tabs';
+import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
 const TabPane = Tabs.TabPane;
 
 type TabsCustomState = {
@@ -37,7 +38,7 @@ class TabsCustom extends Component<any, TabsCustomState> {
     onChange = (activeKey: string) => {
         this.setState({ activeKey });
     };
-    onEdit = (targetKey: string | React.MouseEvent<HTMLElement>, action: 'add' | 'remove') => {
+    onEdit = (targetKey: string | React.MouseEvent<HTMLElement>, action: 'add' | 'remove'): any => {
         this[action](targetKey as string);
     };
     add = () => {
@@ -88,7 +89,7 @@ class TabsCustom extends Component<any, TabsCustomState> {
                                     <TabPane
                                         tab={
                                             <span>
-                                                <Icon type="apple" />
+                                                <AppleOutlined />
                                                 Tab 1
                                             </span>
                                         }
@@ -99,7 +100,7 @@ class TabsCustom extends Component<any, TabsCustomState> {
                                     <TabPane
                                         tab={
                                             <span>
-                                                <Icon type="android" />
+                                                <AndroidOutlined />
                                                 Tab 2
                                             </span>
                                         }
@@ -197,7 +198,7 @@ class TabsCustom extends Component<any, TabsCustomState> {
                                     onChange={this.onChange}
                                     activeKey={this.state.activeKey}
                                     type="editable-card"
-                                    onEdit={this.onEdit}
+                                    // onEdit={this.onEdit}
                                 >
                                     {this.state.panes.map((pane: any) => (
                                         <TabPane tab={pane.title} key={pane.key}>

@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Table } from 'antd';
-import { TableRowSelection } from 'antd/lib/table';
+// import { TableRowSelection } from 'antd/lib/table';
 
 const columns = [
     {
@@ -40,7 +40,7 @@ class SelectTable extends React.Component {
     };
     render() {
         const { selectedRowKeys } = this.state;
-        const rowSelection: TableRowSelection<any> = {
+        const rowSelection: any = {
             selectedRowKeys,
             onChange: this.onSelectChange,
             selections: [

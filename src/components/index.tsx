@@ -4,7 +4,6 @@
  */
 import Loadable from 'react-loadable';
 import Loading from './widget/Loading';
-import BasicForm from './forms/BasicForm';
 import BasicTable from './tables/BasicTables';
 import AdvancedTable from './tables/AdvancedTables';
 import AsynchronousTable from './tables/AsynchronousTable';
@@ -40,7 +39,6 @@ const WysiwygBundle = Loadable({
 });
 
 export default {
-    BasicForm,
     BasicTable,
     AdvancedTable,
     AsynchronousTable,

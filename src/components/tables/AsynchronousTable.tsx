@@ -5,7 +5,6 @@ import React from 'react';
 import { Table, Button, Row, Col, Card } from 'antd';
 import { getBbcNews } from '../../service';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
-import { TableRowSelection } from 'antd/lib/table';
 
 const columns = [
     {
@@ -87,7 +86,7 @@ class AsynchronousTable extends React.Component {
                                     </span>
                                 </div>
                                 <Table
-                                    rowSelection={rowSelection as TableRowSelection<any>}
+                                    rowSelection={rowSelection as any}
                                     columns={columns}
                                     dataSource={this.state.data}
                                 />

@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import screenfull from 'screenfull';
 import avater from '../style/imgs/b1.jpg';
 import SiderCustom from './SiderCustom';
-import { Menu, Icon, Layout, Badge, Popover } from 'antd';
+import { Menu, Layout, Badge, Popover } from 'antd';
 import { gitOauthToken, gitOauthInfo } from '../service';
 import { parseQuery } from '../utils';
 import { useHistory } from 'react-router-dom';
@@ -13,6 +13,13 @@ import { PwaInstaller } from './widget';
 import { useAlita } from 'redux-alita';
 import umbrella from 'umbrella-storage';
 import { useSwitch } from '../utils/hooks';
+import {
+    ArrowsAltOutlined,
+    BarsOutlined,
+    MenuFoldOutlined,
+    MenuUnfoldOutlined,
+    NotificationOutlined,
+} from '@ant-design/icons';
 const { Header } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -56,7 +63,7 @@ const HeaderCustom = (props: HeaderCustomProps) => {
             screenfull.toggle();
         }
     };
-    const menuClick = (e: { key: string }) => {
+    const menuClick = (e: any) => {
         e.key === 'logout' && logout();
     };
     const logout = () => {
@@ -73,12 +80,16 @@ const HeaderCustom = (props: HeaderCustomProps) => {
                     visible={visible}
                     onVisibleChange={(visible) => (visible ? turn.turnOn() : turn.turnOff())}
                 >
-                    <Icon type="bars" className="header__trigger custom-trigger" />
+                    <BarsOutlined className="header__trigger custom-trigger" />
                 </Popover>
-            ) : (
-                <Icon
+            ) : props.collapsed ? (
+                <MenuUnfoldOutlined
                     className="header__trigger custom-trigger"
-                    type={props.collapsed ? 'menu-unfold' : 'menu-fold'}
+                    onClick={props.toggle}
+                />
+            ) : (
+                <MenuFoldOutlined
+                    className="header__trigger custom-trigger"
                     onClick={props.toggle}
                 />
             )}
@@ -91,11 +102,11 @@ const HeaderCustom = (props: HeaderCustomProps) => {
                     <PwaInstaller />
                 </Menu.Item>
                 <Menu.Item key="full">
-                    <Icon type="arrows-alt" onClick={screenFull} />
+                    <ArrowsAltOutlined onClick={screenFull} />
                 </Menu.Item>
                 <Menu.Item key="1">
                     <Badge count={25} overflowCount={10} style={{ marginLeft: 10 }}>
-                        <Icon type="notification" />
+                        <NotificationOutlined />
                     </Badge>
                 </Menu.Item>
                 <SubMenu

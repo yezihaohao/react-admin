@@ -72,12 +72,6 @@ const menus: {
             ],
         },
         {
-            key: '/app/form',
-            title: '表单',
-            icon: 'edit',
-            subs: [{ key: '/app/form/basicForm', title: '基础表单', component: 'BasicForm' }],
-        },
-        {
             key: '/app/chart',
             title: '图表',
             icon: 'area-chart',

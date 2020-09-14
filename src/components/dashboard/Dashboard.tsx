@@ -2,11 +2,18 @@
  * Created by hao.cheng on 2017/5/3.
  */
 import React from 'react';
-import { Row, Col, Card, Timeline, Icon } from 'antd';
+import { Row, Col, Card, Timeline } from 'antd';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import EchartsViews from './EchartsViews';
 import EchartsProjects from './EchartsProjects';
 import b1 from '../../style/imgs/b1.jpg';
+import {
+    CameraOutlined,
+    CloudOutlined,
+    HeartOutlined,
+    MailOutlined,
+    SyncOutlined,
+} from '@ant-design/icons';
 
 class Dashboard extends React.Component {
     render() {
@@ -19,7 +26,7 @@ class Dashboard extends React.Component {
                             <Card bordered={false}>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="heart" className="text-2x text-danger" />
+                                        <HeartOutlined className="text-2x text-danger" />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">收藏</div>
@@ -32,7 +39,7 @@ class Dashboard extends React.Component {
                             <Card bordered={false}>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="cloud" className="text-2x" />
+                                        <CloudOutlined type="cloud" className="text-2x" />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">云数据</div>
@@ -47,7 +54,7 @@ class Dashboard extends React.Component {
                             <Card bordered={false}>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="camera" className="text-2x text-info" />
+                                        <CameraOutlined className="text-2x text-info" />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">照片</div>
@@ -60,7 +67,7 @@ class Dashboard extends React.Component {
                             <Card bordered={false}>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
-                                        <Icon type="mail" className="text-2x text-success" />
+                                        <MailOutlined className="text-2x text-success" />
                                     </div>
                                     <div className="clear">
                                         <div className="text-muted">邮件</div>
@@ -87,7 +94,7 @@ class Dashboard extends React.Component {
                                     <small>10个已经完成，2个待完成，1个正在进行中</small>
                                 </div>
                                 <span className="card-tool">
-                                    <Icon type="sync" />
+                                    <SyncOutlined />
                                 </span>
                                 <Timeline>
                                     <Timeline.Item color="green">新版本迭代会</Timeline.Item>
@@ -113,7 +120,7 @@ class Dashboard extends React.Component {
                                     <h3>消息栏</h3>
                                 </div>
                                 <span className="card-tool">
-                                    <Icon type="sync" />
+                                    <SyncOutlined />
                                 </span>
                                 <ul className="list-group no-border">
                                     <li className="list-group-item">
@@ -182,7 +189,7 @@ class Dashboard extends React.Component {
                                     <small>最近7天用户访问量</small>
                                 </div>
                                 <span className="card-tool">
-                                    <Icon type="sync" />
+                                    <SyncOutlined type="sync" />
                                 </span>
                                 <EchartsViews />
                             </Card>

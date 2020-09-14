@@ -2,7 +2,8 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import React from 'react';
-import { Table, Input, Button, Icon } from 'antd';
+import { Table, Input, Button } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 
 const data = [
     {
@@ -49,7 +50,7 @@ class SearchTable extends React.Component {
             filterDropdownVisible: false,
             filtered: !!searchText,
             data: data
-                .map(record => {
+                .map((record) => {
                     const match = record.name.match(reg);
                     if (!match) {
                         return null;
@@ -69,7 +70,7 @@ class SearchTable extends React.Component {
                         ),
                     };
                 })
-                .filter(record => !!record),
+                .filter((record) => !!record),
         });
     };
     render() {
@@ -81,7 +82,7 @@ class SearchTable extends React.Component {
                 filterDropdown: (
                     <div className="custom-filter-dropdown">
                         <Input
-                            ref={ele => (this.searchInput = ele)}
+                            ref={(ele) => (this.searchInput = ele)}
                             placeholder="Search name"
                             value={this.state.searchText}
                             onChange={this.onInputChange}
@@ -93,10 +94,7 @@ class SearchTable extends React.Component {
                     </div>
                 ),
                 filterIcon: (
-                    <Icon
-                        type="smile-o"
-                        style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }}
-                    />
+                    <SmileOutlined style={{ color: this.state.filtered ? '#108ee9' : '#aaa' }} />
                 ),
                 filterDropdownVisible: this.state.filterDropdownVisible,
                 onFilterDropdownVisibleChange: (visible: boolean) =>

@@ -2,11 +2,11 @@
  * Created by hao.cheng on 2017/4/23.
  */
 import React from 'react';
-import { Row, Col, Card, Button, Radio, Icon, Menu, Dropdown } from 'antd';
+import { Row, Col, Card, Button, Radio, Menu, Dropdown } from 'antd';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { RadioChangeEvent } from 'antd/lib/radio';
-import { ClickParam } from 'antd/lib/menu';
 import { ButtonSize } from 'antd/lib/button';
+import { DownOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 type ButtonsState = {
     size: ButtonSize;
@@ -17,7 +17,7 @@ class Buttons extends React.Component<any, ButtonsState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            size: 'default',
+            size: 'middle',
             loading: false,
             iconLoading: false,
         };
@@ -26,7 +26,7 @@ class Buttons extends React.Component<any, ButtonsState> {
     handleSizeChange = (e: RadioChangeEvent) => {
         this.setState({ size: e.target.value });
     };
-    handleMenuClick = (e: ClickParam) => {
+    handleMenuClick = (e: any) => {
         console.log('click', e);
     };
     enterLoading = () => {
@@ -54,7 +54,7 @@ class Buttons extends React.Component<any, ButtonsState> {
                                 <Button type="primary">Primary</Button>
                                 <Button>Default</Button>
                                 <Button type="dashed">Dashed</Button>
-                                <Button type="danger">Danger</Button>
+                                <Button danger>Danger</Button>
                             </Card>
                         </div>
                     </Col>
@@ -82,7 +82,7 @@ class Buttons extends React.Component<any, ButtonsState> {
                             <Card bordered={false}>
                                 <Radio.Group value={size} onChange={this.handleSizeChange}>
                                     <Radio.Button value="large">Large</Radio.Button>
-                                    <Radio.Button value="default">Default</Radio.Button>
+                                    <Radio.Button value="middle">Middle</Radio.Button>
                                     <Radio.Button value="small">Small</Radio.Button>
                                 </Radio.Group>
                                 <br />
@@ -97,12 +97,12 @@ class Buttons extends React.Component<any, ButtonsState> {
                                 <br />
                                 <Button.Group size={size}>
                                     <Button type="primary">
-                                        <Icon type="left" />
+                                        <LeftOutlined />
                                         Backward
                                     </Button>
                                     <Button type="primary">
                                         Forward
-                                        <Icon type="right" />
+                                        <RightOutlined />
                                     </Button>
                                 </Button.Group>
                             </Card>
@@ -115,7 +115,7 @@ class Buttons extends React.Component<any, ButtonsState> {
                                 <Button>secondary</Button>
                                 <Dropdown overlay={menu}>
                                     <Button>
-                                        more <Icon type="down" />
+                                        more <DownOutlined />
                                     </Button>
                                 </Dropdown>
                             </Card>

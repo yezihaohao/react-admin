@@ -2,7 +2,8 @@
  * Created by hao.cheng on 2017/4/15.
  */
 import React from 'react';
-import { Table, Icon, Button } from 'antd';
+import { Table, Button } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const columns = [
     {
@@ -31,7 +32,7 @@ const columns = [
                 <Button>Delete</Button>
                 <span className="ant-divider" />
                 <Button className="ant-dropdown-link">
-                    More actions <Icon type="down" />
+                    More actions <DownOutlined />
                 </Button>
             </span>
         ),

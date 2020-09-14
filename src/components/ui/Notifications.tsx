@@ -2,9 +2,10 @@
  * Created by hao.cheng on 2017/4/25.
  */
 import React, { Component } from 'react';
-import { Row, Col, Card, Button, notification, Icon, Select } from 'antd';
+import { Row, Col, Card, Button, notification, Select } from 'antd';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 import { IconType, ConfigProps } from 'antd/lib/notification';
+import { SmileOutlined } from '@ant-design/icons';
 const { Option } = Select;
 const options = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'];
 class Notifications extends Component {
@@ -61,7 +62,7 @@ class Notifications extends Component {
             message: 'Notification Title',
             description:
                 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-            icon: <Icon type="smile-circle" style={{ color: '#108ee9' }} />,
+            icon: <SmileOutlined style={{ color: '#108ee9' }} />,
         });
     };
 

@@ -5,7 +5,6 @@ import React from 'react';
 import { Row, Col, Card } from 'antd';
 import FixedTable from './FixedTable';
 import ExpandedTable from './ExpandedTable';
-import EditableTable from './EditableTable';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 
 class AdvancedTables extends React.Component {
@@ -30,13 +29,13 @@ class AdvancedTables extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" md={12}>
+                    {/* <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card title="可编辑" bordered={false}>
                                 <EditableTable />
                             </Card>
                         </div>
-                    </Col>
+                    </Col> */}
                 </Row>
             </div>
         );

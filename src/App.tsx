@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, notification, Icon } from 'antd';
+import { Layout, notification } from 'antd';
 import umbrella from 'umbrella-storage';
 import { useAlita } from 'redux-alita';
 import Routes from './routes';
@@ -9,6 +9,7 @@ import { ThemePicker, Copyright } from './components/widget';
 import { checkLogin } from './utils';
 import { fetchMenu } from './service';
 import classNames from 'classnames';
+import { SmileOutlined } from '@ant-design/icons';
 
 const { Content, Footer } = Layout;
 
@@ -63,7 +64,7 @@ function openFNotification() {
                     </p>
                 </div>
             ),
-            icon: <Icon type="smile-circle" style={{ color: 'red' }} />,
+            icon: <SmileOutlined style={{ color: 'red' }} />,
             duration: 0,
         });
         umbrella.setLocalStorage('hideBlog', true);

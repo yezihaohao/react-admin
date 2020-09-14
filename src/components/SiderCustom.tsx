@@ -66,7 +66,7 @@ const SiderCustom = (props: SiderCustomProps) => {
         props.popoverHide?.(); // 响应式布局控制小屏幕点击菜单时隐藏菜单操作
     };
 
-    const openMenu = (v: string[]) => {
+    const openMenu: any = (v: string[]) => {
         setMenu((state) => ({ ...state, openKeys: v }));
         tFirstHide.turnOff();
     };

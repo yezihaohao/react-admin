@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import Emoji from './emoji';
-import { Row, Col, Card, Icon } from 'antd';
+import { Row, Col, Card } from 'antd';
 import BreadcrumbCustom from '../widget/BreadcrumbCustom';
 
 const emojiList = () => {
@@ -276,7 +276,7 @@ const icons = {
 const iconsList = Object.keys(icons).map((v) =>
     (icons as any)[v].map((icon: any, i: number) => (
         <li key={i}>
-            <Icon type={icon} style={{ fontSize: 15 }} />
+            {/* <Icon type={icon} style={{ fontSize: 15 }} /> */}
             <span>{icon}</span>
         </li>
     ))
