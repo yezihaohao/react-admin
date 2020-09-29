@@ -10964,10 +10964,10 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^1.0.0"
 
-redux-alita@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.npmjs.org/redux-alita/-/redux-alita-2.3.2.tgz#1e597e5da4b18684b055c7bb2cc5823820d6a2c6"
-  integrity sha512-HiPA7GhcG+3K81qPKn7pTbwm9oqfQ6CHc/NwpfBDRsL+RremQ5AiZOBOJvnlrTS89LQDaCnRhVDipTVa+tCfwA==
+redux-alita@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/redux-alita/-/redux-alita-2.3.3.tgz#a8c63e55e23584b84ba5b15038781c79c42b20b9"
+  integrity sha512-Qj1T/5cUEBDTH76eBHMORfRkbqAPfuHNSf20F5BhdhlT4J5GVC2G5mHKXJChHosQHXDPeyyT3Z224OrFGs9rVQ==
   dependencies:
     react-redux "^7.1.0"
     redux "^4.0.1"
