@@ -74,7 +74,7 @@ const HeaderCustom = (props: HeaderCustomProps) => {
         <Header className="custom-theme header">
             {responsive?.isMobile ? (
                 <Popover
-                    content={<SiderCustom popoverHide={turn.turnOff} />}
+                    content={<SiderCustom collapsed={props.collapsed}  popoverHide={turn.turnOff} />}
                     trigger="click"
                     placement="bottomLeft"
                     visible={visible}
